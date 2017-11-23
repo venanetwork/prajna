@@ -1,0 +1,1023 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="69eb61f1-cce7-4e71-9462-dd3d4e2b840f" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.circleci/config.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.editorconfig" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.gitattributes" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/charta.iml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/markdown-exported-files.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/markdown-navigator.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/markdown-navigator/profiles_settings.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.prettierignore" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.prettierrc" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.solhint.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.solhintignore" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/index.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/AddressUtils.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/BasicToken.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/Collateralized.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/CollateralizedCompoundInterestTermsContract.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/CollateralizedSimpleInterestTermsContract.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/Collateralizer.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/CompoundInterestTermsContract.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/ContractRegistry.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/DebtKernel.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/DebtRegistry.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/DebtToken.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/DeprecatedERC721.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/DetailedERC721.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/DharmaMultiSigWallet.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/DummyCollateralizedContract.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/DummyContract.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/DummyToken.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/ERC165.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/ERC20.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/ERC20Basic.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/ERC721.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/ERC721Basic.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/ERC721BasicToken.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/ERC721Enumerable.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/ERC721Metadata.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/ERC721Receiver.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/ERC721Token.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/IncompatibleTermsContract.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/Migrations.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/MintableNonFungibleToken.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/MintableToken.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/MockCollateralizedTermsContract.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/MockContract.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/MockDebtRegistry.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/MockDebtToken.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/MockERC20Token.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/MockERC721Receiver.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/MockERC721Token.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/MockTermsContract.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/MockTokenRegistry.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/MockTokenTransferProxy.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/MultiSigWallet.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/NonFungibleToken.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/Ownable.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/Pausable.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/PermissionEvents.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/PermissionsLib.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/RepaymentRouter.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/SafeMath.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/SimpleInterestTermsContract.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/StandardToken.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/TermsContract.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/TermsContractRegistry.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/TokenRegistry.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/json/TokenTransferProxy.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/AddressUtils.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/BasicToken.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/Collateralized.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/CollateralizedCompoundInterestTermsContract.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/CollateralizedSimpleInterestTermsContract.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/Collateralizer.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/CompoundInterestTermsContract.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/ContractRegistry.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/DebtKernel.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/DebtRegistry.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/DebtToken.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/DeprecatedERC721.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/DetailedERC721.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/DharmaMultiSigWallet.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/DummyCollateralizedContract.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/DummyContract.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/DummyToken.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/ERC165.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/ERC20.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/ERC20Basic.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/ERC721.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/ERC721Basic.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/ERC721BasicToken.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/ERC721Enumerable.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/ERC721Metadata.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/ERC721Receiver.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/ERC721Token.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/IncompatibleTermsContract.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/Migrations.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/MintableNonFungibleToken.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/MintableToken.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/MockCollateralizedTermsContract.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/MockContract.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/MockDebtRegistry.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/MockDebtToken.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/MockERC20Token.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/MockERC721Receiver.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/MockERC721Token.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/MockTermsContract.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/MockTokenRegistry.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/MockTokenTransferProxy.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/MultiSigWallet.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/NonFungibleToken.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/Ownable.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/Pausable.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/PermissionEvents.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/PermissionsLib.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/RepaymentRouter.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/SafeMath.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/SimpleInterestTermsContract.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/StandardToken.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/TermsContract.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/TermsContractRegistry.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/TokenRegistry.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/artifacts/ts/TokenTransferProxy.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/contracts/Collateralizer.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/contracts/ContractRegistry.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/contracts/DebtKernel.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/contracts/DebtRegistry.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/contracts/DebtToken.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/contracts/ERC165.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/contracts/Migrations.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/contracts/RepaymentRouter.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/contracts/TermsContract.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/contracts/TokenRegistry.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/contracts/TokenTransferProxy.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/contracts/examples/CollateralizedSimpleInterestTermsContract.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/contracts/examples/SimpleInterestTermsContract.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/contracts/libraries/PermissionsLib.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/contracts/test/DummyContract.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/contracts/test/dummy_tokens/DummyToken.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/contracts/test/mocks/MockCollateralizedTermsContract.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/contracts/test/mocks/MockContract.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/contracts/test/mocks/MockDebtRegistry.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/contracts/test/mocks/MockDebtToken.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/contracts/test/mocks/MockERC20Token.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/contracts/test/mocks/MockERC721Receiver.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/contracts/test/mocks/MockERC721Token.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/contracts/test/mocks/MockTermsContract.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/contracts/test/mocks/MockTokenRegistry.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/contracts/test/mocks/MockTokenTransferProxy.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/contracts/test/terms_contracts/IncompatibleTermsContract.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/contracts/wallet/DharmaMultiSigWallet.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/contracts/wallet/MultiSigWallet.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/migrations/1_initial_migration.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/migrations/2_deploy_dharma_contracts.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/migrations/3_deploy_test_contracts.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/migrations/4_deploy_terms_contracts.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/migrations/5_authorize_contract_interactions.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/migrations/6_transfer_ownership_to_multisig.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/migrations/migration_constants.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/migrations/utils.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/package-lock.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/package.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/scripts/deploy_development.sh" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/scripts/deploy_kovan.sh" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/scripts/deploy_mainnet.sh" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/scripts/prepare_dist.sh" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/factories/debt_order_factory.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/factories/terms_contract_parameters.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/integration/debt_kernel.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/integration/debt_token.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/integration/dharma_multisig_wallet.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/integration/examples/collateralized_simple_interest_terms_contract/collateralized_simple_interest_terms_contract.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/integration/examples/collateralized_simple_interest_terms_contract/runners/collateralized_simple_interest_terms_contract.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/integration/examples/collateralized_simple_interest_terms_contract/runners/index.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/integration/examples/collateralized_simple_interest_terms_contract/runners/register_repayment.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/integration/examples/collateralized_simple_interest_terms_contract/runners/register_term_start.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/integration/examples/collateralized_simple_interest_terms_contract/runners/unpack_parameters_from_bytes.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/integration/examples/collateralized_simple_interest_terms_contract/scenarios/index.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/integration/examples/collateralized_simple_interest_terms_contract/scenarios/successful_register_repayment.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/integration/examples/collateralized_simple_interest_terms_contract/scenarios/successful_register_term_start.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/integration/examples/collateralized_simple_interest_terms_contract/scenarios/unpack_parameters_from_bytes.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/integration/examples/collateralized_simple_interest_terms_contract/scenarios/unsuccessful_register_repayment.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/integration/examples/collateralized_simple_interest_terms_contract/scenarios/unsuccessful_register_term_start.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/integration/examples/simple_interest_terms_contract/runners/index.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/integration/examples/simple_interest_terms_contract/runners/register_repayment.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/integration/examples/simple_interest_terms_contract/runners/register_term_start.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/integration/examples/simple_interest_terms_contract/runners/simple_interest_terms_contract.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/integration/examples/simple_interest_terms_contract/runners/unpack_parameters_from_bytes.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/integration/examples/simple_interest_terms_contract/scenarios/index.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/integration/examples/simple_interest_terms_contract/scenarios/successful_register_repayment.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/integration/examples/simple_interest_terms_contract/scenarios/successful_register_term_start.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/integration/examples/simple_interest_terms_contract/scenarios/unpack_parameters_from_bytes.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/integration/examples/simple_interest_terms_contract/scenarios/unsuccessful_register_repayment.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/integration/examples/simple_interest_terms_contract/scenarios/unsuccessful_register_term_start.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/integration/examples/simple_interest_terms_contract/simple_interest_terms_contract.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/integration/repayment_router.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/integration/token_registry.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/logs/collateralized_contract.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/logs/contract_registry.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/logs/debt_kernel.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/logs/debt_registry.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/logs/debt_token.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/logs/log_utils.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/logs/multisig_wallet.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/logs/permissions_lib.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/logs/repayment_router.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/logs/simple_interest_terms_contract.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/migrations/2_deploy_dharma_contracts_test.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/migrations/3_deploy_test_contracts_test.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/migrations/4_deploy_terms_contracts_test.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/migrations/5_authorize_contract_interactions.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/migrations/6_transfer_ownership_to_multisig.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/test_utils/bignumber_setup.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/test_utils/chai_setup.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/test_utils/constants.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/test_utils/format.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/test_utils/multisig.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/test_utils/send_transactions.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/test_utils/units.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/unit/collateralized_simple_interest_terms_contract.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/unit/collateralizer/collateralizer.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/unit/collateralizer/runners/collateralize.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/unit/collateralizer/runners/index.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/unit/collateralizer/runners/return_collateral.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/unit/collateralizer/runners/seize_collateral.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/unit/collateralizer/scenarios/successful_collateralization.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/unit/collateralizer/scenarios/successful_return.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/unit/collateralizer/scenarios/successful_seizure.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/unit/collateralizer/scenarios/unsuccessful_collateralization.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/unit/collateralizer/scenarios/unsuccessful_return.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/unit/collateralizer/scenarios/unsuccessful_seizure.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/unit/contract_registry.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/unit/debt_kernel.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/unit/debt_registry.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/unit/debt_token.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/unit/multisig_wallet.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/unit/permissions.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/unit/repayment_router.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/unit/simple_interest_terms_contract.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/ts/unit/token_transfer_proxy.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/truffle.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/tsconfig.dist.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/tsconfig.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/tslint.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/types/base_contract.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/types/common.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/types/contract_templates/contract.mustache" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/types/contract_templates/partials/call.mustache" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/types/contract_templates/partials/params.mustache" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/types/contract_templates/partials/return_type.mustache" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/types/contract_templates/partials/tx.mustache" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/types/contract_templates/partials/typed_params.mustache" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/types/errors.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/types/global.d.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/types/kernel/debt_order.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/types/kernel/issuance_commitment.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/types/kernel/schema.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/types/kernel/signable_message.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/types/migrations.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/types/modules.d.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/types/registry/entry.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/types/registry/schema.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/utils/solidity.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/utils/web3_utils.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/yarn.lock" />
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name=".solhint.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.solhint.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitattributes" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitattributes">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="0">
+                <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor>
+                <js_state />
+              </second_editor>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LICENSE" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/LICENSE">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="30" column="69" lean-forward="true" selection-start-line="30" selection-start-column="69" selection-end-line="30" selection-end-column="69" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package-lock.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package-lock.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Collateralizer.sol" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/contracts/Collateralizer.sol">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-260">
+              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DebtKernel.sol" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/contracts/DebtKernel.sol">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="11611">
+              <caret line="683" column="0" lean-forward="true" selection-start-line="683" selection-start-column="0" selection-end-line="683" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>solidity-coverage</find>
+      <find>uint</find>
+      <find>creditor_proxy</find>
+      <find>filler</find>
+      <find>base</find>
+      <find>decimals</find>
+      <find>CREDITOR_1</find>
+      <find>mockPrincipalToken</find>
+      <find>setupMocks</find>
+      <find>fill</find>
+      <find>log</find>
+      <find>require</find>
+      <find>fillDebtOrder</find>
+      <find>mockCreateReturnValue</find>
+      <find>/unit/debt_offer.js</find>
+      <find>mockDebtKernel</find>
+      <find>$PROJECT_DIR$/transpiled/test/ts/unit/debt_offer.js</find>
+      <find>orderFactory</find>
+      <find>console</find>
+      <find>$PROJECT_DIR$/test/ts/integration/creditor_proxy.ts</find>
+      <find>dummyTokenRegistryContract</find>
+      <find>ETH</find>
+      <find>DEBT_OFFER_REMAIN_NOT_ENOUGH</find>
+      <find>$PROJECT_DIR$/transpiled/test/ts/unit/debt_token.js</find>
+      <find>LogB</find>
+      <find>$PROJECT_DIR$/transpiled/test/ts/integration/creditor_proxy.js</find>
+      <find>Log</find>
+      <find>au</find>
+      <find>fillSalt</find>
+      <find>Copyright 2017 Dharma Labs Inc</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>SignedCreditorDebtOffer</replace>
+      <replace>SignedCreditorOffer</replace>
+      <replace>signedCreditorOffer</replace>
+      <replace>pragma solidity 0.4.24;</replace>
+      <replace>CreditorOfferParams</replace>
+      <replace>unit</replace>
+      <replace>$PROJECT_DIR$/test/ts/integration/creditor_proxy.ts</replace>
+      <replace>$PROJECT_DIR$/test/ts/unit/debt_offer.ts</replace>
+      <replace>$PROJECT_DIR$/transpiled/test/ts/unit/debt_offer.js</replace>
+      <replace>$PROJECT_DIR$/transpiled/test/ts/integration/creditor_proxy.js</replace>
+      <replace>debt_offer</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/artifacts</dir>
+      <dir>$PROJECT_DIR$/contracts</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/contracts/examples/SimpleInterestTermsContract.sol" />
+        <option value="$PROJECT_DIR$/contracts/ContractRegistry.sol" />
+        <option value="$PROJECT_DIR$/contracts/examples/CollateralizedSimpleInterestTermsContract.sol" />
+        <option value="$PROJECT_DIR$/contracts/Collateralizer.sol" />
+        <option value="$PROJECT_DIR$/contracts/RepaymentRouter.sol" />
+        <option value="$PROJECT_DIR$/contracts/DebtToken.sol" />
+        <option value="$PROJECT_DIR$/contracts/DebtRegistry.sol" />
+        <option value="$PROJECT_DIR$/contracts/DividableOderProxy.sol" />
+        <option value="$PROJECT_DIR$/truffle.js" />
+        <option value="$PROJECT_DIR$/test/ts/unit/collateralized_simple_interest_terms_contract.ts" />
+        <option value="$PROJECT_DIR$/types/proxy/debt_offer.ts" />
+        <option value="$PROJECT_DIR$/test/ts/logs/debt_kernel.ts" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/test/ts/factories/debt_offer_factory.ts" />
+        <option value="$PROJECT_DIR$/transpiled/test/ts/factories/debt_offer_factory.js" />
+        <option value="$PROJECT_DIR$/types/proxy/schema.ts" />
+        <option value="$PROJECT_DIR$/contracts/test/mocks/MockERC20Token.sol" />
+        <option value="$PROJECT_DIR$/tmp" />
+        <option value="$PROJECT_DIR$/utils/solidity.ts" />
+        <option value="$PROJECT_DIR$/test/ts/unit/debt_kernel.ts" />
+        <option value="$PROJECT_DIR$/test/ts/unit/creditor_proxy.ts" />
+        <option value="$PROJECT_DIR$/test/ts/logs/creditor_proxy.ts" />
+        <option value="$PROJECT_DIR$/types/errors.ts" />
+        <option value="$PROJECT_DIR$/types/proxy/creditor_offer.ts" />
+        <option value="$PROJECT_DIR$/contracts/DebtKernel.sol" />
+        <option value="$PROJECT_DIR$/contracts/CreditorProxy.sol" />
+        <option value="$PROJECT_DIR$/contracts/test/mocks/MockDebtKernel.sol" />
+        <option value="$PROJECT_DIR$/test/ts/integration/debt_kernel.ts" />
+        <option value="$PROJECT_DIR$/test/ts/integration/creditor_proxy.ts" />
+        <option value="$PROJECT_DIR$/test/ts/unit/debt_offer.ts" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/package.json" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
+    <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="877" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>CSS</id>
+          </State>
+          <State>
+            <id>Code quality toolsCSS</id>
+          </State>
+          <State>
+            <id>Code quality toolsJavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>TypeScript</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>TsLint</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="contract" type="b2602c69:ProjectViewProjectNode" />
+              <item name="contract" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="contract" type="b2602c69:ProjectViewProjectNode" />
+              <item name="contract" type="462c0819:PsiDirectoryNode" />
+              <item name="contracts" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.tslint" value="$PROJECT_DIR$/node_modules/tslint" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/node_modules/eslint" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="node.js.path.for.package.stylelint" value="project" />
+    <property name="node.js.detected.package.stylelint" value="true" />
+    <property name="node.js.selected.package.stylelint" value="" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="SearchEverywhereHistoryKey" value="git&#9;FILE&#9;file:///Users/lixianji/coding/chainboard/contract/.gitattributes" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/test/ts/unit" />
+      <recent name="$PROJECT_DIR$/types/proxy" />
+      <recent name="$PROJECT_DIR$/contracts" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="69eb61f1-cce7-4e71-9462-dd3d4e2b840f" name="Default" comment="" />
+      <created>1530280761677</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1530280761677</updated>
+      <workItem from="1530280764954" duration="6917000" />
+      <workItem from="1530446014484" duration="287000" />
+      <workItem from="1530446941487" duration="1670000" />
+      <workItem from="1530582612381" duration="2707000" />
+      <workItem from="1530606439463" duration="63275000" />
+      <workItem from="1532691295783" duration="580000" />
+      <workItem from="1533007698665" duration="1428000" />
+      <workItem from="1533028017343" duration="5212000" />
+      <workItem from="1534839755519" duration="41614000" />
+      <workItem from="1536047204261" duration="144000" />
+      <workItem from="1536047428382" duration="599000" />
+      <workItem from="1536048916712" duration="6251000" />
+      <workItem from="1536292800444" duration="15327000" />
+      <workItem from="1536565415988" duration="123933000" />
+      <workItem from="1538903057275" duration="1218000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="271165000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1440" height="877" extended-state="6" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3279503" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22291666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24983476" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="4" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/truffle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/ts/test_utils/bignumber_setup.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/ts/unit/debt_kernel.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="770" column="52" lean-forward="false" selection-start-line="770" selection-start-column="52" selection-end-line="770" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/types/generated/debt_token.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="193" column="14" lean-forward="false" selection-start-line="193" selection-start-column="14" selection-end-line="193" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/ts/unit/debt_registry.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="38" column="4" lean-forward="false" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/types/generated/mock_e_r_c20_token.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/migrations/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="48" column="22" lean-forward="false" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contracts/test/mocks/MockERC20Token.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/types/generated/mock_debt_token.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="724">
+          <caret line="252" column="11" lean-forward="false" selection-start-line="252" selection-start-column="11" selection-end-line="252" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/types/generated/creditor_proxy.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="273" column="14" lean-forward="false" selection-start-line="273" selection-start-column="14" selection-end-line="273" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contracts/test/mocks/MockContract.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="38" column="13" lean-forward="false" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/types/contract_templates/partials/return_type.mustache">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/types/contract_templates/partials/params.mustache">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/types/contract_templates/partials/call.mustache">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/types/contract_templates/partials/tx.mustache">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-113">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/types/contract_templates/partials/typed_params.mustache">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/types/contract_templates/contract.mustache">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-500">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/types/generated/compound_interest_terms_contract.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1622">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/types/generated/mock_debt_kernel.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="149" column="32" lean-forward="false" selection-start-line="149" selection-start-column="11" selection-end-line="149" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/types/errors.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/ts/factories/debt_order_factory.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="28" column="41" lean-forward="false" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/ts/integration/debt_kernel.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="28" column="47" lean-forward="false" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/ts/factories/debt_offer_factory.ts" />
+    <entry file="file://$PROJECT_DIR$/migrations/migration_constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="566">
+          <caret line="102" column="20" lean-forward="false" selection-start-line="102" selection-start-column="20" selection-end-line="102" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contracts/wallet/MultiSigWallet.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contracts/wallet/DharmaMultiSigWallet.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-783">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/migrations/1_initial_migration.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/migrations/2_deploy_dharma_contracts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="6" lean-forward="false" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/ts/unit/debt_token.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4142">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contracts/libraries/PermissionsLib.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="106" column="22" lean-forward="false" selection-start-line="106" selection-start-column="22" selection-end-line="106" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/types/proxy/debt_offer.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="181" column="13" lean-forward="false" selection-start-line="181" selection-start-column="13" selection-end-line="181" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contracts/DebtToken.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="886">
+          <caret line="93" column="19" lean-forward="false" selection-start-line="93" selection-start-column="19" selection-end-line="93" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/types/proxy/creditor_offer.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="182" column="17" lean-forward="false" selection-start-line="182" selection-start-column="17" selection-end-line="182" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contracts/examples/SimpleInterestTermsContract.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2991">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contracts/TermsContract.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="65" column="15" lean-forward="false" selection-start-line="65" selection-start-column="15" selection-end-line="65" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/ts/integration/creditor_proxy.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="556" column="8" lean-forward="false" selection-start-line="556" selection-start-column="8" selection-end-line="556" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/ts/integration/debt_token.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/types/proxy/schema.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-611">
+          <caret line="21" column="1" lean-forward="false" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/ts/unit/debt_offer.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="49">
+          <caret line="184" column="0" lean-forward="false" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contracts/test/mocks/MockCollateralizedTermsContract.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contracts/test/mocks/MockDebtKernel.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contracts/CreditorProxy.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="103" column="58" lean-forward="false" selection-start-line="103" selection-start-column="58" selection-end-line="103" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/ts/unit/permissions.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-75">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.solhint.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitattributes">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="30" column="69" lean-forward="true" selection-start-line="30" selection-start-column="69" selection-end-line="30" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contracts/Collateralizer.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-260">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contracts/DebtKernel.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11611">
+          <caret line="683" column="0" lean-forward="true" selection-start-line="683" selection-start-column="0" selection-end-line="683" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor>
+            <js_state />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LICENSE">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
