@@ -1,6 +1,9 @@
+.idea/
 /data
 
 .DS_Store
+*.swp
+
 /node_modules
 /transpiled
 /types/generated/*

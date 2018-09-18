@@ -16,11 +16,12 @@
 
 */
 
-pragma solidity 0.4.18;
+pragma solidity 0.4.24;
 
 import "./DebtToken.sol";
 import "./TermsContract.sol";
 import "./TokenTransferProxy.sol";
+import "./CreditorProxy.sol";
 import "zeppelin-solidity/contracts/lifecycle/Pausable.sol";
 import "zeppelin-solidity/contracts/math/SafeMath.sol";
 import "zeppelin-solidity/contracts/token/ERC20/ERC20.sol";
@@ -83,7 +84,8 @@ contract DebtKernel is Pausable {
         address indexed _underwriter,
         uint _underwriterFee,
         address indexed _relayer,
-        uint _relayerFee
+        uint _relayerFee,
+        bytes32 _debtOrderHash
     );
 
     event LogIssuanceCancelled(
@@ -231,7 +233,8 @@ contract DebtKernel is Pausable {
             debtOrder.issuance.underwriter,
             debtOrder.underwriterFee,
             debtOrder.relayer,
-            debtOrder.relayerFee
+            debtOrder.relayerFee,
+            debtOrder.debtOrderHash
         );
 
         return debtOrder.issuance.agreementId;

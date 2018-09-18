@@ -38,6 +38,7 @@ export function LogDebtOrderFilled(
     underwriterFee: BigNumber,
     relayer: Address,
     relayerFee: BigNumber,
+    debtOrderHash: Bytes32,
 ): ABIDecoder.DecodedLog {
     return {
         address: contract,
@@ -49,6 +50,7 @@ export function LogDebtOrderFilled(
             ["_underwriterFee", underwriterFee],
             ["_relayer", relayer],
             ["_relayerFee", relayerFee],
+            ["_debtOrderHash", debtOrderHash],
         ]),
         name: "LogDebtOrderFilled",
     };
