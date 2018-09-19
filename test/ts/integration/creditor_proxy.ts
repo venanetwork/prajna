@@ -46,6 +46,8 @@ import { DharmaMultiSigWalletContract } from "../../../types/generated/dharma_mu
 
 // Constants
 import { REVERT_ERROR } from "../test_utils/constants";
+import {CreditorOffer, SignedCreditorOffer} from '../../../types/proxy/creditor_offer';
+import {CreditorOfferParams} from '../../../types/proxy/schema';
 
 // Configure BigNumber exponentiation
 BigNumberSetup.configure();
@@ -73,8 +75,8 @@ contract("Creditor Proxy (Integration Tests)", async (ACCOUNTS) => {
 
     let dummyREPToken: DummyTokenContract;
 
-    let defaultOfferParams: { [key: string]: any };
-    let offerFactory: DebtOfferFactory;
+    let defaultOfferParams: CreditorOfferParams;
+    let defaultFillAmout: BigNumber = Units.ether(0.4);
 
     let multiSig: DharmaMultiSigWalletContract;
 
@@ -126,7 +128,6 @@ contract("Creditor Proxy (Integration Tests)", async (ACCOUNTS) => {
             kernelVersion: kernel.address,
             creditor: CREDITOR_1,
             repaymentRouterVersion: repaymentRouter.address,
-            debtor: DEBTOR_1,
             underwriter: UNDERWRITER,
             termsContract: simpleInterestTermsContract.address,
             principalToken: dummyREPToken.address,
@@ -144,16 +145,31 @@ contract("Creditor Proxy (Integration Tests)", async (ACCOUNTS) => {
                     .unix(),
             ),
             termsContractParameters,
-            offerSignatories: { debtor: DEBTOR_1, creditor: CREDITOR_1, underwriter: UNDERWRITER },
+            minPrincipalAmount: Units.ether(0.2),
+            salt: new BigNumber(
+                Math.random()
+                    .toString()
+                    .substring(2),
+            ),
         };
-
-        offerFactory = new DebtOfferFactory(defaultOfferParams);
 
         // Setup ABI decoder in order to decode logs
         ABIDecoder.addABI(creditorProxyArtifacts.abi);
         ABIDecoder.addABI(debtTokenArtifacts.abi);
         ABIDecoder.addABI(debtRegistryContract.abi);
         ABIDecoder.addABI(debtKernelArtifacts.abi);
+
+        var events = creditorProxy.web3ContractInstance.allEvents();
+        events.watch((error, event) => {
+            if (!error) {
+                console.log(event);
+                for (var k in event.args) {
+                    console.log("args key: ", k, "value: ", event["args"][k].toString());
+                }
+            } else {
+                console.log("err key", error.toString());
+            }
+        });
     };
 
     before(reset);
@@ -171,24 +187,27 @@ contract("Creditor Proxy (Integration Tests)", async (ACCOUNTS) => {
         });
     });
 
-    describe("#fillDebtOffer", () => {
-        let debtOffer: SignedDebtOffer;
+    describe("#fill as debtor", () => {
+        let creditorOffer: CreditorOffer;
+        let signedCreditorOffer: SignedCreditorOffer;
 
         const testShouldReturnError = async (
-            offer: SignedDebtOffer,
+            signedOffer: SignedDebtOffer,
             errorCode: number,
             signaturesV?: number[],
             signaturesR?: string[],
             signaturesS?: string[],
         ) => {
-            const txHash = await creditorProxy.fillDebtOffer.sendTransactionAsync(
-                offer.getCreditor(),
-                offer.getOrderAddresses(),
-                offer.getOrderValues(),
-                offer.getOrderBytes32(),
-                signaturesV || offer.getSignaturesV(),
-                signaturesR || offer.getSignaturesR(),
-                signaturesS || offer.getSignaturesS(),
+            const txHash = await creditorProxy.fillAsDebtor.sendTransactionAsync(
+                signedCreditorOffer.getDebtor(),
+                signedCreditorOffer.getOrderAddresses(),
+                signedCreditorOffer.getOrderValues(),
+                signedCreditorOffer.getOrderBytes32(),
+                signedCreditorOffer.getFillAmount(),
+                signedCreditorOffer.getFillSalt(),
+                signaturesV || signedCreditorOffer.getSignaturesV(),
+                signaturesR || signedCreditorOffer.getSignaturesR(),
+                signaturesS || signedCreditorOffer.getSignaturesS(),
             );
 
             const receipt = await web3.eth.getTransactionReceipt(txHash);
@@ -198,26 +217,26 @@ contract("Creditor Proxy (Integration Tests)", async (ACCOUNTS) => {
                 LogError(
                     creditorProxy.address,
                     errorCode,
-                    offer.getCreditor(),
-                    offer.getCreditorCommitmentHash(),
+                    signedCreditorOffer.getCreditor(),
+                    signedCreditorOffer.getCreditorCommitmentHash(),
                 ),
             );
         };
 
         const setupBalancesAndAllowances = async (): Promise<[BigNumber, BigNumber]> => {
             const token = await DummyTokenContract.at(
-                debtOffer.getPrincipalToken(),
+                signedCreditorOffer.getPrincipalToken(),
                 web3,
                 TX_DEFAULTS,
             );
 
-            const debtor = debtOffer.getDebtor();
-            const creditor = debtOffer.getCreditor();
+            const debtor = signedCreditorOffer.getDebtor();
+            const creditor = signedCreditorOffer.getCreditor();
 
             const debtorBalanceAndAllowance = new BigNumber(0);
-            const creditorBalanceAndAllowance = debtOffer
-                .getPrincipalAmount()
-                .plus(debtOffer.getCreditorFee());
+            const creditorBalanceAndAllowance = signedCreditorOffer
+                .getFillAmount()
+                .plus(signedCreditorOffer.getCreditorFee());
 
             await token.setBalance.sendTransactionAsync(debtor, debtorBalanceAndAllowance, {
                 from: CONTRACT_OWNER,
@@ -243,14 +262,14 @@ contract("Creditor Proxy (Integration Tests)", async (ACCOUNTS) => {
         };
 
         const getAgentBalances = async (principalToken: DummyTokenContract) => {
-            const debtorBalance = await principalToken.balanceOf.callAsync(debtOffer.getDebtor());
+            const debtorBalance = await principalToken.balanceOf.callAsync(signedCreditorOffer.getDebtor());
             const creditorBalance = await principalToken.balanceOf.callAsync(
-                debtOffer.getCreditor(),
+                signedCreditorOffer.getCreditor(),
             );
             const underwriterBalance = await principalToken.balanceOf.callAsync(
-                debtOffer.getUnderwriter(),
+                signedCreditorOffer.getUnderwriter(),
             );
-            const relayerBalance = await principalToken.balanceOf.callAsync(debtOffer.getRelayer());
+            const relayerBalance = await principalToken.balanceOf.callAsync(signedCreditorOffer.getRelayer());
             const creditorProxyBalance = await principalToken.balanceOf.callAsync(
                 creditorProxy.address,
             );
@@ -284,7 +303,7 @@ contract("Creditor Proxy (Integration Tests)", async (ACCOUNTS) => {
                     await setupBalancesAndAllowances();
 
                     principalToken = await DummyTokenContract.at(
-                        debtOffer.getPrincipalToken(),
+                        signedCreditorOffer.getPrincipalToken(),
                         web3,
                         TX_DEFAULTS,
                     );
@@ -297,15 +316,27 @@ contract("Creditor Proxy (Integration Tests)", async (ACCOUNTS) => {
                         creditorProxyBalanceBefore,
                     ] = await getAgentBalances(principalToken);
 
-                    const txHash = await creditorProxy.fillDebtOffer.sendTransactionAsync(
-                        debtOffer.getCreditor(),
-                        debtOffer.getOrderAddresses(),
-                        debtOffer.getOrderValues(),
-                        debtOffer.getOrderBytes32(),
-                        debtOffer.getSignaturesV(),
-                        debtOffer.getSignaturesR(),
-                        debtOffer.getSignaturesS(),
-                        { from: filler },
+                    console.log(signedCreditorOffer.getDebtor(),
+                        signedCreditorOffer.getOrderAddresses(),
+                        signedCreditorOffer.getOrderValues().map(x => x.toString(16)),
+                        signedCreditorOffer.getOrderBytes32(),
+                        signedCreditorOffer.getFillAmount(),
+                        signedCreditorOffer.getFillSalt(),
+                        signedCreditorOffer.getSignaturesV(),
+                        signedCreditorOffer.getSignaturesR(),
+                        signedCreditorOffer.getSignaturesS())
+
+                    const txHash = await creditorProxy.fillAsDebtor.sendTransactionAsync(
+                        signedCreditorOffer.getDebtor(),
+                        signedCreditorOffer.getOrderAddresses(),
+                        signedCreditorOffer.getOrderValues(),
+                        signedCreditorOffer.getOrderBytes32(),
+                        signedCreditorOffer.getFillAmount(),
+                        signedCreditorOffer.getFillSalt(),
+                        signedCreditorOffer.getSignaturesV(),
+                        signedCreditorOffer.getSignaturesR(),
+                        signedCreditorOffer.getSignaturesS(),
+                        { from: filler, gas: 4710000 },
                     );
 
                     receipt = await web3.eth.getTransactionReceipt(txHash);
@@ -316,10 +347,10 @@ contract("Creditor Proxy (Integration Tests)", async (ACCOUNTS) => {
 
                 it("should deduct principal + creditor fee from creditor account", async () => {
                     const balance = await principalToken.balanceOf.callAsync(
-                        debtOffer.getCreditor(),
+                        signedCreditorOffer.getCreditor(),
                     );
                     const expectedBalance = creditorBalanceBefore.minus(
-                        debtOffer.getPrincipalAmount().plus(debtOffer.getCreditorFee()),
+                        signedCreditorOffer.getFillAmount().plus(signedCreditorOffer.getCreditorFee()),
                     );
                     expect(balance.toString()).to.equal(expectedBalance.toString());
                 });
@@ -327,9 +358,9 @@ contract("Creditor Proxy (Integration Tests)", async (ACCOUNTS) => {
                 it("should transfer newly minted debt token to creditor", async () => {
                     await expect(
                         debtTokenContract.ownerOf.callAsync(
-                            new BigNumber(debtOffer.getAgreementId()),
+                            new BigNumber(signedCreditorOffer.getAgreementId()),
                         ),
-                    ).to.eventually.equal(debtOffer.getCreditor());
+                    ).to.eventually.equal(signedCreditorOffer.getCreditor());
                 });
 
                 it("should not change the creditor proxy balance", async () => {
@@ -340,17 +371,17 @@ contract("Creditor Proxy (Integration Tests)", async (ACCOUNTS) => {
                 describe("Logs Emitted:", () => {
                     it("should emit approval log allowing transfer proxy to tranfer by creditor proxy", async () => {
                         if (
-                            debtOffer
-                                .getPrincipalAmount()
-                                .plus(debtOffer.getCreditorFee())
+                            signedCreditorOffer
+                                .getFillAmount()
+                                .plus(signedCreditorOffer.getCreditorFee())
                                 .gt(0)
                         ) {
                             await expect(logs.shift()).to.deep.equal(
                                 LogApproval(
-                                    debtOffer.getPrincipalToken(),
+                                    signedCreditorOffer.getPrincipalToken(),
                                     creditorProxy.address,
                                     tokenTransferProxy.address,
-                                    debtOffer.getPrincipalAmount().plus(debtOffer.getCreditorFee()),
+                                    signedCreditorOffer.getFillAmount().plus(signedCreditorOffer.getCreditorFee()),
                                 ),
                             );
                         }
@@ -358,17 +389,17 @@ contract("Creditor Proxy (Integration Tests)", async (ACCOUNTS) => {
 
                     it("should emit transfer log from creditor to creditor proxy", async () => {
                         if (
-                            debtOffer
-                                .getPrincipalAmount()
-                                .plus(debtOffer.getCreditorFee())
+                            signedCreditorOffer
+                                .getFillAmount()
+                                .plus(signedCreditorOffer.getCreditorFee())
                                 .gt(0)
                         ) {
                             expect(logs.shift()).to.deep.equal(
                                 LogTransfer(
-                                    debtOffer.getPrincipalToken(),
-                                    debtOffer.getCreditor(),
+                                    signedCreditorOffer.getPrincipalToken(),
+                                    signedCreditorOffer.getCreditor(),
                                     creditorProxy.address,
-                                    debtOffer.getPrincipalAmount().plus(debtOffer.getCreditorFee()),
+                                    signedCreditorOffer.getFillAmount().plus(signedCreditorOffer.getCreditorFee()),
                                 ),
                             );
                         }
@@ -381,14 +412,14 @@ contract("Creditor Proxy (Integration Tests)", async (ACCOUNTS) => {
                                 new DebtRegistryEntry(
                                     {
                                         beneficiary: creditorProxy.address,
-                                        debtor: debtOffer.getDebtor(),
-                                        termsContract: debtOffer.getTermsContract(),
-                                        termsContractParameters: debtOffer.getTermsContractParameters(),
-                                        underwriter: debtOffer.getUnderwriter(),
-                                        underwriterRiskRating: debtOffer.getUnderwriterRiskRating(),
-                                        version: debtOffer.getRepaymentRouterVersion(),
+                                        debtor: signedCreditorOffer.getDebtor(),
+                                        termsContract: signedCreditorOffer.getTermsContract(),
+                                        termsContractParameters: signedCreditorOffer.getTermsContractParameters(),
+                                        underwriter: signedCreditorOffer.getUnderwriter(),
+                                        underwriterRiskRating: signedCreditorOffer.getUnderwriterRiskRating(),
+                                        version: signedCreditorOffer.getRepaymentRouterVersion(),
                                     },
-                                    debtOffer.getSalt(),
+                                    signedCreditorOffer.getFillSalt(),
                                 ),
                             ),
                         );
@@ -400,50 +431,50 @@ contract("Creditor Proxy (Integration Tests)", async (ACCOUNTS) => {
                                 debtTokenContract.address,
                                 NULL_ADDRESS,
                                 creditorProxy.address,
-                                new BigNumber(debtOffer.getAgreementId()),
+                                new BigNumber(signedCreditorOffer.getAgreementId()),
                             ),
                         );
                     });
 
                     it("should emit transfer log from creditor proxy to debtor (if principal - debtor fee > 0)", async () => {
                         if (
-                            debtOffer
-                                .getPrincipalAmount()
-                                .minus(debtOffer.getDebtorFee())
+                            signedCreditorOffer
+                                .getFillAmount()
+                                .minus(signedCreditorOffer.getDebtorFee())
                                 .gt(0)
                         ) {
                             expect(logs.shift()).to.deep.equal(
                                 LogTransfer(
-                                    debtOffer.getPrincipalToken(),
+                                    signedCreditorOffer.getPrincipalToken(),
                                     creditorProxy.address,
-                                    debtOffer.getDebtor(),
-                                    debtOffer.getPrincipalAmount().minus(debtOffer.getDebtorFee()),
+                                    signedCreditorOffer.getDebtor(),
+                                    signedCreditorOffer.getFillAmount().minus(signedCreditorOffer.getDebtorFee()),
                                 ),
                             );
                         }
                     });
 
                     it("should emit transfer log from creditor proxy to underwriter (if present)", async () => {
-                        if (debtOffer.getUnderwriter() !== NULL_ADDRESS) {
+                        if (signedCreditorOffer.getUnderwriter() !== NULL_ADDRESS) {
                             await expect(logs.shift()).to.deep.equal(
                                 LogTransfer(
-                                    debtOffer.getPrincipalToken(),
+                                    signedCreditorOffer.getPrincipalToken(),
                                     creditorProxy.address,
-                                    debtOffer.getUnderwriter(),
-                                    debtOffer.getUnderwriterFee(),
+                                    signedCreditorOffer.getUnderwriter(),
+                                    signedCreditorOffer.getUnderwriterFee(),
                                 ),
                             );
                         }
                     });
 
                     it("should emit transfer log from creditor proxy to relayer (if present)", async () => {
-                        if (debtOffer.getRelayer() !== NULL_ADDRESS) {
+                        if (signedCreditorOffer.getRelayer() !== NULL_ADDRESS) {
                             await expect(logs.shift()).to.deep.equal(
                                 LogTransfer(
-                                    debtOffer.getPrincipalToken(),
+                                    signedCreditorOffer.getPrincipalToken(),
                                     creditorProxy.address,
-                                    debtOffer.getRelayer(),
-                                    debtOffer.getRelayerFee(),
+                                    signedCreditorOffer.getRelayer(),
+                                    signedCreditorOffer.getRelayerFee(),
                                 ),
                             );
                         }
@@ -469,9 +500,9 @@ contract("Creditor Proxy (Integration Tests)", async (ACCOUNTS) => {
                         expect(logs.shift()).to.deep.equal(
                             LogModifyEntryBeneficiary(
                                 debtRegistryContract.address,
-                                debtOffer.getAgreementId(),
+                                signedCreditorOffer.getAgreementId(),
                                 creditorProxy.address,
-                                debtOffer.getCreditor(),
+                                signedCreditorOffer.getCreditor(),
                             ),
                         );
                     });
@@ -481,8 +512,8 @@ contract("Creditor Proxy (Integration Tests)", async (ACCOUNTS) => {
                             LogTransfer(
                                 debtTokenContract.address,
                                 creditorProxy.address,
-                                debtOffer.getCreditor(),
-                                new BigNumber(debtOffer.getAgreementId()),
+                                signedCreditorOffer.getCreditor(),
+                                new BigNumber(signedCreditorOffer.getAgreementId()),
                             ),
                         );
                     });
@@ -491,9 +522,11 @@ contract("Creditor Proxy (Integration Tests)", async (ACCOUNTS) => {
                         expect(logs.shift()).to.deep.equal(
                             LogDebtOfferFilled(
                                 creditorProxy.address,
-                                debtOffer.getCreditor(),
-                                debtOffer.getCreditorCommitmentHash(),
-                                debtOffer.getAgreementId(),
+                                signedCreditorOffer.getCreditor(),
+                                signedCreditorOffer.getCreditorCommitmentHash(),
+                                signedCreditorOffer
+                                    .getPrincipalAmount()
+                                    .minus(signedCreditorOffer.getFillAmount()),
                             ),
                         );
                     });
@@ -504,429 +537,396 @@ contract("Creditor Proxy (Integration Tests)", async (ACCOUNTS) => {
         before(reset);
 
         describe("User fills valid, consentual debt offer", () => {
-            describe("...and creditor proxy is paused by owner via multi-sig", async () => {
-                before(async () => {
-                    debtOffer = await offerFactory.generateDebtOffer();
-                    await multiSigExecutePauseImmediately(
-                        web3,
-                        multiSig,
-                        creditorProxy,
-                        "pause",
-                        ACCOUNTS,
-                    );
-                });
-                after(async () => {
-                    await multiSigExecuteAfterTimelock(
-                        web3,
-                        multiSig,
-                        creditorProxy,
-                        "unpause",
-                        ACCOUNTS,
-                    );
-                });
-                it("should throw", async () => {
-                    await expect(
-                        creditorProxy.fillDebtOffer.sendTransactionAsync(
-                            debtOffer.getCreditor(),
-                            debtOffer.getOrderAddresses(),
-                            debtOffer.getOrderValues(),
-                            debtOffer.getOrderBytes32(),
-                            debtOffer.getSignaturesV(),
-                            debtOffer.getSignaturesR(),
-                            debtOffer.getSignaturesS(),
-                        ),
-                    ).to.eventually.be.rejectedWith(REVERT_ERROR);
-                });
-            });
 
             describe(
                 "...with valid params",
                 testOfferFill(CONTRACT_OWNER, async () => {
-                    debtOffer = await offerFactory.generateDebtOffer();
+                    creditorOffer = new CreditorOffer(defaultOfferParams);
+                    signedCreditorOffer = await creditorOffer.getSignedCreditorOffer(web3, DEBTOR_1, defaultFillAmout);
                 }),
             );
 
-            describe(
-                "...with no principal and no creditor / debtor fees",
-                testOfferFill(CONTRACT_OWNER, async () => {
-                    debtOffer = await offerFactory.generateDebtOffer({
-                        creditorFee: new BigNumber(0),
-                        debtorFee: new BigNumber(0),
-                        principalAmount: new BigNumber(0),
-                        relayer: NULL_ADDRESS,
-                        relayerFee: new BigNumber(0),
-                        underwriter: NULL_ADDRESS,
-                        underwriterFee: new BigNumber(0),
-                        underwriterRiskRating: new BigNumber(0),
-                    });
-                }),
-            );
-
-            describe(
-                "...with no principal and nonzero creditor fee",
-                testOfferFill(CONTRACT_OWNER, async () => {
-                    debtOffer = await offerFactory.generateDebtOffer({
-                        creditorFee: Units.ether(0.002),
-                        debtorFee: new BigNumber(0),
-                        principalAmount: new BigNumber(0),
-                        relayer: NULL_ADDRESS,
-                        relayerFee: new BigNumber(0),
-                        underwriter: UNDERWRITER,
-                        underwriterFee: Units.ether(0.002),
-                    });
-                }),
-            );
-
-            describe(
-                "...when creditor and debtor are same address",
-                testOfferFill(CONTRACT_OWNER, async () => {
-                    debtOffer = await offerFactory.generateDebtOffer({
-                        creditor: CREDITOR_1,
-                        creditorFee: new BigNumber(0),
-                        debtor: CREDITOR_1,
-                        debtorFee: new BigNumber(0),
-                        offerSignatories: {
-                            creditor: CREDITOR_1,
-                            debtor: CREDITOR_1,
-                        },
-                        principalAmount: new BigNumber(0),
-                        relayer: NULL_ADDRESS,
-                        relayerFee: new BigNumber(0),
-                        underwriter: NULL_ADDRESS,
-                        underwriterFee: new BigNumber(0),
-                        underwriterRiskRating: new BigNumber(0),
-                    });
-                }),
-            );
+            // describe(
+            //     "...with no principal and no creditor / debtor fees",
+            //     testOfferFill(CONTRACT_OWNER, async () => {
+            //         debtOffer = await offerFactory.generateDebtOffer({
+            //             creditorFee: new BigNumber(0),
+            //             debtorFee: new BigNumber(0),
+            //             principalAmount: new BigNumber(0),
+            //             relayer: NULL_ADDRESS,
+            //             relayerFee: new BigNumber(0),
+            //             underwriter: NULL_ADDRESS,
+            //             underwriterFee: new BigNumber(0),
+            //             underwriterRiskRating: new BigNumber(0),
+            //         });
+            //     }),
+            // );
+            //
+            // describe(
+            //     "...with no principal and nonzero creditor fee",
+            //     testOfferFill(CONTRACT_OWNER, async () => {
+            //         debtOffer = await offerFactory.generateDebtOffer({
+            //             creditorFee: Units.ether(0.002),
+            //             debtorFee: new BigNumber(0),
+            //             principalAmount: new BigNumber(0),
+            //             relayer: NULL_ADDRESS,
+            //             relayerFee: new BigNumber(0),
+            //             underwriter: UNDERWRITER,
+            //             underwriterFee: Units.ether(0.002),
+            //         });
+            //     }),
+            // );
+            //
+            // describe(
+            //     "...when creditor and debtor are same address",
+            //     testOfferFill(CONTRACT_OWNER, async () => {
+            //         debtOffer = await offerFactory.generateDebtOffer({
+            //             creditor: CREDITOR_1,
+            //             creditorFee: new BigNumber(0),
+            //             debtor: CREDITOR_1,
+            //             debtorFee: new BigNumber(0),
+            //             offerSignatories: {
+            //                 creditor: CREDITOR_1,
+            //                 debtor: CREDITOR_1,
+            //             },
+            //             principalAmount: new BigNumber(0),
+            //             relayer: NULL_ADDRESS,
+            //             relayerFee: new BigNumber(0),
+            //             underwriter: NULL_ADDRESS,
+            //             underwriterFee: new BigNumber(0),
+            //             underwriterRiskRating: new BigNumber(0),
+            //         });
+            //     }),
+            // );
         });
 
-        describe("User fills invalid debt order", () => {
-            describe("...when creditor has not granted the transfer proxy sufficient allowance", () => {
-                before(async () => {
-                    debtOffer = await offerFactory.generateDebtOffer();
-                    await setupBalancesAndAllowances();
-
-                    const token = await DummyTokenContract.at(
-                        debtOffer.getPrincipalToken(),
-                        web3,
-                        TX_DEFAULTS,
-                    );
-                    await token.approve.sendTransactionAsync(
-                        tokenTransferProxy.address,
-                        debtOffer.getPrincipalAmount().plus(debtOffer.getCreditorFee().minus(1)),
-                        { from: debtOffer.getCreditor() },
-                    );
-                });
-
-                it("should return CREDITOR_BALANCE_OR_ALLOWANCE_INSUFFICIENT error", async () => {
-                    await testShouldReturnError(
-                        debtOffer,
-                        CreditorProxyErrorCodes.CREDITOR_BALANCE_OR_ALLOWANCE_INSUFFICIENT,
-                    );
-                });
-            });
-
-            describe("...when creditor does not have sufficient balance", () => {
-                before(async () => {
-                    debtOffer = await offerFactory.generateDebtOffer();
-
-                    const token = await DummyTokenContract.at(
-                        debtOffer.getPrincipalToken(),
-                        web3,
-                        TX_DEFAULTS,
-                    );
-                    await token.setBalance.sendTransactionAsync(
-                        debtOffer.getCreditor(),
-                        debtOffer.getPrincipalAmount().plus(debtOffer.getCreditorFee().minus(1)),
-                        { from: CONTRACT_OWNER },
-                    );
-                });
-
-                it("should return CREDITOR_BALANCE_OR_ALLOWANCE_INSUFFICIENT error", async () => {
-                    await testShouldReturnError(
-                        debtOffer,
-                        CreditorProxyErrorCodes.CREDITOR_BALANCE_OR_ALLOWANCE_INSUFFICIENT,
-                    );
-                });
-            });
-
-            describe("...when debt offer has already been filled", () => {
-                before(async () => {
-                    debtOffer = await offerFactory.generateDebtOffer();
-                    await setupBalancesAndAllowances();
-
-                    await creditorProxy.fillDebtOffer.sendTransactionAsync(
-                        debtOffer.getCreditor(),
-                        debtOffer.getOrderAddresses(),
-                        debtOffer.getOrderValues(),
-                        debtOffer.getOrderBytes32(),
-                        debtOffer.getSignaturesV(),
-                        debtOffer.getSignaturesR(),
-                        debtOffer.getSignaturesS(),
-                    );
-                });
-
-                it("should return DEBT_OFFER_ALREADY_FILLED error", async () => {
-                    await testShouldReturnError(
-                        debtOffer,
-                        CreditorProxyErrorCodes.DEBT_OFFER_ALREADY_FILLED,
-                    );
-                });
-            });
-
-            describe("...when debt offer has been cancelled", () => {
-                before(async () => {
-                    debtOffer = await offerFactory.generateDebtOffer();
-                    await setupBalancesAndAllowances();
-
-                    await creditorProxy.cancelDebtOffer.sendTransactionAsync(
-                        debtOffer.getCommitmentAddresses(),
-                        debtOffer.getCommitmentValues(),
-                        debtOffer.getCommitmentBytes32(),
-                        { from: debtOffer.getCreditor() },
-                    );
-                });
-
-                it("should return DEBT_OFFER_CANCELLED error", async () => {
-                    await testShouldReturnError(
-                        debtOffer,
-                        CreditorProxyErrorCodes.DEBT_OFFER_CANCELLED,
-                    );
-                });
-            });
-
-            describe("...when debt kernel returns NULL_ISSUANCE_HASH", () => {
-                before(async () => {
-                    debtOffer = await offerFactory.generateDebtOffer();
-                    await setupBalancesAndAllowances();
-                });
-
-                it("should throw", async () => {
-                    await expect(
-                        creditorProxy.fillDebtOffer.sendTransactionAsync(
-                            debtOffer.getCreditor(),
-                            debtOffer.getOrderAddresses(),
-                            debtOffer.getOrderValues(),
-                            debtOffer.getOrderBytes32(),
-                            [null, debtOffer.getSignaturesV()[1], debtOffer.getSignaturesV()[2]],
-                            [null, debtOffer.getSignaturesR()[1], debtOffer.getSignaturesR()[2]],
-                            [null, debtOffer.getSignaturesS()[1], debtOffer.getSignaturesS()[2]],
-                        ),
-                    ).to.eventually.be.rejectedWith(REVERT_ERROR);
-                });
-            });
-        });
-
-        describe("User fills valid, nonconsensual debt offer", () => {
-            let mismatchedOffer: SignedDebtOffer;
-            before(async () => {
-                debtOffer = await offerFactory.generateDebtOffer();
-                await setupBalancesAndAllowances();
-            });
-
-            describe("...with mismatched issuance parameters", () => {
-                describe("creditor's signature not attached", () => {
-                    before(async () => {
-                        mismatchedOffer = await offerFactory.generateDebtOffer();
-                        await setupBalancesAndAllowances();
-                    });
-
-                    it("should return DEBT_OFFER_NON_CONSENSUAL error", async () => {
-                        await testShouldReturnError(
-                            mismatchedOffer,
-                            CreditorProxyErrorCodes.DEBT_OFFER_NON_CONSENSUAL,
-                            [
-                                mismatchedOffer.getSignaturesV()[0],
-                                null,
-                                mismatchedOffer.getSignaturesV()[2],
-                            ],
-                            [
-                                mismatchedOffer.getSignaturesR()[0],
-                                null,
-                                mismatchedOffer.getSignaturesR()[2],
-                            ],
-                            [
-                                mismatchedOffer.getSignaturesS()[0],
-                                null,
-                                mismatchedOffer.getSignaturesS()[2],
-                            ],
-                        );
-                    });
-                });
-
-                describe("creditor's signature commits to creditor address =/= offer's", async () => {
-                    before(async () => {
-                        mismatchedOffer = await offerFactory.generateDebtOffer({
-                            creditor: CREDITOR_2,
-                        });
-                        await setupBalancesAndAllowances();
-                    });
-
-                    it("should return DEBT_OFFER_NON_CONSENSUAL error", async () => {
-                        await testShouldReturnError(
-                            mismatchedOffer,
-                            CreditorProxyErrorCodes.DEBT_OFFER_NON_CONSENSUAL,
-                            debtOffer.getSignaturesV(),
-                            debtOffer.getSignaturesR(),
-                            debtOffer.getSignaturesS(),
-                        );
-                    });
-                });
-
-                describe("creditor's signature commits to repayment router =/= offer's", async () => {
-                    before(async () => {
-                        mismatchedOffer = await offerFactory.generateDebtOffer({
-                            repaymentRouterVersion: ATTACKER,
-                        });
-                        await setupBalancesAndAllowances();
-                    });
-
-                    it("should return DEBT_OFFER_NON_CONSENSUAL error", async () => {
-                        await testShouldReturnError(
-                            mismatchedOffer,
-                            CreditorProxyErrorCodes.DEBT_OFFER_NON_CONSENSUAL,
-                            debtOffer.getSignaturesV(),
-                            debtOffer.getSignaturesR(),
-                            debtOffer.getSignaturesS(),
-                        );
-                    });
-                });
-
-                describe("creditor's signature commits to creditor fee =/= offer's", async () => {
-                    before(async () => {
-                        mismatchedOffer = await offerFactory.generateDebtOffer({
-                            creditorFee: new BigNumber(0),
-                        });
-                        await setupBalancesAndAllowances();
-                    });
-
-                    it("should return DEBT_OFFER_NON_CONSENSUAL error", async () => {
-                        await testShouldReturnError(
-                            mismatchedOffer,
-                            CreditorProxyErrorCodes.DEBT_OFFER_NON_CONSENSUAL,
-                            debtOffer.getSignaturesV(),
-                            debtOffer.getSignaturesR(),
-                            debtOffer.getSignaturesS(),
-                        );
-                    });
-                });
-
-                describe("creditor's signature commits to underwriter =/= offer's", async () => {
-                    before(async () => {
-                        mismatchedOffer = await offerFactory.generateDebtOffer({
-                            underwriter: ATTACKER,
-                        });
-                        await setupBalancesAndAllowances();
-                    });
-
-                    it("should return DEBT_OFFER_NON_CONSENSUAL error", async () => {
-                        await testShouldReturnError(
-                            mismatchedOffer,
-                            CreditorProxyErrorCodes.DEBT_OFFER_NON_CONSENSUAL,
-                            debtOffer.getSignaturesV(),
-                            debtOffer.getSignaturesR(),
-                            debtOffer.getSignaturesS(),
-                        );
-                    });
-                });
-
-                describe("creditor's signature commits to risk rating =/= offer's", async () => {
-                    before(async () => {
-                        mismatchedOffer = await offerFactory.generateDebtOffer({
-                            underwriterRiskRating: new BigNumber(0),
-                        });
-                        await setupBalancesAndAllowances();
-                    });
-
-                    it("should return DEBT_OFFER_NON_CONSENSUAL error", async () => {
-                        await testShouldReturnError(
-                            mismatchedOffer,
-                            CreditorProxyErrorCodes.DEBT_OFFER_NON_CONSENSUAL,
-                            debtOffer.getSignaturesV(),
-                            debtOffer.getSignaturesR(),
-                            debtOffer.getSignaturesS(),
-                        );
-                    });
-                });
-
-                describe("creditor's signature commits to terms contract =/= offer's", async () => {
-                    before(async () => {
-                        mismatchedOffer = await offerFactory.generateDebtOffer({
-                            termsContract: ATTACKER,
-                        });
-                        await setupBalancesAndAllowances();
-                    });
-
-                    it("should return DEBT_OFFER_NON_CONSENSUAL error", async () => {
-                        await testShouldReturnError(
-                            mismatchedOffer,
-                            CreditorProxyErrorCodes.DEBT_OFFER_NON_CONSENSUAL,
-                            debtOffer.getSignaturesV(),
-                            debtOffer.getSignaturesR(),
-                            debtOffer.getSignaturesS(),
-                        );
-                    });
-                });
-
-                describe("creditor's signature commits to terms parameters =/= offer's", async () => {
-                    before(async () => {
-                        mismatchedOffer = await offerFactory.generateDebtOffer({
-                            termsContractParameters: web3.sha3(
-                                "mismatched terms contract parameters",
-                            ),
-                        });
-                        await setupBalancesAndAllowances();
-                    });
-
-                    it("should return DEBT_OFFER_NON_CONSENSUAL error", async () => {
-                        await testShouldReturnError(
-                            mismatchedOffer,
-                            CreditorProxyErrorCodes.DEBT_OFFER_NON_CONSENSUAL,
-                            debtOffer.getSignaturesV(),
-                            debtOffer.getSignaturesR(),
-                            debtOffer.getSignaturesS(),
-                        );
-                    });
-                });
-
-                describe("creditor's signature commits to expiration =/= offer's", async () => {
-                    before(async () => {
-                        mismatchedOffer = await offerFactory.generateDebtOffer({
-                            expirationTimestampInSec: new BigNumber(0),
-                        });
-                        await setupBalancesAndAllowances();
-                    });
-
-                    it("should return DEBT_OFFER_NON_CONSENSUAL error", async () => {
-                        await testShouldReturnError(
-                            mismatchedOffer,
-                            CreditorProxyErrorCodes.DEBT_OFFER_NON_CONSENSUAL,
-                            debtOffer.getSignaturesV(),
-                            debtOffer.getSignaturesR(),
-                            debtOffer.getSignaturesS(),
-                        );
-                    });
-                });
-
-                describe("creditor's signature commits to salt =/= offer's", async () => {
-                    before(async () => {
-                        mismatchedOffer = await offerFactory.generateDebtOffer({
-                            salt: new BigNumber(0),
-                        });
-                        await setupBalancesAndAllowances();
-                    });
-
-                    it("should return DEBT_OFFER_NON_CONSENSUAL error", async () => {
-                        await testShouldReturnError(
-                            mismatchedOffer,
-                            CreditorProxyErrorCodes.DEBT_OFFER_NON_CONSENSUAL,
-                            debtOffer.getSignaturesV(),
-                            debtOffer.getSignaturesR(),
-                            debtOffer.getSignaturesS(),
-                        );
-                    });
-                });
-            });
-        });
+        // describe("User fills invalid debt order", () => {
+        //     describe("...when creditor has not granted the transfer proxy sufficient allowance", () => {
+        //         before(async () => {
+        //             debtOffer = await offerFactory.generateDebtOffer();
+        //             await setupBalancesAndAllowances();
+        //
+        //             const token = await DummyTokenContract.at(
+        //                 debtOffer.getPrincipalToken(),
+        //                 web3,
+        //                 TX_DEFAULTS,
+        //             );
+        //             await token.approve.sendTransactionAsync(
+        //                 tokenTransferProxy.address,
+        //                 debtOffer.getPrincipalAmount().plus(debtOffer.getCreditorFee().minus(1)),
+        //                 { from: debtOffer.getCreditor() },
+        //             );
+        //         });
+        //
+        //         it("should return CREDITOR_BALANCE_OR_ALLOWANCE_INSUFFICIENT error", async () => {
+        //             await testShouldReturnError(
+        //                 debtOffer,
+        //                 CreditorProxyErrorCodes.CREDITOR_BALANCE_OR_ALLOWANCE_INSUFFICIENT,
+        //             );
+        //         });
+        //     });
+        //
+        //     describe("...when creditor does not have sufficient balance", () => {
+        //         before(async () => {
+        //             debtOffer = await offerFactory.generateDebtOffer();
+        //
+        //             const token = await DummyTokenContract.at(
+        //                 debtOffer.getPrincipalToken(),
+        //                 web3,
+        //                 TX_DEFAULTS,
+        //             );
+        //             await token.setBalance.sendTransactionAsync(
+        //                 debtOffer.getCreditor(),
+        //                 debtOffer.getPrincipalAmount().plus(debtOffer.getCreditorFee().minus(1)),
+        //                 { from: CONTRACT_OWNER },
+        //             );
+        //         });
+        //
+        //         it("should return CREDITOR_BALANCE_OR_ALLOWANCE_INSUFFICIENT error", async () => {
+        //             await testShouldReturnError(
+        //                 debtOffer,
+        //                 CreditorProxyErrorCodes.CREDITOR_BALANCE_OR_ALLOWANCE_INSUFFICIENT,
+        //             );
+        //         });
+        //     });
+        //
+        //     describe("...when debt offer has already been filled", () => {
+        //         before(async () => {
+        //             debtOffer = await offerFactory.generateDebtOffer();
+        //             await setupBalancesAndAllowances();
+        //
+        //             await creditorProxy.fillDebtOffer.sendTransactionAsync(
+        //                 debtOffer.getCreditor(),
+        //                 debtOffer.getOrderAddresses(),
+        //                 debtOffer.getOrderValues(),
+        //                 debtOffer.getOrderBytes32(),
+        //                 debtOffer.getSignaturesV(),
+        //                 debtOffer.getSignaturesR(),
+        //                 debtOffer.getSignaturesS(),
+        //             );
+        //         });
+        //
+        //         it("should return DEBT_OFFER_ALREADY_FILLED error", async () => {
+        //             await testShouldReturnError(
+        //                 debtOffer,
+        //                 CreditorProxyErrorCodes.DEBT_OFFER_ALREADY_FILLED,
+        //             );
+        //         });
+        //     });
+        //
+        //     describe("...when debt offer has been cancelled", () => {
+        //         before(async () => {
+        //             debtOffer = await offerFactory.generateDebtOffer();
+        //             await setupBalancesAndAllowances();
+        //
+        //             await creditorProxy.cancelDebtOffer.sendTransactionAsync(
+        //                 debtOffer.getCommitmentAddresses(),
+        //                 debtOffer.getCommitmentValues(),
+        //                 debtOffer.getCommitmentBytes32(),
+        //                 { from: debtOffer.getCreditor() },
+        //             );
+        //         });
+        //
+        //         it("should return DEBT_OFFER_CANCELLED error", async () => {
+        //             await testShouldReturnError(
+        //                 debtOffer,
+        //                 CreditorProxyErrorCodes.DEBT_OFFER_CANCELLED,
+        //             );
+        //         });
+        //     });
+        //
+        //     describe("...when debt kernel returns NULL_ISSUANCE_HASH", () => {
+        //         before(async () => {
+        //             debtOffer = await offerFactory.generateDebtOffer();
+        //             await setupBalancesAndAllowances();
+        //         });
+        //
+        //         it("should throw", async () => {
+        //             await expect(
+        //                 creditorProxy.fillDebtOffer.sendTransactionAsync(
+        //                     debtOffer.getCreditor(),
+        //                     debtOffer.getOrderAddresses(),
+        //                     debtOffer.getOrderValues(),
+        //                     debtOffer.getOrderBytes32(),
+        //                     [null, debtOffer.getSignaturesV()[1], debtOffer.getSignaturesV()[2]],
+        //                     [null, debtOffer.getSignaturesR()[1], debtOffer.getSignaturesR()[2]],
+        //                     [null, debtOffer.getSignaturesS()[1], debtOffer.getSignaturesS()[2]],
+        //                 ),
+        //             ).to.eventually.be.rejectedWith(REVERT_ERROR);
+        //         });
+        //     });
+        // });
+        //
+        // describe("User fills valid, nonconsensual debt offer", () => {
+        //     let mismatchedOffer: SignedDebtOffer;
+        //     before(async () => {
+        //         debtOffer = await offerFactory.generateDebtOffer();
+        //         await setupBalancesAndAllowances();
+        //     });
+        //
+        //     describe("...with mismatched issuance parameters", () => {
+        //         describe("creditor's signature not attached", () => {
+        //             before(async () => {
+        //                 mismatchedOffer = await offerFactory.generateDebtOffer();
+        //                 await setupBalancesAndAllowances();
+        //             });
+        //
+        //             it("should return DEBT_OFFER_NON_CONSENSUAL error", async () => {
+        //                 await testShouldReturnError(
+        //                     mismatchedOffer,
+        //                     CreditorProxyErrorCodes.DEBT_OFFER_NON_CONSENSUAL,
+        //                     [
+        //                         mismatchedOffer.getSignaturesV()[0],
+        //                         null,
+        //                         mismatchedOffer.getSignaturesV()[2],
+        //                     ],
+        //                     [
+        //                         mismatchedOffer.getSignaturesR()[0],
+        //                         null,
+        //                         mismatchedOffer.getSignaturesR()[2],
+        //                     ],
+        //                     [
+        //                         mismatchedOffer.getSignaturesS()[0],
+        //                         null,
+        //                         mismatchedOffer.getSignaturesS()[2],
+        //                     ],
+        //                 );
+        //             });
+        //         });
+        //
+        //         describe("creditor's signature commits to creditor address =/= offer's", async () => {
+        //             before(async () => {
+        //                 mismatchedOffer = await offerFactory.generateDebtOffer({
+        //                     creditor: CREDITOR_2,
+        //                 });
+        //                 await setupBalancesAndAllowances();
+        //             });
+        //
+        //             it("should return DEBT_OFFER_NON_CONSENSUAL error", async () => {
+        //                 await testShouldReturnError(
+        //                     mismatchedOffer,
+        //                     CreditorProxyErrorCodes.DEBT_OFFER_NON_CONSENSUAL,
+        //                     debtOffer.getSignaturesV(),
+        //                     debtOffer.getSignaturesR(),
+        //                     debtOffer.getSignaturesS(),
+        //                 );
+        //             });
+        //         });
+        //
+        //         describe("creditor's signature commits to repayment router =/= offer's", async () => {
+        //             before(async () => {
+        //                 mismatchedOffer = await offerFactory.generateDebtOffer({
+        //                     repaymentRouterVersion: ATTACKER,
+        //                 });
+        //                 await setupBalancesAndAllowances();
+        //             });
+        //
+        //             it("should return DEBT_OFFER_NON_CONSENSUAL error", async () => {
+        //                 await testShouldReturnError(
+        //                     mismatchedOffer,
+        //                     CreditorProxyErrorCodes.DEBT_OFFER_NON_CONSENSUAL,
+        //                     debtOffer.getSignaturesV(),
+        //                     debtOffer.getSignaturesR(),
+        //                     debtOffer.getSignaturesS(),
+        //                 );
+        //             });
+        //         });
+        //
+        //         describe("creditor's signature commits to creditor fee =/= offer's", async () => {
+        //             before(async () => {
+        //                 mismatchedOffer = await offerFactory.generateDebtOffer({
+        //                     creditorFee: new BigNumber(0),
+        //                 });
+        //                 await setupBalancesAndAllowances();
+        //             });
+        //
+        //             it("should return DEBT_OFFER_NON_CONSENSUAL error", async () => {
+        //                 await testShouldReturnError(
+        //                     mismatchedOffer,
+        //                     CreditorProxyErrorCodes.DEBT_OFFER_NON_CONSENSUAL,
+        //                     debtOffer.getSignaturesV(),
+        //                     debtOffer.getSignaturesR(),
+        //                     debtOffer.getSignaturesS(),
+        //                 );
+        //             });
+        //         });
+        //
+        //         describe("creditor's signature commits to underwriter =/= offer's", async () => {
+        //             before(async () => {
+        //                 mismatchedOffer = await offerFactory.generateDebtOffer({
+        //                     underwriter: ATTACKER,
+        //                 });
+        //                 await setupBalancesAndAllowances();
+        //             });
+        //
+        //             it("should return DEBT_OFFER_NON_CONSENSUAL error", async () => {
+        //                 await testShouldReturnError(
+        //                     mismatchedOffer,
+        //                     CreditorProxyErrorCodes.DEBT_OFFER_NON_CONSENSUAL,
+        //                     debtOffer.getSignaturesV(),
+        //                     debtOffer.getSignaturesR(),
+        //                     debtOffer.getSignaturesS(),
+        //                 );
+        //             });
+        //         });
+        //
+        //         describe("creditor's signature commits to risk rating =/= offer's", async () => {
+        //             before(async () => {
+        //                 mismatchedOffer = await offerFactory.generateDebtOffer({
+        //                     underwriterRiskRating: new BigNumber(0),
+        //                 });
+        //                 await setupBalancesAndAllowances();
+        //             });
+        //
+        //             it("should return DEBT_OFFER_NON_CONSENSUAL error", async () => {
+        //                 await testShouldReturnError(
+        //                     mismatchedOffer,
+        //                     CreditorProxyErrorCodes.DEBT_OFFER_NON_CONSENSUAL,
+        //                     debtOffer.getSignaturesV(),
+        //                     debtOffer.getSignaturesR(),
+        //                     debtOffer.getSignaturesS(),
+        //                 );
+        //             });
+        //         });
+        //
+        //         describe("creditor's signature commits to terms contract =/= offer's", async () => {
+        //             before(async () => {
+        //                 mismatchedOffer = await offerFactory.generateDebtOffer({
+        //                     termsContract: ATTACKER,
+        //                 });
+        //                 await setupBalancesAndAllowances();
+        //             });
+        //
+        //             it("should return DEBT_OFFER_NON_CONSENSUAL error", async () => {
+        //                 await testShouldReturnError(
+        //                     mismatchedOffer,
+        //                     CreditorProxyErrorCodes.DEBT_OFFER_NON_CONSENSUAL,
+        //                     debtOffer.getSignaturesV(),
+        //                     debtOffer.getSignaturesR(),
+        //                     debtOffer.getSignaturesS(),
+        //                 );
+        //             });
+        //         });
+        //
+        //         describe("creditor's signature commits to terms parameters =/= offer's", async () => {
+        //             before(async () => {
+        //                 mismatchedOffer = await offerFactory.generateDebtOffer({
+        //                     termsContractParameters: web3.sha3(
+        //                         "mismatched terms contract parameters",
+        //                     ),
+        //                 });
+        //                 await setupBalancesAndAllowances();
+        //             });
+        //
+        //             it("should return DEBT_OFFER_NON_CONSENSUAL error", async () => {
+        //                 await testShouldReturnError(
+        //                     mismatchedOffer,
+        //                     CreditorProxyErrorCodes.DEBT_OFFER_NON_CONSENSUAL,
+        //                     debtOffer.getSignaturesV(),
+        //                     debtOffer.getSignaturesR(),
+        //                     debtOffer.getSignaturesS(),
+        //                 );
+        //             });
+        //         });
+        //
+        //         describe("creditor's signature commits to expiration =/= offer's", async () => {
+        //             before(async () => {
+        //                 mismatchedOffer = await offerFactory.generateDebtOffer({
+        //                     expirationTimestampInSec: new BigNumber(0),
+        //                 });
+        //                 await setupBalancesAndAllowances();
+        //             });
+        //
+        //             it("should return DEBT_OFFER_NON_CONSENSUAL error", async () => {
+        //                 await testShouldReturnError(
+        //                     mismatchedOffer,
+        //                     CreditorProxyErrorCodes.DEBT_OFFER_NON_CONSENSUAL,
+        //                     debtOffer.getSignaturesV(),
+        //                     debtOffer.getSignaturesR(),
+        //                     debtOffer.getSignaturesS(),
+        //                 );
+        //             });
+        //         });
+        //
+        //         describe("creditor's signature commits to salt =/= offer's", async () => {
+        //             before(async () => {
+        //                 mismatchedOffer = await offerFactory.generateDebtOffer({
+        //                     salt: new BigNumber(0),
+        //                 });
+        //                 await setupBalancesAndAllowances();
+        //             });
+        //
+        //             it("should return DEBT_OFFER_NON_CONSENSUAL error", async () => {
+        //                 await testShouldReturnError(
+        //                     mismatchedOffer,
+        //                     CreditorProxyErrorCodes.DEBT_OFFER_NON_CONSENSUAL,
+        //                     debtOffer.getSignaturesV(),
+        //                     debtOffer.getSignaturesR(),
+        //                     debtOffer.getSignaturesS(),
+        //                 );
+        //             });
+        //         });
+        //     });
+        // });
     });
 });

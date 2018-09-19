@@ -155,8 +155,8 @@ contract CreditorProxy is Pausable {
             signaturesR,
             signaturesS
         );
-        return orderBytes32[0];
-
+        return agreementId;
+//        return creditorCommitmentHash;
     }
 
     function settleOrder(
@@ -195,18 +195,22 @@ contract CreditorProxy is Pausable {
             signaturesR,
             signaturesS
         );
-        require(agreementId != NULL_ISSUANCE_HASH);
-//
+        LogByte(agreementId);
+//        require(agreementId != NULL_ISSUANCE_HASH);
+
         // 5. transfer debt token to real creditor
-        contractRegistry.debtToken().transfer(creditor, uint256(agreementId));
+//        contractRegistry.debtToken().transfer(creditor, uint256(agreementId));
 
         // 6. record the orderRemain
-        orderRemain[commitmentHash].remain = orderRemain[commitmentHash].remain.sub(fillAmount);
-
+//        orderRemain[commitmentHash].remain = orderRemain[commitmentHash].remain.sub(fillAmount);
+//
         // 7. log
-        LogDebtOfferFilled(creditor, commitmentHash, orderRemain[commitmentHash].remain);
-
+//        LogDebtOfferFilled(creditor, commitmentHash, orderRemain[commitmentHash].remain);
+//
         return agreementId;
+
+
+//        return commitmentHash;
     }
 
     /**

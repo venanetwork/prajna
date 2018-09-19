@@ -57,11 +57,9 @@ contract("Creditor Proxy (Unit Tests)", async (ACCOUNTS) => {
     const ATTACKER = ACCOUNTS[1];
     const RELAYER = ACCOUNTS[2];
     const UNDERWRITER = ACCOUNTS[3];
-
     const CREDITOR_1 = ACCOUNTS[4];
     const CREDITOR_2 = ACCOUNTS[5];
     const CREDITORS = [CREDITOR_1, CREDITOR_2];
-
     const DEBTOR_1 = ACCOUNTS[6];
     const DEBTOR_2 = ACCOUNTS[7];
     const DEBTORS = [DEBTOR_1, DEBTOR_2];
@@ -179,62 +177,6 @@ contract("Creditor Proxy (Unit Tests)", async (ACCOUNTS) => {
                 contractRegistry.address,
             );
         });
-    });
-
-    describe("#cancelDebtOffer", () => {
-        let debtOffer: SignedCreditorOffer;
-
-        // describe("user who is not the creditor cancelled debt offer", () => {
-        //     before(async () => {
-        //         debtOffer = await offerFactory.generateDebtOffer();
-        //     });
-        //     it("should throw", async () => {
-        //         await expect(
-        //             creditorProxy.cancelDebtOffer.sendTransactionAsync(
-        //                 debtOffer.getCommitmentAddresses(),
-        //                 debtOffer.getCommitmentValues(),
-        //                 debtOffer.getCommitmentBytes32(),
-        //                 { from: ATTACKER },
-        //             ),
-        //         ).to.eventually.be.rejectedWith(REVERT_ERROR);
-        //     });
-        // });
-        //
-        // describe("creditor cancels issuance", () => {
-        //     let debtOfferCancelledLog: ABIDecoder.DecodedLog;
-        //
-        //     before(async () => {
-        //         debtOffer = await offerFactory.generateDebtOffer();
-        //
-        //         const txHash = await creditorProxy.cancelDebtOffer.sendTransactionAsync(
-        //             debtOffer.getCommitmentAddresses(),
-        //             debtOffer.getCommitmentValues(),
-        //             debtOffer.getCommitmentBytes32(),
-        //             { from: debtOffer.getCreditor() },
-        //         );
-        //
-        //         const receipt = await web3.eth.getTransactionReceipt(txHash);
-        //         [debtOfferCancelledLog] = _.compact(ABIDecoder.decodeLogs(receipt.logs));
-        //     });
-        //
-        //     it("should emit debt offer cancelled log", async () => {
-        //         expect(debtOfferCancelledLog).to.deep.equal(
-        //             LogDebtOfferCancelled(
-        //                 creditorProxy.address,
-        //                 debtOffer.getCreditor(),
-        //                 debtOffer.getCreditorCommitmentHash(),
-        //             ),
-        //         );
-        //     });
-        //
-        //     it("should return the debt offer as cancelled", async () => {
-        //         await expect(
-        //             creditorProxy.debtOfferCancelled.callAsync(
-        //                 debtOffer.getCreditorCommitmentHash(),
-        //             ),
-        //         ).to.eventually.be.true;
-        //     });
-        // });
     });
 
     describe("#fill as debtor", () => {
