@@ -347,148 +347,148 @@ contract("Creditor Proxy (Unit Tests)", async (ACCOUNTS) => {
             };
         };
 
-        // describe("User fills valid for one times, consentual debt offer", () => {
-        //     describe(
-        //         "...with underwriter and relayer",
-        //         testOfferFill(CONTRACT_OWNER, async () => {
-        //             creditorOffer = new CreditorOffer(defaultOfferParams);
-        //             signedCreditorOffer = await creditorOffer.getSignedCreditorOffer(web3, DEBTOR_1, defaultFillAmout);
-        //         }),
-        //     );
-        //
-        //     describe(
-        //         "...with no principal and no creditor / debtor fees",
-        //         testOfferFill(CONTRACT_OWNER, async () => {
-        //             const params = _.clone(defaultOfferParams);
-        //             Object.assign(params, {
-        //                 creditorFee: new BigNumber(0),
-        //                 debtorFee: new BigNumber(0),
-        //                 principalAmount: new BigNumber(0),
-        //                 relayer: NULL_ADDRESS,
-        //                 relayerFee: new BigNumber(0),
-        //                 underwriter: NULL_ADDRESS,
-        //                 underwriterFee: new BigNumber(0),
-        //                 underwriterRiskRating: new BigNumber(0),
-        //                 minPrincipalAmount: new BigNumber(0),
-        //             });
-        //
-        //             creditorOffer = new CreditorOffer(params);
-        //             signedCreditorOffer = await creditorOffer.getSignedCreditorOffer(web3, DEBTOR_1, new BigNumber(0));
-        //         }),
-        //     );
-        //
-        //     describe(
-        //         "...with no principal and nonzero creditor fee",
-        //         testOfferFill(CONTRACT_OWNER, async () => {
-        //             const params = _.clone(defaultOfferParams);
-        //             Object.assign(params, {
-        //                 creditorFee: Units.ether(0.002),
-        //                 debtorFee: new BigNumber(0),
-        //                 principalAmount: new BigNumber(0),
-        //                 relayer: NULL_ADDRESS,
-        //                 relayerFee: new BigNumber(0),
-        //                 underwriter: UNDERWRITER,
-        //                 underwriterFee: Units.ether(0.002),
-        //                 minPrincipalAmount: new BigNumber(0),
-        //             });
-        //
-        //             creditorOffer = new CreditorOffer(params);
-        //             signedCreditorOffer = await creditorOffer.getSignedCreditorOffer(web3, DEBTOR_2, new BigNumber(0));
-        //         }),
-        //     );
-        //
-        //     describe(
-        //         "...when creditor and debtor are same address",
-        //         testOfferFill(CONTRACT_OWNER, async () => {
-        //             const params = _.clone(defaultOfferParams);
-        //             Object.assign(params, {
-        //                 creditorFee: Units.ether(0.002),
-        //                 debtorFee: new BigNumber(0),
-        //                 principalAmount: new BigNumber(0),
-        //                 relayer: NULL_ADDRESS,
-        //                 relayerFee: new BigNumber(0),
-        //                 underwriter: UNDERWRITER,
-        //                 underwriterFee: Units.ether(0.002),
-        //                 minPrincipalAmount: new BigNumber(0),
-        //             });
-        //
-        //             creditorOffer = new CreditorOffer(params);
-        //             signedCreditorOffer = await creditorOffer.getSignedCreditorOffer(web3, CREDITOR_1, new BigNumber(0));
-        //         }),
-        //     );
-        // });
+        describe("User fills valid for one times, consentual debt offer", () => {
+            describe(
+                "...with underwriter and relayer",
+                testOfferFill(CONTRACT_OWNER, async () => {
+                    creditorOffer = new CreditorOffer(defaultOfferParams);
+                    signedCreditorOffer = await creditorOffer.getSignedCreditorOffer(web3, DEBTOR_1, defaultFillAmout);
+                }),
+            );
 
-        // describe("User fills valid for multiple times, consentual debt offer", () => {
-        //     describe(
-        //         "...with underwriter and relayer first time",
-        //         testOfferFill(CONTRACT_OWNER, async () => {
-        //             creditorOffer = new CreditorOffer(defaultOfferParams);
-        //             signedCreditorOffer = await creditorOffer.getSignedCreditorOffer(web3, DEBTOR_1, defaultFillAmout);
-        //         }),
-        //     );
-        //     describe(
-        //         "...with underwriter and relayer second times",
-        //         testOfferFill(CONTRACT_OWNER, async () => {
-        //             signedCreditorOffer = await creditorOffer.getSignedCreditorOffer(web3, DEBTOR_1, defaultFillAmout);
-        //         }),
-        //     );
-        //     describe(
-        //         "...with underwriter and relayer third times",
-        //         testOfferFill(CONTRACT_OWNER, async () => {
-        //             signedCreditorOffer = await creditorOffer.getSignedCreditorOffer(web3, DEBTOR_1, defaultFillAmout);
-        //         }),
-        //     );
-        // });
+            describe(
+                "...with no principal and no creditor / debtor fees",
+                testOfferFill(CONTRACT_OWNER, async () => {
+                    const params = _.clone(defaultOfferParams);
+                    Object.assign(params, {
+                        creditorFee: new BigNumber(0),
+                        debtorFee: new BigNumber(0),
+                        principalAmount: new BigNumber(0),
+                        relayer: NULL_ADDRESS,
+                        relayerFee: new BigNumber(0),
+                        underwriter: NULL_ADDRESS,
+                        underwriterFee: new BigNumber(0),
+                        underwriterRiskRating: new BigNumber(0),
+                        minPrincipalAmount: new BigNumber(0),
+                    });
 
-        // describe("User fills invalid debt offer", () => {
-        //     describe("...when creditor has granted transfer proxy insufficient allowance", () => {
-        //         before(async () => {
-        //             creditorOffer = new CreditorOffer(defaultOfferParams);
-        //             signedCreditorOffer = await creditorOffer.getSignedCreditorOffer(web3, DEBTOR_1, defaultFillAmout);
-        //             await setupMocks();
-        //             await mockPrincipalToken.mockAllowanceFor.sendTransactionAsync(
-        //                 signedCreditorOffer.getCreditor(),
-        //                 mockTokenTransferProxy.address,
-        //                 signedCreditorOffer
-        //                     .getFillAmount()
-        //                     .plus(signedCreditorOffer.getCreditorFee())
-        //                     .minus(Units.ether(0.01)),
-        //             );
-        //         });
-        //         it("should return CREDITOR_BALANCE_OR_ALLOWANCE_INSUFFICIENT error", async () => {
-        //             await testShouldReturnError(
-        //                 signedCreditorOffer,
-        //                 CreditorProxyErrorCodes.CREDITOR_BALANCE_OR_ALLOWANCE_INSUFFICIENT,
-        //             );
-        //         });
-        //     });
-        //
-        //     describe("...when creditor has insufficient balance", () => {
-        //         before(async () => {
-        //             creditorOffer = new CreditorOffer(defaultOfferParams);
-        //             signedCreditorOffer = await creditorOffer.getSignedCreditorOffer(web3, DEBTOR_1, defaultFillAmout);
-        //             await setupMocks();
-        //             await mockPrincipalToken.mockBalanceOfFor.sendTransactionAsync(
-        //                 signedCreditorOffer.getCreditor(),
-        //                 signedCreditorOffer
-        //                     .getFillAmount()
-        //                     .plus(signedCreditorOffer.getCreditorFee())
-        //                     .minus(Units.ether(0.01)),
-        //             );
-        //         });
-        //         it("should return CREDITOR_BALANCE_OR_ALLOWANCE_INSUFFICIENT error", async () => {
-        //             await testShouldReturnError(
-        //                 signedCreditorOffer,
-        //                 CreditorProxyErrorCodes.CREDITOR_BALANCE_OR_ALLOWANCE_INSUFFICIENT,
-        //             );
-        //         });
-        //     });
-        //
-        //     describe("...when debt offer remain is not enough", () => {});
-        //
-        //     describe("...when debt offer has been cancelled", () => {});
-        //
-        // });
+                    creditorOffer = new CreditorOffer(params);
+                    signedCreditorOffer = await creditorOffer.getSignedCreditorOffer(web3, DEBTOR_1, new BigNumber(0));
+                }),
+            );
+
+            describe(
+                "...with no principal and nonzero creditor fee",
+                testOfferFill(CONTRACT_OWNER, async () => {
+                    const params = _.clone(defaultOfferParams);
+                    Object.assign(params, {
+                        creditorFee: Units.ether(0.002),
+                        debtorFee: new BigNumber(0),
+                        principalAmount: new BigNumber(0),
+                        relayer: NULL_ADDRESS,
+                        relayerFee: new BigNumber(0),
+                        underwriter: UNDERWRITER,
+                        underwriterFee: Units.ether(0.002),
+                        minPrincipalAmount: new BigNumber(0),
+                    });
+
+                    creditorOffer = new CreditorOffer(params);
+                    signedCreditorOffer = await creditorOffer.getSignedCreditorOffer(web3, DEBTOR_1, new BigNumber(0));
+                }),
+            );
+
+            describe(
+                "...when creditor and debtor are same address",
+                testOfferFill(CONTRACT_OWNER, async () => {
+                    const params = _.clone(defaultOfferParams);
+                    Object.assign(params, {
+                        creditorFee: Units.ether(0.002),
+                        debtorFee: new BigNumber(0),
+                        principalAmount: new BigNumber(0),
+                        relayer: NULL_ADDRESS,
+                        relayerFee: new BigNumber(0),
+                        underwriter: UNDERWRITER,
+                        underwriterFee: Units.ether(0.002),
+                        minPrincipalAmount: new BigNumber(0),
+                    });
+
+                    creditorOffer = new CreditorOffer(params);
+                    signedCreditorOffer = await creditorOffer.getSignedCreditorOffer(web3, CREDITOR_1, new BigNumber(0));
+                }),
+            );
+        });
+
+        describe("User fills valid for multiple times, consentual debt offer", () => {
+            describe(
+                "...with underwriter and relayer first time",
+                testOfferFill(CONTRACT_OWNER, async () => {
+                    creditorOffer = new CreditorOffer(defaultOfferParams);
+                    signedCreditorOffer = await creditorOffer.getSignedCreditorOffer(web3, DEBTOR_1, defaultFillAmout);
+                }),
+            );
+            describe(
+                "...with underwriter and relayer second times",
+                testOfferFill(CONTRACT_OWNER, async () => {
+                    signedCreditorOffer = await creditorOffer.getSignedCreditorOffer(web3, DEBTOR_1, defaultFillAmout);
+                }),
+            );
+            describe(
+                "...with underwriter and relayer third times",
+                testOfferFill(CONTRACT_OWNER, async () => {
+                    signedCreditorOffer = await creditorOffer.getSignedCreditorOffer(web3, DEBTOR_1, defaultFillAmout);
+                }),
+            );
+        });
+
+        describe("User fills invalid debt offer", () => {
+            describe("...when creditor has granted transfer proxy insufficient allowance", () => {
+                before(async () => {
+                    creditorOffer = new CreditorOffer(defaultOfferParams);
+                    signedCreditorOffer = await creditorOffer.getSignedCreditorOffer(web3, DEBTOR_1, defaultFillAmout);
+                    await setupMocks();
+                    await mockPrincipalToken.mockAllowanceFor.sendTransactionAsync(
+                        signedCreditorOffer.getCreditor(),
+                        mockTokenTransferProxy.address,
+                        signedCreditorOffer
+                            .getFillAmount()
+                            .plus(signedCreditorOffer.getCreditorFee())
+                            .minus(Units.ether(0.01)),
+                    );
+                });
+                it("should return CREDITOR_BALANCE_OR_ALLOWANCE_INSUFFICIENT error", async () => {
+                    await testShouldReturnError(
+                        signedCreditorOffer,
+                        CreditorProxyErrorCodes.CREDITOR_BALANCE_OR_ALLOWANCE_INSUFFICIENT,
+                    );
+                });
+            });
+
+            describe("...when creditor has insufficient balance", () => {
+                before(async () => {
+                    creditorOffer = new CreditorOffer(defaultOfferParams);
+                    signedCreditorOffer = await creditorOffer.getSignedCreditorOffer(web3, DEBTOR_1, defaultFillAmout);
+                    await setupMocks();
+                    await mockPrincipalToken.mockBalanceOfFor.sendTransactionAsync(
+                        signedCreditorOffer.getCreditor(),
+                        signedCreditorOffer
+                            .getFillAmount()
+                            .plus(signedCreditorOffer.getCreditorFee())
+                            .minus(Units.ether(0.01)),
+                    );
+                });
+                it("should return CREDITOR_BALANCE_OR_ALLOWANCE_INSUFFICIENT error", async () => {
+                    await testShouldReturnError(
+                        signedCreditorOffer,
+                        CreditorProxyErrorCodes.CREDITOR_BALANCE_OR_ALLOWANCE_INSUFFICIENT,
+                    );
+                });
+            });
+
+            describe("...when debt offer remain is not enough", () => {});
+
+            describe("...when debt offer has been cancelled", () => {});
+
+        });
 
         describe("User fills nonconsensual debt offer", () => {
             before(async () => {

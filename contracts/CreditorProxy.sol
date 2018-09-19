@@ -177,7 +177,7 @@ contract CreditorProxy is Pausable {
 
         orderAddresses[1] = debtor;
 
-        bytes32 agreementId = contractRegistry.debtKernel().fillDebtOrder(
+        bytes32 agreementId = contractRegistry.debtKernel().fillDebtOrderAsProxy(
             address(this),
             orderAddresses,
             [
@@ -195,18 +195,17 @@ contract CreditorProxy is Pausable {
             signaturesR,
             signaturesS
         );
-        LogByte(agreementId);
-//        require(agreementId != NULL_ISSUANCE_HASH);
+        require(agreementId != NULL_ISSUANCE_HASH);
 
-        // 5. transfer debt token to real creditor
-//        contractRegistry.debtToken().transfer(creditor, uint256(agreementId));
+//         5. transfer debt token to real creditor
+        contractRegistry.debtToken().transfer(creditor, uint256(agreementId));
 
-        // 6. record the orderRemain
-//        orderRemain[commitmentHash].remain = orderRemain[commitmentHash].remain.sub(fillAmount);
-//
-        // 7. log
-//        LogDebtOfferFilled(creditor, commitmentHash, orderRemain[commitmentHash].remain);
-//
+//         6. record the orderRemain
+        orderRemain[commitmentHash].remain = orderRemain[commitmentHash].remain.sub(fillAmount);
+
+//         7. log
+        LogDebtOfferFilled(creditor, commitmentHash, orderRemain[commitmentHash].remain);
+
         return agreementId;
 
 

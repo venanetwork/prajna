@@ -240,6 +240,87 @@ contract DebtKernel is Pausable {
         return debtOrder.issuance.agreementId;
     }
 
+    function fillDebtOrderAsProxy(
+        address creditor,
+        address[6] orderAddresses,
+        uint[8] orderValues,
+        bytes32[1] orderBytes32,
+        uint8[3] signaturesV,
+        bytes32[3] signaturesR,
+        bytes32[3] signaturesS
+    )
+    public
+    whenNotPaused
+    returns (bytes32 _agreementId)
+    {
+        DebtOrder memory debtOrder = getDebtOrder(orderAddresses, orderValues, orderBytes32);
+
+        // Jump over signature check since proxy have already check this.
+        if (!assertDebtOrderValidityInvariants(debtOrder) || !assertExternalBalanceAndAllowanceInvariants(creditor, debtOrder)) {
+            return NULL_ISSUANCE_HASH;
+        }
+
+        // Mint debt token and finalize debt agreement
+        issueDebtAgreement(creditor, debtOrder.issuance);
+
+        // Register debt agreement's start with terms contract
+        // We permit terms contracts to be undefined (for debt agreements which
+        // may not have terms contracts associated with them), and only
+        // register a term's start if the terms contract address is defined.
+        if (debtOrder.issuance.termsContract != address(0)) {
+            require(
+                TermsContract(debtOrder.issuance.termsContract)
+                .registerTermStart(
+                    debtOrder.issuance.agreementId,
+                    debtOrder.issuance.debtor
+                )
+            );
+        }
+
+        // Transfer principal to debtor
+        if (debtOrder.principalAmount > 0) {
+            require(transferTokensFrom(
+                    debtOrder.principalToken,
+                    creditor,
+                    debtOrder.issuance.debtor,
+                    debtOrder.principalAmount.sub(debtOrder.debtorFee)
+                ));
+        }
+
+        // Transfer underwriter fee to underwriter
+        if (debtOrder.underwriterFee > 0) {
+            require(transferTokensFrom(
+                    debtOrder.principalToken,
+                    creditor,
+                    debtOrder.issuance.underwriter,
+                    debtOrder.underwriterFee
+                ));
+        }
+
+        // Transfer relayer fee to relayer
+        if (debtOrder.relayerFee > 0) {
+            require(transferTokensFrom(
+                    debtOrder.principalToken,
+                    creditor,
+                    debtOrder.relayer,
+                    debtOrder.relayerFee
+                ));
+        }
+
+        LogDebtOrderFilled(
+            debtOrder.issuance.agreementId,
+            debtOrder.principalAmount,
+            debtOrder.principalToken,
+            debtOrder.issuance.underwriter,
+            debtOrder.underwriterFee,
+            debtOrder.relayer,
+            debtOrder.relayerFee,
+            debtOrder.debtOrderHash
+        );
+
+        return debtOrder.issuance.agreementId;
+    }
+
     /**
      * Allows both underwriters and debtors to prevent a debt
      * issuance in which they're involved from being used in
