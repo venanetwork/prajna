@@ -27,6 +27,7 @@ contract MockDebtKernel is MockContract {
         public
     {
         mockReturnValue("fillDebtOrder", DEFAULT_SIGNATURE_ARGS, bytes32(_agreementId));
+        mockReturnValue("fillDebtOrderAsProxy", DEFAULT_SIGNATURE_ARGS, bytes32(_agreementId));
     }
 
     function fillDebtOrder(
@@ -54,7 +55,57 @@ contract MockDebtKernel is MockContract {
         return getMockReturnValue("fillDebtOrder", DEFAULT_SIGNATURE_ARGS);
     }
 
+    function fillDebtOrderAsProxy(
+        address creditor,
+        address[6] orderAddresses,
+        uint[8] orderValues,
+        bytes32[1] orderBytes32,
+        uint8[3] signaturesV,
+        bytes32[3] signaturesR,
+        bytes32[3] signaturesS
+    )
+    public
+    returns (bytes32 _agreementId)
+    {
+        bytes32 argsSignature = keccak256(
+            creditor,
+            orderAddresses,
+            orderValues,
+            orderBytes32,
+            signaturesV,
+            signaturesR,
+            signaturesS
+        );
+        functionCalledWithArgs("fillDebtOrderAsProxy", argsSignature);
+        return getMockReturnValue("fillDebtOrderAsProxy", DEFAULT_SIGNATURE_ARGS);
+    }
+
     function wasFillDebtOrderCalledWith(
+        address creditor,
+        address[6] orderAddresses,
+        uint[8] orderValues,
+        bytes32[1] orderBytes32,
+        uint8[3] signaturesV,
+        bytes32[3] signaturesR,
+        bytes32[3] signaturesS
+    )
+    public
+    view
+    returns (bool wasCalled)
+    {
+        bytes32 argsSignature = keccak256(
+            creditor,
+            orderAddresses,
+            orderValues,
+            orderBytes32,
+            signaturesV,
+            signaturesR,
+            signaturesS
+        );
+        return wasFunctionCalledWithArgs("fillDebtOrder", argsSignature);
+    }
+
+    function wasFillDebtOrderAsProxyCalledWith(
         address creditor,
         address[6] orderAddresses,
         uint[8] orderValues,
@@ -76,7 +127,7 @@ contract MockDebtKernel is MockContract {
             signaturesR,
             signaturesS
         );
-        return wasFunctionCalledWithArgs("fillDebtOrder", argsSignature);
+        return wasFunctionCalledWithArgs("fillDebtOrderAsProxy", argsSignature);
     }
 
     function getFunctionList()
@@ -85,7 +136,7 @@ contract MockDebtKernel is MockContract {
     {
         return [
             "fillDebtOrder",
-            "",
+            "fillDebtOrderAsProxy",
             "",
             "",
             "",

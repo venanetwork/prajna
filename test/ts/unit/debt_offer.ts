@@ -157,7 +157,7 @@ contract("Creditor Proxy (Unit Tests)", async (ACCOUNTS) => {
 
         // Step 4: print all log for this contract
         var events = creditorProxyWeb3ContractInstance.allEvents();
-        events.watch((error, event) => {
+        events.watch((error: any, event: any) => {
             if (!error) {
                 console.log(event);
                 for (var k in event.args) {
@@ -251,6 +251,7 @@ contract("Creditor Proxy (Unit Tests)", async (ACCOUNTS) => {
                 let signedCreditorOfferFilledLog: ABIDecoder.DecodedLog;
 
                 before(async () => {
+                    debugger
                     await setupDebtOffer();
 
                     await setupMocks();
@@ -311,7 +312,7 @@ contract("Creditor Proxy (Unit Tests)", async (ACCOUNTS) => {
                     //     signedCreditorOffer.getSignaturesR(),
                     //     signedCreditorOffer.getSignaturesS(),)
                     await expect(
-                        mockDebtKernel.wasFillDebtOrderCalledWith.callAsync(
+                        mockDebtKernel.wasFillDebtOrderAsProxyCalledWith.callAsync(
                             creditorProxy.address,
                             signedCreditorOffer.getOrderAddressesForKernel(),
                             signedCreditorOffer.getOrderValuesForKernel(),

@@ -27,7 +27,6 @@ import { LogDebtOfferFilled, LogError } from "../logs/creditor_proxy";
 
 // Factories
 import { SimpleInterestParameters } from "../factories/terms_contract_parameters";
-import { DebtOfferFactory } from "../factories/debt_offer_factory";
 
 // Wrappers
 import { CreditorProxyContract } from "../../../types/generated/creditor_proxy";
@@ -160,7 +159,7 @@ contract("Creditor Proxy (Integration Tests)", async (ACCOUNTS) => {
         ABIDecoder.addABI(debtKernelArtifacts.abi);
 
         var events = creditorProxy.web3ContractInstance.allEvents();
-        events.watch((error, event) => {
+        events.watch((error: any, event: any) => {
             if (!error) {
                 console.log(event);
                 for (var k in event.args) {
@@ -299,6 +298,7 @@ contract("Creditor Proxy (Integration Tests)", async (ACCOUNTS) => {
                 let logs: ABIDecoder.DecodedLog[];
 
                 before(async () => {
+                    debugger
                     await setupDebtOffer();
                     await setupBalancesAndAllowances();
 
@@ -536,77 +536,77 @@ contract("Creditor Proxy (Integration Tests)", async (ACCOUNTS) => {
 
         before(reset);
 
-        // describe("User fills valid, consentual debt offer", () => {
-        //
-        //     describe(
-        //         "...with underwriter and relayer",
-        //         testOfferFill(CONTRACT_OWNER, async () => {
-        //             creditorOffer = new CreditorOffer(defaultOfferParams);
-        //             signedCreditorOffer = await creditorOffer.getSignedCreditorOffer(web3, DEBTOR_1, defaultFillAmout);
-        //         }),
-        //     );
-        //
-        //     describe(
-        //         "...with no principal and no creditor / debtor fees",
-        //         testOfferFill(CONTRACT_OWNER, async () => {
-        //             const params = _.clone(defaultOfferParams);
-        //             Object.assign(params, {
-        //                 creditorFee: new BigNumber(0),
-        //                 debtorFee: new BigNumber(0),
-        //                 principalAmount: new BigNumber(0),
-        //                 relayer: NULL_ADDRESS,
-        //                 relayerFee: new BigNumber(0),
-        //                 underwriter: NULL_ADDRESS,
-        //                 underwriterFee: new BigNumber(0),
-        //                 underwriterRiskRating: new BigNumber(0),
-        //                 minPrincipalAmount: new BigNumber(0),
-        //             });
-        //
-        //             creditorOffer = new CreditorOffer(params);
-        //             signedCreditorOffer = await creditorOffer.getSignedCreditorOffer(web3, DEBTOR_1, new BigNumber(0));
-        //         }),
-        //     );
-        //
-        //     describe(
-        //         "...with no principal and nonzero creditor fee",
-        //         testOfferFill(CONTRACT_OWNER, async () => {
-        //             const params = _.clone(defaultOfferParams);
-        //             Object.assign(params, {
-        //                 creditorFee: Units.ether(0.002),
-        //                 debtorFee: new BigNumber(0),
-        //                 principalAmount: new BigNumber(0),
-        //                 relayer: NULL_ADDRESS,
-        //                 relayerFee: new BigNumber(0),
-        //                 underwriter: UNDERWRITER,
-        //                 underwriterFee: Units.ether(0.002),
-        //                 minPrincipalAmount: new BigNumber(0),
-        //             });
-        //
-        //             creditorOffer = new CreditorOffer(params);
-        //             signedCreditorOffer = await creditorOffer.getSignedCreditorOffer(web3, DEBTOR_1, new BigNumber(0));
-        //         }),
-        //     );
-        //
-        //     describe(
-        //         "...when creditor and debtor are same address",
-        //         testOfferFill(CONTRACT_OWNER, async () => {
-        //             const params = _.clone(defaultOfferParams);
-        //             Object.assign(params, {
-        //                 creditorFee: Units.ether(0.002),
-        //                 debtorFee: new BigNumber(0),
-        //                 principalAmount: new BigNumber(0),
-        //                 relayer: NULL_ADDRESS,
-        //                 relayerFee: new BigNumber(0),
-        //                 underwriter: UNDERWRITER,
-        //                 underwriterFee: Units.ether(0.002),
-        //                 minPrincipalAmount: new BigNumber(0),
-        //             });
-        //
-        //             creditorOffer = new CreditorOffer(params);
-        //             signedCreditorOffer = await creditorOffer.getSignedCreditorOffer(web3, CREDITOR_1, new BigNumber(0));
-        //         }),
-        //     );
-        // });
+        describe("User fills valid, consentual debt offer", () => {
+
+            describe(
+                "...with underwriter and relayer",
+                testOfferFill(CONTRACT_OWNER, async () => {
+                    creditorOffer = new CreditorOffer(defaultOfferParams);
+                    signedCreditorOffer = await creditorOffer.getSignedCreditorOffer(web3, DEBTOR_1, defaultFillAmout);
+                }),
+            );
+
+            // describe(
+            //     "...with no principal and no creditor / debtor fees",
+            //     testOfferFill(CONTRACT_OWNER, async () => {
+            //         const params = _.clone(defaultOfferParams);
+            //         Object.assign(params, {
+            //             creditorFee: new BigNumber(0),
+            //             debtorFee: new BigNumber(0),
+            //             principalAmount: new BigNumber(0),
+            //             relayer: NULL_ADDRESS,
+            //             relayerFee: new BigNumber(0),
+            //             underwriter: NULL_ADDRESS,
+            //             underwriterFee: new BigNumber(0),
+            //             underwriterRiskRating: new BigNumber(0),
+            //             minPrincipalAmount: new BigNumber(0),
+            //         });
+            //
+            //         creditorOffer = new CreditorOffer(params);
+            //         signedCreditorOffer = await creditorOffer.getSignedCreditorOffer(web3, DEBTOR_1, new BigNumber(0));
+            //     }),
+            // );
+            //
+            // describe(
+            //     "...with no principal and nonzero creditor fee",
+            //     testOfferFill(CONTRACT_OWNER, async () => {
+            //         const params = _.clone(defaultOfferParams);
+            //         Object.assign(params, {
+            //             creditorFee: Units.ether(0.002),
+            //             debtorFee: new BigNumber(0),
+            //             principalAmount: new BigNumber(0),
+            //             relayer: NULL_ADDRESS,
+            //             relayerFee: new BigNumber(0),
+            //             underwriter: UNDERWRITER,
+            //             underwriterFee: Units.ether(0.002),
+            //             minPrincipalAmount: new BigNumber(0),
+            //         });
+            //
+            //         creditorOffer = new CreditorOffer(params);
+            //         signedCreditorOffer = await creditorOffer.getSignedCreditorOffer(web3, DEBTOR_1, new BigNumber(0));
+            //     }),
+            // );
+            //
+            // describe(
+            //     "...when creditor and debtor are same address",
+            //     testOfferFill(CONTRACT_OWNER, async () => {
+            //         const params = _.clone(defaultOfferParams);
+            //         Object.assign(params, {
+            //             creditorFee: Units.ether(0.002),
+            //             debtorFee: new BigNumber(0),
+            //             principalAmount: new BigNumber(0),
+            //             relayer: NULL_ADDRESS,
+            //             relayerFee: new BigNumber(0),
+            //             underwriter: UNDERWRITER,
+            //             underwriterFee: Units.ether(0.002),
+            //             minPrincipalAmount: new BigNumber(0),
+            //         });
+            //
+            //         creditorOffer = new CreditorOffer(params);
+            //         signedCreditorOffer = await creditorOffer.getSignedCreditorOffer(web3, CREDITOR_1, new BigNumber(0));
+            //     }),
+            // );
+        });
 
         // describe("User fills valid for multiple times, consentual debt offer", () => {
         //     describe(
@@ -688,43 +688,43 @@ contract("Creditor Proxy (Integration Tests)", async (ACCOUNTS) => {
         //     describe("...when debt kernel returns NULL_ISSUANCE_HASH", () => {});
         // });
 
-        describe("User fills nonconsensual debt offer", () => {
-            let mismatchedOffer: SignedDebtOffer;
-            before(async () => {
-                creditorOffer = new CreditorOffer(defaultOfferParams);
-                signedCreditorOffer = await creditorOffer.getSignedCreditorOffer(
-                    web3,
-                    DEBTOR_1,
-                    defaultFillAmout,
-                );
-                await setupBalancesAndAllowances();
-            });
-
-            describe("...when submitted by creditor *without* creditor signature attached", () => {
-
-                it("should return DEBT_OFFER_NON_CONSENSUAL error", async () => {
-                    await testShouldReturnError(
-                        signedCreditorOffer,
-                        CreditorProxyErrorCodes.DEBT_OFFER_NON_CONSENSUAL,
-                        [
-                            signedCreditorOffer.getSignaturesV()[0],
-                            null,
-                            signedCreditorOffer.getSignaturesV()[2],
-                        ],
-                        [
-                            signedCreditorOffer.getSignaturesR()[0],
-                            null,
-                            signedCreditorOffer.getSignaturesR()[2],
-                        ],
-                        [
-                            signedCreditorOffer.getSignaturesS()[0],
-                            null,
-                            signedCreditorOffer.getSignaturesS()[2],
-                        ],
-                    );
-                });
-            });
-
-        });
+        // describe("User fills nonconsensual debt offer", () => {
+        //     let mismatchedOffer: SignedDebtOffer;
+        //     before(async () => {
+        //         creditorOffer = new CreditorOffer(defaultOfferParams);
+        //         signedCreditorOffer = await creditorOffer.getSignedCreditorOffer(
+        //             web3,
+        //             DEBTOR_1,
+        //             defaultFillAmout,
+        //         );
+        //         await setupBalancesAndAllowances();
+        //     });
+        //
+        //     describe("...when submitted by creditor *without* creditor signature attached", () => {
+        //
+        //         it("should return DEBT_OFFER_NON_CONSENSUAL error", async () => {
+        //             await testShouldReturnError(
+        //                 signedCreditorOffer,
+        //                 CreditorProxyErrorCodes.DEBT_OFFER_NON_CONSENSUAL,
+        //                 [
+        //                     signedCreditorOffer.getSignaturesV()[0],
+        //                     null,
+        //                     signedCreditorOffer.getSignaturesV()[2],
+        //                 ],
+        //                 [
+        //                     signedCreditorOffer.getSignaturesR()[0],
+        //                     null,
+        //                     signedCreditorOffer.getSignaturesR()[2],
+        //                 ],
+        //                 [
+        //                     signedCreditorOffer.getSignaturesS()[0],
+        //                     null,
+        //                     signedCreditorOffer.getSignaturesS()[2],
+        //                 ],
+        //             );
+        //         });
+        //     });
+        //
+        // });
     });
 });

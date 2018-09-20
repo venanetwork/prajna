@@ -195,6 +195,8 @@ contract CreditorProxy is Pausable {
             signaturesR,
             signaturesS
         );
+
+//        LogByte(agreementId);
         require(agreementId != NULL_ISSUANCE_HASH);
 
 //         5. transfer debt token to real creditor
@@ -251,23 +253,6 @@ contract CreditorProxy is Pausable {
     {
         // the keccak256 method has a limited number of arguments, add debtorFee will make compiler complain about a too deep stack.
         // so the debtorFee will not included
-//        bytes memory a = abi.encodePacked(
-//            orderAddresses[0],
-//            orderAddresses[1],
-//            orderAddresses[2],
-//            orderAddresses[3],
-//            orderAddresses[4],
-//            orderAddresses[5],
-//            orderValues[2],
-//            orderValues[3],
-//            orderValues[4],
-//            orderValues[5],
-//            orderValues[7],
-//            orderValues[8],
-//            termsContractParameters[0]
-//        );
-//        bytes32 b = keccak256(a);
-//        LogByte(b);
 
         bytes memory c1 = abi.encodePacked(
             orderAddresses[0],
@@ -291,7 +276,6 @@ contract CreditorProxy is Pausable {
             termsContractParameters[0]
         );
         bytes32 c3 = keccak256(c1, c2);
-//        LogByte(c3);
         return c3;
     }
 
