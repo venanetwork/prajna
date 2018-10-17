@@ -46,7 +46,7 @@ class Prajna {
         }
 
         this.contracts = new ContractsAPI(this.web3, addressBook);
-        this.order = new OrderAPI(this.web3, this.contracts, this.adapters);
+        // this.order = new OrderAPI(this.web3, this.contracts, this.adapters);
 
         // this.servicing = new ServicingAPI(this.web3, this.contracts);
         // this.sign = new SignerAPI(this.web3, this.contracts);

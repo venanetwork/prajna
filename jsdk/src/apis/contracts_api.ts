@@ -38,7 +38,7 @@ import {
 } from "../../utils/constants";
 
 // types
-import { AddressBook } from "../../types/address_book";
+import { AddressBook } from "../types/address_book";
 
 export interface DharmaContracts {
     debtKernel: DebtKernelContract;
