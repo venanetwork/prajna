@@ -1,17 +1,20 @@
-import { BaseContract } from "../base_contract";
-import { CollateralizedSimpleInterestTermsContractContract } from "../generated/collateralized_simple_interest_terms_contract";
-import { CollateralizerContract } from "../generated/collateralizer";
-import { ContractRegistryContract } from "../generated/contract_registry";
-import { DebtKernelContract } from "../generated/debt_kernel";
-import { DebtRegistryContract } from "../generated/debt_registry";
-import { DebtTokenContract } from "../generated/debt_token";
-import { DummyTokenContract } from "../generated/dummy_token";
-import { ERC20Contract } from "../generated/erc20";
-import { RepaymentRouterContract } from "../generated/repayment_router";
-import { SimpleInterestTermsContractContract } from "../generated/simple_interest_terms_contract";
-import { TermsContractContract } from "../generated/terms_contract";
-import { TokenRegistryContract } from "../generated/token_registry";
-import { TokenTransferProxyContract } from "../generated/token_transfer_proxy";
+import { BaseContract } from "./contract_wrappers/base_contract_wrapper";
+import { CollateralizedSimpleInterestTermsContractContract } from "./contract_wrappers/collateralized_simple_interest_terms_contract_wrapper";
+import { CollateralizerContract } from "./contract_wrappers/collateralizer_wrapper";
+import { ContractRegistryContract } from "./contract_wrappers/contract_registry_wrapper";
+import { DebtKernelContract } from "./contract_wrappers/debt_kernel_wrapper";
+import { DebtRegistryContract } from "./contract_wrappers/debt_registry_wrapper";
+import { DebtTokenContract } from "./contract_wrappers/debt_token_wrapper";
+import { DummyTokenContract } from "./contract_wrappers/dummy_token_wrapper";
+import { ERC20Contract } from "./contract_wrappers/erc20_wrapper";
+import { ERC721ReceiverContract } from "./contract_wrappers/erc721_receiver_wrapper";
+import { MockERC721ReceiverContract } from "./contract_wrappers/mock_erc721_receiver_wrapper";
+import { RepaymentRouterContract } from "./contract_wrappers/repayment_router_wrapper";
+import { SimpleInterestTermsContractContract } from "./contract_wrappers/simple_interest_terms_contract_wrapper";
+import { TermsContract } from "./contract_wrappers/terms_contract_wrapper";
+import { TokenRegistryContract } from "./contract_wrappers/token_registry_wrapper";
+import { TokenTransferProxyContract } from "./contract_wrappers/token_transfer_proxy_wrapper";
+import { DebtOrderDataWrapper } from "./debt_order_data_wrapper";
 
 export type ContractWrapper =
     | DebtKernelContract
@@ -19,16 +22,19 @@ export type ContractWrapper =
     | DebtTokenContract
     | TokenTransferProxyContract
     | ERC20Contract
+    | ERC721ReceiverContract
+    | MockERC721ReceiverContract
     | RepaymentRouterContract
     | SimpleInterestTermsContractContract
     | CollateralizedSimpleInterestTermsContractContract
-    | TermsContractContract
+    | TermsContract
     | TokenRegistryContract
     | CollateralizerContract
     | ContractRegistryContract;
 
 export {
     BaseContract,
+    DebtOrderDataWrapper,
     DebtKernelContract,
     DebtRegistryContract,
     DebtTokenContract,
@@ -36,7 +42,9 @@ export {
     TokenRegistryContract,
     TokenTransferProxyContract,
     ERC20Contract,
-    TermsContractContract,
+    ERC721ReceiverContract,
+    MockERC721ReceiverContract,
+    TermsContract,
     SimpleInterestTermsContractContract,
     CollateralizedSimpleInterestTermsContractContract,
     RepaymentRouterContract,

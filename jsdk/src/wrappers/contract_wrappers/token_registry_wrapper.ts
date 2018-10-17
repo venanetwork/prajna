@@ -3,7 +3,7 @@
  * Templates can be found at https://github.com/0xProject/0x.js/tree/development/packages/abi-gen-templates.
  */
 // tslint:disable-next-line:no-unused-variable
-import { TokenRegistry as ContractArtifacts } from "@dharmaprotocol/contracts";
+import { TokenRegistry as ContractArtifacts } from "prajna";
 import * as promisify from "tiny-promisify";
 import * as Web3 from "web3";
 import { BigNumber } from "../../../utils/bignumber";

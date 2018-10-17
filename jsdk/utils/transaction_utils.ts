@@ -5,7 +5,7 @@ import * as promisify from "tiny-promisify";
 import * as Web3 from "web3";
 import { Web3Utils } from "./web3_utils";
 
-import { ContractsAPI } from "../src/apis";
+import { ContractsAPI } from "../src/apis/contracts_api";
 import { DEBT_ORDER_DATA_DEFAULTS, DebtOrderData, TxData } from "../src/types";
 
 function filterMethodABI(abi: any[]): Web3.MethodAbi[] {

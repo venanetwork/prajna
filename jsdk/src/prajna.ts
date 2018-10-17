@@ -2,21 +2,21 @@ import * as Web3 from "web3";
 
 import {
     ContractsAPI,
-    OrderAPI,
+    // OrderAPI,
     // AdaptersAPI,
     // BlockchainAPI,
     // LogsAPI,
     // ServicingAPI,
     // SignerAPI,
     // TokenAPI,
-} from "./apis";
+} from "./apis/contracts_api";
 
 import * as DharmaTypes from "./types";
 
 class Prajna {
     public static Types = DharmaTypes;
 
-    public order: OrderAPI;
+    // public order: OrderAPI;
     public contracts: ContractsAPI;
     // public sign: SignerAPI;
     // public adapters: AdaptersAPI;

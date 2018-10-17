@@ -16,10 +16,10 @@ import {
     ERC20Contract,
     RepaymentRouterContract,
     SimpleInterestTermsContractContract,
-    TermsContractContract,
+    TermsContract,
     TokenRegistryContract,
     TokenTransferProxyContract,
-} from "../../../types/wrappers";
+} from "../wrappers";
 
 // utils
 import {
@@ -38,7 +38,7 @@ import {
 } from "../../utils/constants";
 
 // types
-import { AddressBook } from "../types/address_book";
+import { AddressBook } from "../types";
 
 export interface DharmaContracts {
     debtKernel: DebtKernelContract;
@@ -68,6 +68,7 @@ export class ContractsAPI {
     public constructor(web3: Web3, addressBook: AddressBook = {}) {
         this.web3 = web3;
         this.addressBook = addressBook;
+
         this.cache = {};
     }
 
@@ -261,7 +262,7 @@ export class ContractsAPI {
         if (TOKEN_TRANSFER_PROXY_CONTRACT_CACHE_KEY in this.cache) {
             return this.cache[
                 TOKEN_TRANSFER_PROXY_CONTRACT_CACHE_KEY
-            ] as TokenTransferProxyContract;
+                ] as TokenTransferProxyContract;
         }
 
         let tokenTransferProxy: TokenTransferProxyContract;
@@ -306,11 +307,11 @@ export class ContractsAPI {
     public async loadTermsContractAsync(
         termsContractAddress: string,
         transactionOptions: object = {},
-    ): Promise<TermsContractContract> {
+    ): Promise<TermsContract> {
         const cacheKey = this.getTermsContractCacheKey(termsContractAddress);
 
         if (cacheKey in this.cache) {
-            return this.cache[cacheKey] as TermsContractContract;
+            return this.cache[cacheKey] as TermsContract;
         } else {
             const termsContract = await TermsContract.at(
                 termsContractAddress,
@@ -338,7 +339,7 @@ export class ContractsAPI {
 
         const addressToContractType = {
             [collateralizedSimpleInterestTermsContract.address]:
-                TERMS_CONTRACT_TYPES.COLLATERALIZED_SIMPLE_INTEREST_LOAN,
+            TERMS_CONTRACT_TYPES.COLLATERALIZED_SIMPLE_INTEREST_LOAN,
             [simpleInterestTermsContract.address]: TERMS_CONTRACT_TYPES.SIMPLE_INTEREST_LOAN,
         };
 
@@ -357,7 +358,7 @@ export class ContractsAPI {
         if (SIMPLE_INTEREST_TERMS_CONTRACT_CACHE_KEY in this.cache) {
             return this.cache[
                 SIMPLE_INTEREST_TERMS_CONTRACT_CACHE_KEY
-            ] as SimpleInterestTermsContractContract;
+                ] as SimpleInterestTermsContractContract;
         }
 
         let simpleInterestTermsContract: SimpleInterestTermsContractContract;
@@ -386,7 +387,7 @@ export class ContractsAPI {
         if (COLLATERALIZED_SIMPLE_INTEREST_TERMS_CONTRACT_CACHE_KEY in this.cache) {
             return this.cache[
                 COLLATERALIZED_SIMPLE_INTEREST_TERMS_CONTRACT_CACHE_KEY
-            ] as CollateralizedSimpleInterestTermsContractContract;
+                ] as CollateralizedSimpleInterestTermsContractContract;
         }
 
         let collateralizedSimpleInterestTermsContract: CollateralizedSimpleInterestTermsContractContract;
@@ -406,7 +407,7 @@ export class ContractsAPI {
 
         this.cache[
             COLLATERALIZED_SIMPLE_INTEREST_TERMS_CONTRACT_CACHE_KEY
-        ] = collateralizedSimpleInterestTermsContract;
+            ] = collateralizedSimpleInterestTermsContract;
 
         return collateralizedSimpleInterestTermsContract;
     }

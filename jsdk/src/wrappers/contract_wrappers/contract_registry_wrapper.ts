@@ -9,7 +9,7 @@ import { TxData } from "../../types";
 
 import { BaseContract, CONTRACT_WRAPPER_ERRORS } from "./base_contract_wrapper";
 
-import { ContractRegistry as ContractArtifacts } from "@dharmaprotocol/contracts";
+import { ContractRegistry as ContractArtifacts } from "prajna";
 
 export class ContractRegistryContract extends BaseContract {
     public static async deployed(
