@@ -70,7 +70,6 @@
     "left-pad": "^1.2.0",
     "lodash": "^4.17.4",
     "moment": "^2.20.1",
-    "pre-commit": "^1.2.2",
     "prettier": "^1.10.2",
     "solhint": "^1.1.8",
     "solidity-sha3": "^0.4.1",
