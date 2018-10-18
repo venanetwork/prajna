@@ -9,7 +9,7 @@ import {
     CollateralizedSimpleInterestTermsContractContract,
     CollateralizerContract,
     ContractRegistryContract,
-    ContractWrapper,
+    ContractWrapper, CreditorProxyContract,
     DebtKernelContract,
     DebtRegistryContract,
     DebtTokenContract,
@@ -19,7 +19,7 @@ import {
     TermsContract,
     TokenRegistryContract,
     TokenTransferProxyContract,
-} from "../wrappers";
+} from '../wrappers';
 
 // utils
 import {
@@ -47,6 +47,7 @@ export interface DharmaContracts {
     repaymentRouter: RepaymentRouterContract;
     tokenTransferProxy: TokenTransferProxyContract;
     collateralizer: CollateralizerContract;
+    creditorProxy: CreditorProxyContract;
 }
 
 export const ContractsError = {
@@ -81,6 +82,7 @@ export class ContractsAPI {
         const repaymentRouter = await this.loadRepaymentRouterAsync(transactionOptions);
         const tokenTransferProxy = await this.loadTokenTransferProxyAsync(transactionOptions);
         const collateralizer = await this.loadCollateralizerAsync(transactionOptions);
+        const creditorProxy = await this.loadCreditorProxyAsync(transactionOptions);
 
         return {
             debtKernel,
@@ -89,6 +91,7 @@ export class ContractsAPI {
             repaymentRouter,
             tokenTransferProxy,
             collateralizer,
+            creditorProxy,
         };
     }
 
@@ -437,6 +440,30 @@ export class ContractsAPI {
         this.cache[TOKEN_REGISTRY_CONTRACT_CACHE_KEY] = tokenRegistryContract;
 
         return tokenRegistryContract;
+    }
+
+    public async loadCreditorProxyAsync(
+        transactionOptions: object = {},
+    ): Promise<CreditorProxyContract> {
+        if ("CreditorProxy" in this.cache) {
+            return this.cache["CreditorProxy"] as CreditorProxyContract;
+        }
+
+        let contract: CreditorProxyContract;
+
+        if (this.addressBook.creditorProxyAddress) {
+            contract = await CreditorProxyContract.at(
+                this.addressBook.creditorProxyAddress,
+                this.web3,
+                transactionOptions,
+            );
+        } else {
+            contract = await CreditorProxyContract.deployed(this.web3, transactionOptions);
+        }
+
+        this.cache["CreditorProxy"] = contract;
+
+        return contract;
     }
 
     public async getTokenAddressBySymbolAsync(symbol: string): Promise<string> {

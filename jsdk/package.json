@@ -51,7 +51,7 @@
         "webpack": "^3.11.0"
     },
     "dependencies": {
-        "prajna": "file:../",
+        "prajna": "0.1.4",
         "@types/lodash": "^4.14.104",
         "abi-decoder": "https://github.com/dharmaprotocol/abi-decoder",
         "bignumber.js": "^5.0.0",

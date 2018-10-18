@@ -9,4 +9,5 @@ export interface AddressBook {
     simpleInterestTermsContractAddress?: string;
     collateralizedSimpleInterestTermsContractAddress?: string;
     collateralizerAddress?: string;
+    creditorProxyAddress?: string;
 }
