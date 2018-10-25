@@ -14,6 +14,6 @@ const p = new Prajna("http://localhost:8545")
 //     console.log('-----------------------')
 // });
 
-p.contracts.loadCreditorProxyAsync().then(x => {
-    console.log(x)
-});
+// p.contracts.loadCreditorProxyAsync().then(x => {
+//     console.log(x)
+// });
