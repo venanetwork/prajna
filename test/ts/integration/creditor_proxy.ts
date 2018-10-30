@@ -298,7 +298,6 @@ contract("Creditor Proxy (Integration Tests)", async (ACCOUNTS) => {
                 let logs: ABIDecoder.DecodedLog[];
 
                 before(async () => {
-                    debugger
                     await setupDebtOffer();
                     await setupBalancesAndAllowances();
 

@@ -11,10 +11,8 @@ export class OrderAPI {
         this.contracts = contracts;
     }
 
-
     // TODO: here we neeed on layer of wrapping, make params more simple
     public async createCreditorOffer(params: CreditorOfferParams): Promise<SignedCreditorOfferParams> {
-
         let creditorOffer = new CreditorOffer(params);
         return creditorOffer.getSignedCreditorOffer(this.web3);
     }
