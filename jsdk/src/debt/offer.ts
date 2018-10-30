@@ -33,7 +33,7 @@ export interface CreditorOfferParams {
 }
 
 // relayer store the signed SignedCreditorOffer
-export interface SignedCriditorOfferParams {
+export interface SignedCreditorOfferParams {
     kernelVersion: Address;
     creditor: Address;
     repaymentRouterVersion: Address;
@@ -227,7 +227,7 @@ export class CreditorOffer extends SignableMessage {
         web3: Web3,
         // debtor: Address,
         // fillAmount: BigNumber,
-    ): Promise<SignedCriditorOfferParams> {
+    ): Promise<SignedCreditorOfferParams> {
         const creditorSignature = this.params.creditor
             ? await this.getSignature(web3, this.params.creditor, this.getCreditorCommitmentHash())
             : NULL_SIGNATURE;

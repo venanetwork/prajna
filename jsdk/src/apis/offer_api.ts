@@ -1,7 +1,6 @@
-import * as Web3 from "web3";
+import * as Web3 from 'web3';
 import {ContractsAPI} from './contracts_api';
-import {CreditorOffer, SignedCreditorOffer} from '../debt/offer';
-import {CreditorOfferParams} from '../types/offer_schema';
+import {CreditorOffer, CreditorOfferParams, SignedCreditorOffer, SignedCreditorOfferParams} from '../debt/offer';
 
 export class OrderAPI {
     private web3: Web3;
@@ -14,10 +13,10 @@ export class OrderAPI {
 
 
     // TODO: here we neeed on layer of wrapping, make params more simple
-    public createCreditorOffer(params: CreditorOfferParams) : SignedCreditorOffer {
+    public async createCreditorOffer(params: CreditorOfferParams): Promise<SignedCreditorOfferParams> {
 
         let creditorOffer = new CreditorOffer(params);
-
+        return creditorOffer.getSignedCreditorOffer(this.web3);
     }
 
     public fillCreditorOfferAsDebtor() {
