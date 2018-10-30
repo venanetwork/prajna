@@ -15,7 +15,7 @@ export interface DebtOfferSignatories {
     debtor?: Address;
     underwriter?: Address;
 }
-
+// TODO: remove this file
 export class DebtOffer extends SignableMessage {
     public params: DebtOfferParams;
 
