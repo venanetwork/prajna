@@ -10,5 +10,6 @@
 
 ## Deploy
 ```
-deploy:development
+yarn run deploy:development
+yarn run dist
 ```

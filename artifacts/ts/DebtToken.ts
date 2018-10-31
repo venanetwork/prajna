@@ -10347,10 +10347,10 @@ export const DebtToken =
         }
       },
       "links": {},
-      "address": "0xf92c1dd98d73ce08822c4c8f64f283c59ecb857c",
-      "transactionHash": "0xfeb884fa41b5318c9891d783779ae0cc933c08b0a10f4ea62d6cc8290a7409ba"
+      "address": "0xea812aab59845b3bffd86dd408101a082d90c567",
+      "transactionHash": "0xe99308c6766b816344d203e4b9b174cc5a409eafd8340dc26246b8257018935a"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-10-18T08:16:50.718Z"
+  "updatedAt": "2018-10-31T05:02:15.000Z"
 }

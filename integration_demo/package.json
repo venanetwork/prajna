@@ -3,10 +3,12 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
+        "bignumber.js": "^7.2.1",
+        "moment": "^2.22.2",
         "react": "^16.6.0",
         "react-dom": "^16.6.0",
         "react-scripts": "2.1.0",
-        "@venaprotocal/jsdk": "0.0.0"
+        "web3": "^1.0.0-beta.36"
     },
     "scripts": {
         "start": "react-scripts start",

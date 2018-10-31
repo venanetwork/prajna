@@ -2090,10 +2090,10 @@ export const CollateralizedSimpleInterestTermsContract =
     "70": {
       "events": {},
       "links": {},
-      "address": "0xa9cd23d194c6c333b87eac04e7ae38363379e879",
-      "transactionHash": "0xa901a99dde1eb7371c0bd676afec6330d12369575e11844a4833ef01feaeb182"
+      "address": "0xd1df3080fa2c86591a5fe97d79dc103c3207fffb",
+      "transactionHash": "0x5d6bcee1371f9f76e7758c523a5383e23ec45d256a0f519cec445e917e603afe"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-10-18T08:16:48.974Z"
+  "updatedAt": "2018-10-31T05:02:13.699Z"
 }

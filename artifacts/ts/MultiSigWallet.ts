@@ -25168,5 +25168,5 @@ export const MultiSigWallet =
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-10-18T08:16:26.381Z"
+  "updatedAt": "2018-10-31T05:01:57.687Z"
 }

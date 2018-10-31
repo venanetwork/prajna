@@ -5489,10 +5489,10 @@ export const PermissionsLib =
     "70": {
       "events": {},
       "links": {},
-      "address": "0x375b35c9148ce9cff7c460afd83b3d3b6a88048f",
+      "address": "0x24072d1520968c2c514622b10b1022d6135a737b",
       "transactionHash": "0xc6faba54f6a83d0132a2ee7d7950283cdfbb7d456b303faa0cd4209952774939"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-10-18T08:16:46.364Z"
+  "updatedAt": "2018-10-31T05:02:11.897Z"
 }

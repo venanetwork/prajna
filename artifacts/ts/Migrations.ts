@@ -1375,5 +1375,5 @@ export const Migrations =
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-10-18T08:16:51.767Z"
+  "updatedAt": "2018-10-31T05:02:15.843Z"
 }

@@ -8363,10 +8363,10 @@ export const ContractRegistry =
         }
       },
       "links": {},
-      "address": "0x15c8fd32c44542ba97b76f8e773ed82ac6ccb896",
-      "transactionHash": "0x8ea0e0e4cd768539c5e4a21a842dc6f53d222f2dcb0f3cc45892447a0dcc160a"
+      "address": "0xdb5b137df76463b8aef2a1d5ad7fa9bf828b3872",
+      "transactionHash": "0x660175898bf0b1f89b6518745b41c3687d5faf7990445280310fe647b1b569a1"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-10-18T08:16:51.773Z"
+  "updatedAt": "2018-10-31T05:02:15.845Z"
 }

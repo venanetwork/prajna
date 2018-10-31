@@ -10896,10 +10896,10 @@ export const MockDebtRegistry =
     "70": {
       "events": {},
       "links": {},
-      "address": "0xbc7b9239088903c3c475aaed89c938eab3607e76",
+      "address": "0xfe3f6846b158a881288921bed4bb4dc32cca6195",
       "transactionHash": "0x8b1676f070aa1ceb83e2225a05729b7e5320ec00706276f052d20a477e108a8c"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-10-18T08:16:46.370Z"
+  "updatedAt": "2018-10-31T05:02:11.906Z"
 }

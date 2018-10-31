@@ -21106,10 +21106,10 @@ export const CreditorProxy =
         }
       },
       "links": {},
-      "address": "0xbaf0e333555f303b3c8e086b8d498de8f906d312",
-      "transactionHash": "0xce54dfa16d5703f3e5f750c0dbe8d5771b391c27f10f30a384571908ae81f0da"
+      "address": "0xc50baf62c029127d4d188a8607f4591122f5837d",
+      "transactionHash": "0xfc10a32981dbe4204b9b6e49eab16a608b4bf8772a371597e6704af3312279f3"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-10-18T08:16:51.795Z"
+  "updatedAt": "2018-10-31T05:02:15.856Z"
 }
