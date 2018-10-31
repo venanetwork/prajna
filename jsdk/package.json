@@ -1,12 +1,12 @@
 {
-    "name": "jsdk",
+    "name": "@venaprotocol/jsdk",
     "version": "0.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "dist/jsdk/src/index.js",
     "scripts": {
-        "test": "tsc; node dist/src/index.js"
+        "test": "tsc; node dist/src/index.js",
+        "build": "rm -rf ./dist; tsc"
     },
-    "author": "lixianji <maxlixianji@163.com> (https://github.com/CNaiko)",
     "license": "GPL-3.0",
     "devDependencies": {
         "@commitlint/cli": "^6.1.3",

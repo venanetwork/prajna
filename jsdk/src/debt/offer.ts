@@ -3,13 +3,12 @@ import * as Web3 from "web3";
 import ethUtil = require("ethereumjs-util");
 import * as leftPad from "left-pad";
 import {ECDSASignature, SignableMessage} from '../types/signable_message';
-import {Address} from '../../dist/types/types/common';
 import {Bytes32} from '../../../types/common';
 import * as solidity from '../../utils/solidity';
+import {Address} from '../types/common';
 
 const NULL_ADDRESS = "0x0000000000000000000000000000000000000000";
 const NULL_SIGNATURE = { r: "0x0", s: "0x0", v: 0 };
-
 
 // params for construction, TODO: need be more human readable
 export interface CreditorOfferParams {

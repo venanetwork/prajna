@@ -2,7 +2,7 @@ import * as Web3 from 'web3';
 import {ContractsAPI} from './contracts_api';
 import {CreditorOffer, CreditorOfferParams, SignedCreditorOffer, SignedCreditorOfferParams} from '../debt/offer';
 
-export class OrderAPI {
+export class OfferAPI {
     private web3: Web3;
     private contracts: ContractsAPI;
 

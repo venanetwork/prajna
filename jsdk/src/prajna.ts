@@ -1,7 +1,7 @@
 import * as Web3 from "web3";
 
 import {
-    ContractsAPI,
+    ContractsAPI
     // OrderAPI,
     // AdaptersAPI,
     // BlockchainAPI,
@@ -12,12 +12,14 @@ import {
 } from "./apis/contracts_api";
 
 import * as DharmaTypes from "./types";
+import {OfferAPI} from './apis/offer_api';
 
 class Prajna {
     public static Types = DharmaTypes;
 
     // public order: OrderAPI;
     public contracts: ContractsAPI;
+    public offer: OfferAPI;
     // public sign: SignerAPI;
     // public adapters: AdaptersAPI;
     // public servicing: ServicingAPI;
@@ -46,6 +48,7 @@ class Prajna {
         }
 
         this.contracts = new ContractsAPI(this.web3, addressBook);
+        this.offer = new OfferAPI(this.web3, this.contracts);
         // this.order = new OrderAPI(this.web3, this.contracts, this.adapters);
 
         // this.servicing = new ServicingAPI(this.web3, this.contracts);
