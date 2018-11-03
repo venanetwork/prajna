@@ -1,4 +1,5 @@
 import * as Web3 from "web3";
+import * as promisify from "tiny-promisify";
 
 import ethUtil = require("ethereumjs-util");
 import {Address, Bytes32} from '../../../types/common';
@@ -19,8 +20,7 @@ export abstract class SignableMessage {
         signer: Address,
         hash?: Bytes32,
     ): Promise<ECDSASignature> {
-        debugger
-        const signature = web3.eth.sign(signer, hash || this.getHash());
+        const signature = await promisify(web3.eth.sign)(signer, hash || this.getHash());
         const { v, r, s } = ethUtil.fromRpcSig(signature);
         return {
             r: ethUtil.bufferToHex(r),
