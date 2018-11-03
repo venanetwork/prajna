@@ -7,7 +7,7 @@ import * as BigNumber from "bignumber.js";
 import * as promisify from "tiny-promisify";
 
 // Instantiate a new instance of Prajna, passing in the host of the local blockchain.
-const prajna = new Prajna("http://localhost:8545");
+const prajna = new Prajna(web3);
 const NULL_ADDRESS = "0x0000000000000000000000000000000000000000";
 const NULL_BYTES32 = "0x0000000000000000000000000000000000000000000000000000000000000000";
 
