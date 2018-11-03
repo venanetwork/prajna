@@ -22,7 +22,7 @@ class App extends Component {
     async componentDidMount() {
         let debtKernal = await prajna.contracts.loadDebtKernelAsync();
         let repaymentRouter = await prajna.contracts.loadRepaymentRouterAsync();
-        let CREDITOR_1 = 0xDFa1dFc89A50c4965189C73F459615E1E239caA1;
+        let CREDITOR_1 = "0xDFa1dFc89A50c4965189C73F459615E1E239caA1";
         console.log(CREDITOR_1);
 
         let latestBlock = await promisify(web3.eth.getBlock)("latest");

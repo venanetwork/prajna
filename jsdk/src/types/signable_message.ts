@@ -19,6 +19,7 @@ export abstract class SignableMessage {
         signer: Address,
         hash?: Bytes32,
     ): Promise<ECDSASignature> {
+        debugger
         const signature = web3.eth.sign(signer, hash || this.getHash());
         const { v, r, s } = ethUtil.fromRpcSig(signature);
         return {
