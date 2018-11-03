@@ -12,6 +12,8 @@ export interface ECDSASignature {
 export abstract class SignableMessage {
     public abstract getHash(): Bytes32;
 
+    // need change web3 version to 0.20.6 to solve cross origin,
+    // related to issue: https://github.com/ethereum/web3.js/issues/1802
     protected async getSignature(
         web3: Web3,
         signer: Address,

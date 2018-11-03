@@ -4,6 +4,7 @@ import {Prajna} from "@venaprotocal/jsdk";
 import web3 from "./web3.js";
 import * as moment from "moment";
 import * as BigNumber from "bignumber.js";
+import * as promisify from "tiny-promisify";
 
 // Instantiate a new instance of Prajna, passing in the host of the local blockchain.
 const prajna = new Prajna("http://localhost:8545");
@@ -12,7 +13,7 @@ const NULL_BYTES32 = "0x00000000000000000000000000000000000000000000000000000000
 
 function ether(amount){
     let n = new BigNumber(amount);
-    const weiString = web3.utils.toWei(n.toString(), "ether");
+    const weiString = web3.toWei(n.toString(), "ether");
     return new BigNumber(weiString);
 }
 
@@ -20,19 +21,12 @@ class App extends Component {
 
     async componentDidMount() {
         let debtKernal = await prajna.contracts.loadDebtKernelAsync();
-        console.log(debtKernal)
         let repaymentRouter = await prajna.contracts.loadRepaymentRouterAsync();
-        console.log(repaymentRouter)
-        // let tc = await prajna.contracts.loadTermsContractAsync();
-        // console.log(tc)
-        let CREDITOR_1 = await web3.eth.getAccounts();
+        let CREDITOR_1 = 0xDFa1dFc89A50c4965189C73F459615E1E239caA1;
         console.log(CREDITOR_1);
 
-        let latestBlock = await web3.eth.getBlock("latest");
+        let latestBlock = await promisify(web3.eth.getBlock)("latest");
         console.log(latestBlock);
-
-        console.log(ether(1))
-
 
         let defaultOfferParams = {
             kernelVersion: debtKernal.address,
@@ -40,9 +34,14 @@ class App extends Component {
             repaymentRouterVersion: repaymentRouter.address,
             underwriter: NULL_ADDRESS,
             termsContract: NULL_ADDRESS,
-            principalToken:NULL_ADDRESS,
+            principalToken: NULL_ADDRESS,
             relayer: NULL_ADDRESS,
             underwriterRiskRating: 0,
+            salt: new BigNumber(
+                Math.random()
+                    .toString()
+                    .substring(2),
+            ),
             principalAmount: ether(1),
             underwriterFee: ether(0.0015),
             relayerFee: ether(0.0015),
@@ -54,16 +53,11 @@ class App extends Component {
                     .add(30, "days")
                     .unix(),
             ),
-            NULL_BYTES32,
+            termsContractParameters: NULL_BYTES32,
             minPrincipalAmount: ether(0.2),
-            salt: new BigNumber(
-                Math.random()
-                    .toString()
-                    .substring(2),
-            ),
         };
-
-        let order = await Prajna.offer.createCreditorOffer(defaultOfferParams)
+        console.log(defaultOfferParams)
+        let order = await prajna.offer.createCreditorOffer(defaultOfferParams);
         console.log(order)
     }
 

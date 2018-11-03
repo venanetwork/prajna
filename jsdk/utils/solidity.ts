@@ -26,7 +26,7 @@ export function SHA3(args: any[]): Buffer {
         const isNumber = _.isFinite(arg);
         if (isNumber) {
             argTypes.push('uint8');
-        } else if (arg instanceof BigNumber.BigNumber) {
+        } else if (arg.constructor && arg.constructor.name === "BigNumber") {
             argTypes.push('uint256');
             args[i] = new BN(arg.toString(10), 10);
         } else if (ethUtil.isValidAddress(arg)) {
