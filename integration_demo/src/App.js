@@ -5,6 +5,7 @@ import web3 from "./web3.js";
 import * as moment from "moment";
 import * as BigNumber from "bignumber.js";
 import * as promisify from "tiny-promisify";
+import { Button } from "antd";
 
 // Instantiate a new instance of Prajna, passing in the host of the local blockchain.
 const prajna = new Prajna(web3);
@@ -62,13 +63,13 @@ class App extends Component {
         let order = await prajna.offer.createCreditorOffer(defaultOfferParams);
         console.log(order)
 
-        // 2. fill the order
-        
     }
 
     render() {
         return (
             <div className="App">
+                <Button type="primary">Here is a button</Button>
+                <Button type="primary">Primary</Button>
             </div>
         );
     }

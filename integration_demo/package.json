@@ -3,6 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
+        "antd": "^3.10.4",
         "bignumber.js": "~5.0.0",
         "moment": "^2.22.2",
         "promisify": "^0.0.3",
