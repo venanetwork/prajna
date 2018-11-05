@@ -48,6 +48,7 @@ export class OfferAPI {
         );
 
         let creditorProxy = await this.contracts.loadCreditorProxyAsync();
+        console.log(creditorProxy);
         const txHash = await creditorProxy.fillAsDebtor.sendTransactionAsync(
             debtor,
             orderAddresses,

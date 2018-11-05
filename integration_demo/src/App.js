@@ -20,12 +20,20 @@ function ether(amount){
 
 class App extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {order: null};
+    }
+
     async componentDidMount() {
 
+    }
+
+    onCreate = async () => {
         // 1. sign the messages
         let debtKernal = await prajna.contracts.loadDebtKernelAsync();
         let repaymentRouter = await prajna.contracts.loadRepaymentRouterAsync();
-        let CREDITOR_1 = "0xDFa1dFc89A50c4965189C73F459615E1E239caA1";
+        let CREDITOR_1 = web3.eth.accounts[0];
         console.log(CREDITOR_1);
 
         let latestBlock = await promisify(web3.eth.getBlock)("latest");
@@ -62,14 +70,23 @@ class App extends Component {
         console.log(defaultOfferParams)
         let order = await prajna.offer.createCreditorOffer(defaultOfferParams);
         console.log(order)
+        this.setState({order: order});
+    }
 
+    onFill = async () => {
+        let debtor = web3.eth.accounts[0];
+        console.log(debtor, ether(1), this.state.order)
+        let tx = await prajna.offer.fillCreditorOfferAsDebtor(debtor, ether(1), this.state.order);
+        console.log(tx)
     }
 
     render() {
         return (
             <div className="App">
-                <Button type="primary">Here is a button</Button>
-                <Button type="primary">Primary</Button>
+                <p>Change the Account 1 (as creditor):</p>
+                <Button type="default" onClick={this.onCreate}>Create A Order</Button>
+                <p>Change the Account 2 (as debtor):</p>
+                <Button type="primary" onClick={this.onFill}>Fill This Order</Button>
             </div>
         );
     }
