@@ -20,6 +20,8 @@ function ether(amount){
 class App extends Component {
 
     async componentDidMount() {
+
+        // 1. sign the messages
         let debtKernal = await prajna.contracts.loadDebtKernelAsync();
         let repaymentRouter = await prajna.contracts.loadRepaymentRouterAsync();
         let CREDITOR_1 = "0xDFa1dFc89A50c4965189C73F459615E1E239caA1";
@@ -59,6 +61,9 @@ class App extends Component {
         console.log(defaultOfferParams)
         let order = await prajna.offer.createCreditorOffer(defaultOfferParams);
         console.log(order)
+
+        // 2. fill the order
+        
     }
 
     render() {
