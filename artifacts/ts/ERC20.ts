@@ -1234,5 +1234,5 @@ export const ERC20 =
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-10-31T05:01:57.693Z"
+  "updatedAt": "2018-11-06T07:52:10.241Z"
 }

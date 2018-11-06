@@ -13871,10 +13871,10 @@ export const DebtRegistry =
         }
       },
       "links": {},
-      "address": "0xbb4f865abb26115544d0fb79345cb5e8db2b2bb8",
+      "address": "0xa905021f44edb28cbdfe98b2b9c32bbfacc8b763",
       "transactionHash": "0xd35d37f3f505548ceea447fdfc5f035019f11cd9d39f3f7e227cc29dddf5262a"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-10-31T05:02:15.007Z"
+  "updatedAt": "2018-11-06T07:52:27.678Z"
 }

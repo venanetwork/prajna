@@ -280,5 +280,5 @@ export const ERC165 =
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-10-31T05:01:57.602Z"
+  "updatedAt": "2018-11-06T07:52:10.132Z"
 }

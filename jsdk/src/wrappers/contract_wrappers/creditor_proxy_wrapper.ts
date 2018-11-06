@@ -5,7 +5,7 @@ import * as promisify from 'tiny-promisify';
 import {classUtils} from '../../../utils/class_utils';
 import {BigNumber} from '../../../utils/bignumber';
 import * as Web3 from 'web3';
-import {DebtKernel as ContractArtifacts} from 'prajna';
+import {CreditorProxy as ContractArtifacts} from 'prajna';
 import {Web3Utils} from '../../../utils/web3_utils';
 
 export class CreditorProxyContract extends BaseContract {

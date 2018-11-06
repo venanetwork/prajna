@@ -6,6 +6,8 @@ import * as moment from "moment";
 import * as BigNumber from "bignumber.js";
 import * as promisify from "tiny-promisify";
 import { Button } from "antd";
+import * as ABIDecoder from "abi-decoder";
+import * as _ from "lodash";
 
 // Instantiate a new instance of Prajna, passing in the host of the local blockchain.
 const prajna = new Prajna(web3);
@@ -71,14 +73,16 @@ class App extends Component {
         let order = await prajna.offer.createCreditorOffer(defaultOfferParams);
         console.log(order)
         this.setState({order: order});
-    }
+    };
 
     onFill = async () => {
         let debtor = web3.eth.accounts[0];
-        console.log(debtor, ether(1), this.state.order)
         let tx = await prajna.offer.fillCreditorOfferAsDebtor(debtor, ether(1), this.state.order);
-        console.log(tx)
-    }
+        let receipt = await promisify(web3.eth.getTransactionReceipt)(tx);
+        // let block = await web3.eth.getBlock(receipt.blockNumber);
+        let logs = _.compact(ABIDecoder.decodeLogs(receipt.logs));
+        console.log(logs)
+    };
 
     render() {
         return (

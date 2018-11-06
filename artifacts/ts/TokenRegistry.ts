@@ -9166,10 +9166,10 @@ export const TokenRegistry =
         }
       },
       "links": {},
-      "address": "0x7f63519e1355d5a1877bee85fd4f5d333ea19fb4",
+      "address": "0x10da55f0b2c96f4f00e9317e4514d0f8afac6e10",
       "transactionHash": "0x79051ab244d58eada87f17adbf5d2617a29bf356833956a0e4802cf4914437fb"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-10-31T05:02:15.025Z"
+  "updatedAt": "2018-11-06T07:52:27.696Z"
 }
