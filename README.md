@@ -13,3 +13,25 @@
 yarn run deploy:development
 yarn run dist
 ```
+
+
+## Set Up
+```
+yarn
+yarn run chain
+yarn run deploy:development
+yarn run dist
+yarn link
+
+
+cd jsdk
+yarn
+yarn link prajna
+yarn run build
+yarn link
+
+
+cd integration_demo
+yarn run build:jsdk
+yarn start
+```
