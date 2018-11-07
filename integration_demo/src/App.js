@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import {Prajna} from "@venaprotocal/jsdk";
+import {Prajna} from "@venaprotocol/jsdk";
 import web3 from "./web3.js";
 import * as moment from "moment";
 import * as BigNumber from "bignumber.js";
