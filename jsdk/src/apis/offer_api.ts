@@ -12,9 +12,12 @@ export class OfferAPI {
         this.contracts = contracts;
     }
 
-    // TODO: here we neeed on layer of wrapping, make params more simple
-    public async createCreditorOffer(params: CreditorOfferParams): Promise<SignedCreditorOfferParams> {
-        let creditorOffer = new CreditorOffer(params);
+
+    public async createCreditorOffer(params: ) {
+
+    }
+
+    public async signCreditorOffer(creditorOffer: CreditorOffer): Promise<SignedCreditorOfferParams> {
         return creditorOffer.getSignedCreditorOffer(this.web3);
     }
 
@@ -48,7 +51,6 @@ export class OfferAPI {
         );
 
         let creditorProxy = await this.contracts.loadCreditorProxyAsync();
-        console.log(creditorProxy);
         const txHash = await creditorProxy.fillAsDebtor.sendTransactionAsync(
             debtor,
             orderAddresses,

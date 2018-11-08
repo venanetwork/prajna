@@ -19249,10 +19249,10 @@
     "70": {
       "events": {},
       "links": {},
-      "address": "0x64312780b31fd5265ae3a81be6fe1f510bd4b31a",
-      "transactionHash": "0xe0a9be4c4bfb4ec7976e15911b768126754444729770308135a5f8a3c264c70b"
+      "address": "0x6c5492ad49513dd1f1e0a07fdf46e1382932ff59",
+      "transactionHash": "0x7172260615d755cd5c3dd2326614c6169fffa97efb0c4b7dd7240bd60ebea2dd"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-06T07:52:25.319Z"
+  "updatedAt": "2018-11-08T08:11:40.822Z"
 }

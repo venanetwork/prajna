@@ -4643,5 +4643,5 @@ export const MockContract =
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-06T07:52:10.201Z"
+  "updatedAt": "2018-11-08T08:11:23.784Z"
 }

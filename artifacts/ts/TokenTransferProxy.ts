@@ -2555,10 +2555,10 @@ export const TokenTransferProxy =
         }
       },
       "links": {},
-      "address": "0x12a3a3bec4e24f73842d9e59d380951ec13a359c",
+      "address": "0xe1d0b77ad78e44da2a87efd2970f155e5bd48714",
       "transactionHash": "0x3ae75b860108809190035c8c7d61f6bfb73c406012a97c93dc52e6349a03a36c"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-06T07:52:28.551Z"
+  "updatedAt": "2018-11-08T08:11:44.807Z"
 }

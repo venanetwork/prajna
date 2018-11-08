@@ -5698,10 +5698,10 @@ export const RepaymentRouter =
         }
       },
       "links": {},
-      "address": "0xfb1b136555ecfab8981188e924b6b49815c4a2b8",
-      "transactionHash": "0xc5e9cfb75837829f0f569d2c0529bd4684d8da8829e1bf391402d6c5bd174a39"
+      "address": "0x3d0a6eaaa1f56a4850c81e31132679463ec2bad3",
+      "transactionHash": "0xad255a4715ab7b91190643367c991aab69d0611abbe45ed44c548f62f0e8f625"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-06T07:52:27.682Z"
+  "updatedAt": "2018-11-08T08:11:43.769Z"
 }

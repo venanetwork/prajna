@@ -9223,10 +9223,10 @@ export const DharmaMultiSigWallet =
         }
       },
       "links": {},
-      "address": "0xa65d41e497baa9b31d7f989b62d4051dc2e644d6",
-      "transactionHash": "0xd475049f135914f50b04ac916fa3667eb415c56dca9e937b90d1a039c8bf3111"
+      "address": "0xd3efcf375bf65c0a85c9fb1853cfebc8dc90fb59",
+      "transactionHash": "0x3bb2d61766e0a1c1030f1edceeaf4d7edec9e79e1c6b043dcd97cb73abb6003f"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-06T07:52:28.559Z"
+  "updatedAt": "2018-11-08T08:11:44.818Z"
 }

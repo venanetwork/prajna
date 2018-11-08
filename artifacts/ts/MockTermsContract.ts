@@ -6192,10 +6192,10 @@ export const MockTermsContract =
     "70": {
       "events": {},
       "links": {},
-      "address": "0x7f65266d0ce386c72bd0af77297e111bb922471d",
+      "address": "0xe1801119e6a59c6e291bf5e9ae51f8ab0dfd567d",
       "transactionHash": "0xce73ddcbfba289e666d95a8132b27045d37104694f96613c048d52079da04def"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-06T07:52:24.718Z"
+  "updatedAt": "2018-11-08T08:11:40.119Z"
 }
