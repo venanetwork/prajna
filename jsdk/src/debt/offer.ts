@@ -32,10 +32,10 @@ export interface CreditorOfferParams {
     interestRate: number;
     termDuration: number;
     termUnit: DurationUnit;
-    debtorAddress: string;
+    creditorAddress: string;
     expiresInDuration: number;
     expiresInUnit: DurationUnit; // min fill amount of a debt
-    minFillAmount: number;
+    minPrincipleAmount: number;
     relayerAddress?: string; // null for now
     relayerFeeAmount?: number; // null for now
     creditorFeeAmount?: number;

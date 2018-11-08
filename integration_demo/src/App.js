@@ -8,6 +8,7 @@ import * as promisify from "tiny-promisify";
 import { Button } from "antd";
 import * as ABIDecoder from "abi-decoder";
 import * as _ from "lodash";
+import {DurationUnit} from "../../jsdk/src/debt/offer";
 
 // Instantiate a new instance of Prajna, passing in the host of the local blockchain.
 const prajna = new Prajna(web3);
@@ -33,46 +34,21 @@ class App extends Component {
 
     onCreate = async () => {
         // 1. sign the messages
-        let debtKernal = await prajna.contracts.loadDebtKernelAsync();
-        let repaymentRouter = await prajna.contracts.loadRepaymentRouterAsync();
-        let CREDITOR_1 = web3.eth.accounts[0];
-        console.log(CREDITOR_1);
+       prajna.offer.createCreditorOffer({
+           principalAmount: 10,
+           principalToken: "WETH",
+           collateralAmount: 100,
+           collateralToken: "USDT",
+           interestRate: 10,
+           termDuration: 2,
+           termUnit: "weeks",
+           creditorAddress: web3.eth.accounts[0],
+           expiresInDuration: 2,
+           expiresInUnit: "weeks",
+           minPrincipleAmount: 1,
+       });
 
-        let latestBlock = await promisify(web3.eth.getBlock)("latest");
-        console.log(latestBlock);
-
-        let defaultOfferParams = {
-            kernelVersion: debtKernal.address,
-            creditor: CREDITOR_1,
-            repaymentRouterVersion: repaymentRouter.address,
-            underwriter: NULL_ADDRESS,
-            termsContract: NULL_ADDRESS,
-            principalToken: NULL_ADDRESS,
-            relayer: NULL_ADDRESS,
-            underwriterRiskRating: 0,
-            salt: new BigNumber(
-                Math.random()
-                    .toString()
-                    .substring(2),
-            ),
-            principalAmount: ether(1),
-            underwriterFee: ether(0.0015),
-            relayerFee: ether(0.0015),
-            creditorFee: ether(0.002),
-            debtorFee: ether(0.001),
-            expirationTimestampInSec: new BigNumber(
-                moment
-                    .unix(latestBlock.timestamp)
-                    .add(30, "days")
-                    .unix(),
-            ),
-            termsContractParameters: NULL_BYTES32,
-            minPrincipalAmount: ether(0.2),
-        };
-        console.log(defaultOfferParams)
-        let order = await prajna.offer.createCreditorOffer(defaultOfferParams);
-        console.log(order)
-        this.setState({order: order});
+       this.setState({order: order});
     };
 
     onFill = async () => {

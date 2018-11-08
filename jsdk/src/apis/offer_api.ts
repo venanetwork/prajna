@@ -1,7 +1,13 @@
 import * as Web3 from 'web3';
 import {ContractsAPI} from './contracts_api';
-import {CreditorOffer, CreditorOfferParams, SignedCreditorOfferParams} from '../debt/offer';
+import {CreditorOffer, CreditorOfferParams, DurationUnit, SignedCreditorOfferParams} from '../debt/offer';
 import {BigNumber} from 'bignumber.js';
+import {ECDSASignature} from '../types/signable_message';
+import {Address} from '../types/common';
+import {Bytes32} from '../../../types/common';
+import {NULL_ADDRESS, NULL_BYTES32} from '../../utils/constants';
+import * as promisify from "tiny-promisify";
+import {TimeInterval} from '../types/time_interval';
 
 export class OfferAPI {
     private web3: Web3;
@@ -12,16 +18,62 @@ export class OfferAPI {
         this.contracts = contracts;
     }
 
+    // TODO: currently a p2p parma setting, relayer and underwritter fee is set to 0,
+    public async createCreditorOffer(params: CreditorOfferParams): CreditorOffer {
+        const {
+            principalAmount,
+            principalToken,
+            collateralAmount,
+            collateralToken,
+            interestRate,
+            termDuration,
+            termUnit,
+            creditorAddress,
+            expiresInDuration,
+            expiresInUnit,
+            minPrincipleAmount,
+            relayerAddress,
+            relayerFeeAmount,
+            creditorFeeAmount,
+        } = params;
 
-    public async createCreditorOffer(params: ) {
+        let kernelVersion = await this.contracts.loadDebtKernelAsync();
+        let rp = await this.contracts.loadRepaymentRouterAsync();
+        let tc = NULL_ADDRESS;
+        let pt = await this.contracts.getTokenAddressBySymbolAsync(principalToken);
+        const expiresIn = new TimeInterval(expiresInDuration, expiresInUnit);
+        let latestBlockTime = await promisify(this.web3.eth.getBlock)("latest").timestamp;
+        const expirationTimestampInSec = expiresIn.fromTimestamp(latestBlockTime);
 
+        let signedCreditorOfferparams = {
+            kernelVersion:  kernelVersion.address,
+            creditor: creditorAddress,
+            repaymentRouterVersion: rp.address,
+            underwriter: NULL_ADDRESS,
+            termsContract: tc,
+            principalToken: pt,
+            relayer: NULL_ADDRESS,
+            underwriterRiskRating: new BigNumber(0),
+            salt: new BigNumber(Math.random().toString().substring(2)),
+            principalAmount: new BigNumber(principalAmount),
+            underwriterFee: new BigNumber(0),
+            relayerFee: new BigNumber(0),
+            creditorFee: new BigNumber(0),
+            debtorFee: new BigNumber(0),
+            expirationTimestampInSec: new BigNumber(expirationTimestampInSec),
+            termsContractParameters: NULL_BYTES32,
+            minPrincipalAmount: new BigNumber(minPrincipleAmount),
+        };
+
+        return new CreditorOffer(signedCreditorOfferparams);
     }
 
     public async signCreditorOffer(creditorOffer: CreditorOffer): Promise<SignedCreditorOfferParams> {
         return creditorOffer.getSignedCreditorOffer(this.web3);
     }
 
-    public async fillCreditorOfferAsDebtor(debtor: string, fillAmount: BigNumber, signedCreditorOffer: SignedCreditorOfferParams) {
+    public async fillCreditorOfferAsDebtor(debtor: string, fillAmount: BigNumber,
+        signedCreditorOffer: SignedCreditorOfferParams) {
 
         let orderAddresses = [
             signedCreditorOffer.repaymentRouterVersion,
