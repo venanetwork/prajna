@@ -1,6 +1,6 @@
 import * as Web3 from 'web3';
 import {ContractsAPI} from './contracts_api';
-import {CreditorOffer, CreditorOfferParams, DurationUnit, SignedCreditorOfferParams} from '../debt/offer';
+import {CreditorOffer, CreditorOfferParams, SignedCreditorOfferParams} from '../debt/offer';
 import {BigNumber} from 'bignumber.js';
 import {ECDSASignature} from '../types/signable_message';
 import {Address} from '../types/common';
@@ -19,7 +19,7 @@ export class OfferAPI {
     }
 
     // TODO: currently a p2p parma setting, relayer and underwritter fee is set to 0,
-    public async createCreditorOffer(params: CreditorOfferParams): CreditorOffer {
+    public async createCreditorOffer(params: CreditorOfferParams): Promise<SignedCreditorOfferParams> {
         const {
             principalAmount,
             principalToken,
@@ -65,10 +65,11 @@ export class OfferAPI {
             minPrincipalAmount: new BigNumber(minPrincipleAmount),
         };
 
-        return new CreditorOffer(signedCreditorOfferparams);
+        return signedCreditorOfferparams;
     }
 
-    public async signCreditorOffer(creditorOffer: CreditorOffer): Promise<SignedCreditorOfferParams> {
+    public async signCreditorOffer(params: SignedCreditorOfferParams): Promise<SignedCreditorOfferParams> {
+        let creditorOffer = new CreditorOffer(params);
         return creditorOffer.getSignedCreditorOffer(this.web3);
     }
 

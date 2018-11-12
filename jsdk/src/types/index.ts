@@ -1,4 +1,4 @@
-export {CreditorOfferParams, SignedCreditorOfferParams, SignedCreditorOffer} from '../debt/offer';
+export {CreditorOfferParams, SignedCreditorOfferParams} from '../debt/offer';
 
 export { TxData, TxDataPayable } from "./transaction_options";
 export { AddressBook } from "./address_book";

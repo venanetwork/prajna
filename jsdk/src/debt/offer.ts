@@ -67,7 +67,6 @@ export class CreditorOffer {
     public params: SignedCreditorOfferParams;
 
     constructor(params: SignedCreditorOfferParams) {
-        super();
         this.params = params;
     }
 
