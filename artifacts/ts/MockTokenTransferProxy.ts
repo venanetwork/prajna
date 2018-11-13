@@ -2233,10 +2233,10 @@ export const MockTokenTransferProxy =
     "70": {
       "events": {},
       "links": {},
-      "address": "0x31f5ba6935cbd0e98481192b57e763f305ff8f37",
-      "transactionHash": "0x6db2521b4aeedb0fae0db5134ed27a036bf3a342c64cf4e265c5c2b33097aa2a"
+      "address": "0x76ae86c4a6d93319ad5c14b564bc84a2845160ae",
+      "transactionHash": "0xf21d69e7b9489764f7200c974fa426e3bd0076ce135bbd8f538849db4cafa740"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-13T08:15:27.197Z"
+  "updatedAt": "2018-11-13T09:13:55.795Z"
 }

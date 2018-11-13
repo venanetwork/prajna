@@ -16,6 +16,7 @@ import { TokenRegistryContract } from "./contract_wrappers/token_registry_wrappe
 import { TokenTransferProxyContract } from "./contract_wrappers/token_transfer_proxy_wrapper";
 import { DebtOrderDataWrapper } from "./debt_order_data_wrapper";
 import {CreditorProxyContract} from './contract_wrappers/creditor_proxy_wrapper';
+import {WETH9Contract} from './contract_wrappers/weth9_wrapper';
 
 export type ContractWrapper =
     | DebtKernelContract
@@ -32,7 +33,8 @@ export type ContractWrapper =
     | TokenRegistryContract
     | CollateralizerContract
     | ContractRegistryContract
-    | CreditorProxyContract;
+    | CreditorProxyContract
+    | WETH9Contract;
 
 export {
     BaseContract,
@@ -53,4 +55,5 @@ export {
     CollateralizerContract,
     ContractRegistryContract,
     CreditorProxyContract,
+    WETH9Contract,
 };

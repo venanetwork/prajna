@@ -1724,10 +1724,10 @@ export const IncompatibleTermsContract =
     "70": {
       "events": {},
       "links": {},
-      "address": "0x878713d389a541f47c35e0247fd03dd4d5002ddb",
-      "transactionHash": "0x4ea047430a3aced1b31ceaa51c8c5f0bcd4158628e8c32bb477e1e39a1019037"
+      "address": "0x4f2383eb538c0fb1a55ceafb6c2c611fe2009947",
+      "transactionHash": "0x89646d3b1e179fac8ad8a2173efc00278356af52f61245fd889d4e88908dbf70"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-13T08:15:27.902Z"
+  "updatedAt": "2018-11-13T09:13:56.506Z"
 }

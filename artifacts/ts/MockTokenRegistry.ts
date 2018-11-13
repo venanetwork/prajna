@@ -2855,10 +2855,10 @@ export const MockTokenRegistry =
     "70": {
       "events": {},
       "links": {},
-      "address": "0x65041729a2b1b08e6537233e80a491589081cfaa",
-      "transactionHash": "0x0a44e9b281b45aa0c25d7603ab6c474a0b8f5914aa51cf3f856ac071e8a405b6"
+      "address": "0xe8f203c3670265b9ff9f0464abdd78c7049e385f",
+      "transactionHash": "0xc3aefce9016d63c07b6e9f298b5e8ad1394c1a02a894076ef138850bce1728ff"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-13T08:15:27.198Z"
+  "updatedAt": "2018-11-13T09:13:55.793Z"
 }

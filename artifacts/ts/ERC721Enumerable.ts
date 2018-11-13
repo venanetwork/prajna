@@ -1622,5 +1622,5 @@ export const ERC721Enumerable =
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-13T08:15:10.683Z"
+  "updatedAt": "2018-11-13T09:13:41.393Z"
 }

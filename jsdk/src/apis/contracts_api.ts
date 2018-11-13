@@ -39,6 +39,7 @@ import {
 
 // types
 import { AddressBook } from "../types";
+import {WETH9Contract} from '../wrappers/contract_wrappers/weth9_wrapper';
 
 export interface DharmaContracts {
     debtKernel: DebtKernelContract;
@@ -462,6 +463,30 @@ export class ContractsAPI {
         }
 
         this.cache["CreditorProxy"] = contract;
+
+        return contract;
+    }
+
+    public async loadWETH9ContractAsync(
+        transactionOptions: object = {},
+    ): Promise<WETH9Contract> {
+        if ("WEH9" in this.cache) {
+            return this.cache["WEH9"] as WETH9Contract;
+        }
+
+        let contract: WETH9Contract;
+
+        if (this.addressBook.creditorProxyAddress) {
+            contract = await WETH9Contract.at(
+                this.addressBook.creditorProxyAddress,
+                this.web3,
+                transactionOptions,
+            );
+        } else {
+            contract = await WETH9Contract.deployed(this.web3, transactionOptions);
+        }
+
+        this.cache["WETH9"] = contract;
 
         return contract;
     }

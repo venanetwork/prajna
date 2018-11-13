@@ -8,7 +8,6 @@ import * as promisify from "tiny-promisify";
 import { Button } from "antd";
 import * as ABIDecoder from "abi-decoder";
 import * as _ from "lodash";
-import {DurationUnit} from "../../jsdk/src/debt/offer";
 
 import CreditorTable from "./Components/creditorTable.js";
 
@@ -36,7 +35,7 @@ class App extends Component {
 
     onCreate = async () => {
         // 1. sign the messages
-       prajna.offer.createCreditorOffer({
+       let order = prajna.offer.createCreditorOffer({
            principalAmount: 10,
            principalToken: "WETH",
            collateralAmount: 100,
@@ -62,12 +61,19 @@ class App extends Component {
         console.log(logs)
     };
 
+    onWrap = async () => {
+        let address = web3.eth.accounts[0];
+        console.log(address)
+        prajna.weth.deposit(address, 10000000000);
+    }
+
     render() {
         return (
             <div className = "container">
                 <div className = "navigation"></div>
                 <div className = "content">
                     <div className="App">
+                        <button onClick={this.onWrap}>wrap some eth</button>
                         <p>Change the Account 1 (as creditor):</p>
                         <Button type="default" onClick={this.onCreate}>Create A Order</Button>
                         <p>Change the Account 2 (as debtor):</p>

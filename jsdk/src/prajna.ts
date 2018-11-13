@@ -13,6 +13,7 @@ import {
 
 import * as DharmaTypes from "./types";
 import {OfferAPI} from './apis/offer_api';
+import {WETH9API} from './apis/weth_api';
 
 class Prajna {
     public static Types = DharmaTypes;
@@ -20,12 +21,7 @@ class Prajna {
     // public order: OrderAPI;
     public contracts: ContractsAPI;
     public offer: OfferAPI;
-    // public sign: SignerAPI;
-    // public adapters: AdaptersAPI;
-    // public servicing: ServicingAPI;
-    // public token: TokenAPI;
-    // public blockchain: BlockchainAPI;
-    // public logs: LogsAPI;
+    public weth: WETH9API;
 
     private web3: Web3;
 
@@ -45,14 +41,7 @@ class Prajna {
 
         this.contracts = new ContractsAPI(this.web3, addressBook);
         this.offer = new OfferAPI(this.web3, this.contracts);
-        // this.order = new OrderAPI(this.web3, this.contracts, this.adapters);
-
-        // this.servicing = new ServicingAPI(this.web3, this.contracts);
-        // this.sign = new SignerAPI(this.web3, this.contracts);
-        // this.adapters = new AdaptersAPI(this.web3, this.contracts);
-        // this.token = new TokenAPI(this.web3, this.contracts);
-        // this.blockchain = new BlockchainAPI(this.web3, this.contracts);
-        // this.logs = new LogsAPI(this.web3, this.contracts);
+        this.weth = new WETH9API(this.web3, this.contracts);
     }
 }
 

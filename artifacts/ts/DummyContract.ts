@@ -3017,10 +3017,10 @@ export const DummyContract =
     "70": {
       "events": {},
       "links": {},
-      "address": "0xcc43b64bfd1394dc93f0dbe3dc73a9a0890acc77",
-      "transactionHash": "0xcac658ee0f9656d8c347d8d8fc0ecbd86f5f9cf11c247cf09039bdcf2300fa42"
+      "address": "0x64f07714b2063ea46ec6161e50038828556a5103",
+      "transactionHash": "0x56d10e37fbe1ca613673f6ee28193312a210ff0c72d0a751af4a60106a2dce2f"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-13T08:15:27.174Z"
+  "updatedAt": "2018-11-13T09:13:55.776Z"
 }

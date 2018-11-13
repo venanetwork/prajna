@@ -37793,10 +37793,10 @@ export const DebtKernel =
         }
       },
       "links": {},
-      "address": "0xdba2e02a2fed2bc0b26f749294153f8b6ccee8f6",
-      "transactionHash": "0xd56d7fb8135bdc8d0dabfbf4e0d1c6279ec26532da50bbdb13b9c2434c6e3d6d"
+      "address": "0x787e8d5f8657e8d5a8b6f2931be034a33d869e53",
+      "transactionHash": "0x78e21e0bd92328507bb8d47ddafffed8eadf1301fa81cd9f1bd23610fd66fe67"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-13T08:15:30.292Z"
+  "updatedAt": "2018-11-13T09:13:58.929Z"
 }

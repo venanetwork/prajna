@@ -6,10 +6,11 @@ import {promisify} from '@0xproject/utils';
 import {BigNumber} from 'bignumber.js';
 import * as fs from "fs-extra";
 import * as Web3 from 'web3';
-import {WETH9 as ContractArtifactst} from 'prajna';
-import {BaseContract} from './base_contract_wrapper';
+import {WETH9 as ContractArtifacts} from 'prajna';
+import {BaseContract, CONTRACT_WRAPPER_ERRORS} from './base_contract_wrapper';
 import {classUtils} from '../../../utils/class_utils';
 import {TxData, TxDataPayable} from '../../../src/types/';
+import {Web3Utils} from '../../../utils/web3_utils';
 
 
 export class WETH9Contract extends BaseContract {
@@ -402,17 +403,51 @@ export class WETH9Contract extends BaseContract {
     };
 
     static async deployed(web3: Web3, defaults: Partial<TxData>): Promise<WETH9Contract> {
-        const currentNetwork = web3.version.network;
-        const { abi, networks } = await ContractArtifactst;
-        const web3ContractInstance = web3.eth.contract(abi).at(networks[currentNetwork].address);
+        const web3Utils = new Web3Utils(web3);
 
-        return new WETH9Contract(web3ContractInstance, defaults);
+        const currentNetwork = await web3Utils.getNetworkIdAsync();
+        const { abi, networks }: { abi: any; networks: any } = ContractArtifacts;
+
+        if (networks[currentNetwork]) {
+            const { address: contractAddress } = networks[currentNetwork];
+
+            const contractExists = await web3Utils.doesContractExistAtAddressAsync(contractAddress);
+
+            if (contractExists) {
+                const web3ContractInstance = web3.eth.contract(abi).at(contractAddress);
+                return new WETH9Contract(web3ContractInstance, defaults);
+            } else {
+                throw new Error(
+                    CONTRACT_WRAPPER_ERRORS.CONTRACT_NOT_FOUND_ON_NETWORK(
+                        "WETH9",
+                        currentNetwork,
+                    ),
+                );
+            }
+        } else {
+            throw new Error(
+                CONTRACT_WRAPPER_ERRORS.CONTRACT_NOT_FOUND_ON_NETWORK("WETH9", currentNetwork),
+            );
+        }
     }
-    static async at(address: string, web3: Web3, defaults: Partial<TxData>): Promise<WETH9Contract> {
-        const { abi } = await this.getArtifactsData(web3);
-        const web3ContractInstance = web3.eth.contract(abi).at(address);
 
-        return new WETH9Contract(web3ContractInstance, defaults);
+    static async at(address: string, web3: Web3, defaults: Partial<TxData>): Promise<WETH9Contract> {
+        const web3Utils = new Web3Utils(web3);
+
+        const { abi }: { abi: any } = ContractArtifacts;
+
+        const contractExists = await web3Utils.doesContractExistAtAddressAsync(address);
+        const currentNetwork = await web3Utils.getNetworkIdAsync();
+
+        if (contractExists) {
+            const web3ContractInstance = web3.eth.contract(abi).at(address);
+
+            return new WETH9Contract(web3ContractInstance, defaults);
+        } else {
+            throw new Error(
+                CONTRACT_WRAPPER_ERRORS.CONTRACT_NOT_FOUND_ON_NETWORK("WETH9", currentNetwork),
+            );
+        }
     }
 
     constructor(web3ContractInstance: Web3.ContractInstance, defaults: Partial<TxData>) {
