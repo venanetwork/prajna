@@ -182,7 +182,7 @@ export const Migrations =
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 11714,
+                        "referencedDeclaration": 11958,
                         "src": "210:3:7",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -286,7 +286,7 @@ export const Migrations =
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 11714,
+                        "referencedDeclaration": 11958,
                         "src": "292:3:7",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -831,7 +831,7 @@ export const Migrations =
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 11714,
+                        "referencedDeclaration": 11958,
                         "src": "210:3:7",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -935,7 +935,7 @@ export const Migrations =
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 11714,
+                        "referencedDeclaration": 11958,
                         "src": "292:3:7",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -1375,5 +1375,5 @@ export const Migrations =
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-12T07:01:02.421Z"
+  "updatedAt": "2018-11-13T08:15:31.477Z"
 }

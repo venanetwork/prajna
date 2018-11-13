@@ -4,22 +4,22 @@ export const AddressUtils =
   "abi": [],
   "bytecode": "0x604c602c600b82828239805160001a60731460008114601c57601e565bfe5b5030600052607381538281f30073000000000000000000000000000000000000000030146080604052600080fd00a165627a7a723058207d4ae8903d0f5c1bb16e68e0a0bbf6cd94ae95945ae843d430f11d7f824cf1b00029",
   "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fd00a165627a7a723058207d4ae8903d0f5c1bb16e68e0a0bbf6cd94ae95945ae843d430f11d7f824cf1b00029",
-  "sourceMap": "86:518:31:-;;132:2:-1;166:7;155:9;146:7;137:37;252:7;246:14;243:1;238:23;232:4;229:33;270:1;265:20;;;;222:63;;265:20;274:9;222:63;;298:9;295:1;288:20;328:4;319:7;311:22;352:7;343;336:24",
-  "deployedSourceMap": "86:518:31:-;;;;;;;;",
+  "sourceMap": "86:518:32:-;;132:2:-1;166:7;155:9;146:7;137:37;252:7;246:14;243:1;238:23;232:4;229:33;270:1;265:20;;;;222:63;;265:20;274:9;222:63;;298:9;295:1;288:20;328:4;319:7;311:22;352:7;343;336:24",
+  "deployedSourceMap": "86:518:32:-;;;;;;;;",
   "source": "pragma solidity ^0.4.18;\n\n/**\n * Utility library of inline functions on addresses\n */\nlibrary AddressUtils {\n\n  /**\n   * Returns whether there is code in the target address\n   * @dev This function will return false if invoked during the constructor of a contract,\n   *  as the code is not actually created until after the constructor finishes.\n   * @param addr address address to check\n   * @return whether there is code in the target address\n   */\n  function isContract(address addr) internal view returns (bool) {\n    uint256 size;\n    assembly { size := extcodesize(addr) }\n    return size > 0;\n  }\n\n}\n",
   "sourcePath": "zeppelin-solidity/contracts/AddressUtils.sol",
   "ast": {
     "absolutePath": "zeppelin-solidity/contracts/AddressUtils.sol",
     "exportedSymbols": {
       "AddressUtils": [
-        9815
+        10059
       ]
     },
-    "id": 9816,
+    "id": 10060,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 9798,
+        "id": 10042,
         "literals": [
           "solidity",
           "^",
@@ -27,7 +27,7 @@ export const AddressUtils =
           ".18"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:31"
+        "src": "0:24:32"
       },
       {
         "baseContracts": [],
@@ -35,29 +35,29 @@ export const AddressUtils =
         "contractKind": "library",
         "documentation": "Utility library of inline functions on addresses",
         "fullyImplemented": true,
-        "id": 9815,
+        "id": 10059,
         "linearizedBaseContracts": [
-          9815
+          10059
         ],
         "name": "AddressUtils",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 9813,
+              "id": 10057,
               "nodeType": "Block",
-              "src": "514:87:31",
+              "src": "514:87:32",
               "statements": [
                 {
                   "assignments": [],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 9806,
+                      "id": 10050,
                       "name": "size",
                       "nodeType": "VariableDeclaration",
-                      "scope": 9814,
-                      "src": "520:12:31",
+                      "scope": 10058,
+                      "src": "520:12:32",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -65,10 +65,10 @@ export const AddressUtils =
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 9805,
+                        "id": 10049,
                         "name": "uint256",
                         "nodeType": "ElementaryTypeName",
-                        "src": "520:7:31",
+                        "src": "520:7:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -78,36 +78,36 @@ export const AddressUtils =
                       "visibility": "internal"
                     }
                   ],
-                  "id": 9807,
+                  "id": 10051,
                   "initialValue": null,
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "520:12:31"
+                  "src": "520:12:32"
                 },
                 {
                   "externalReferences": [
                     {
                       "size": {
-                        "declaration": 9806,
+                        "declaration": 10050,
                         "isOffset": false,
                         "isSlot": false,
-                        "src": "549:4:31",
+                        "src": "549:4:32",
                         "valueSize": 1
                       }
                     },
                     {
                       "addr": {
-                        "declaration": 9800,
+                        "declaration": 10044,
                         "isOffset": false,
                         "isSlot": false,
-                        "src": "569:4:31",
+                        "src": "569:4:32",
                         "valueSize": 1
                       }
                     }
                   ],
-                  "id": 9808,
+                  "id": 10052,
                   "nodeType": "InlineAssembly",
                   "operations": "{\n    size := extcodesize(addr)\n}",
-                  "src": "538:49:31"
+                  "src": "538:49:32"
                 },
                 {
                   "expression": {
@@ -116,19 +116,19 @@ export const AddressUtils =
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 9811,
+                    "id": 10055,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "argumentTypes": null,
-                      "id": 9809,
+                      "id": 10053,
                       "name": "size",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 9806,
-                      "src": "588:4:31",
+                      "referencedDeclaration": 10050,
+                      "src": "588:4:32",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -139,14 +139,14 @@ export const AddressUtils =
                     "rightExpression": {
                       "argumentTypes": null,
                       "hexValue": "30",
-                      "id": 9810,
+                      "id": 10054,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "595:1:31",
+                      "src": "595:1:32",
                       "subdenomination": null,
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_0_by_1",
@@ -154,21 +154,21 @@ export const AddressUtils =
                       },
                       "value": "0"
                     },
-                    "src": "588:8:31",
+                    "src": "588:8:32",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 9804,
-                  "id": 9812,
+                  "functionReturnParameters": 10048,
+                  "id": 10056,
                   "nodeType": "Return",
-                  "src": "581:15:31"
+                  "src": "581:15:32"
                 }
               ]
             },
             "documentation": "Returns whether there is code in the target address\n@dev This function will return false if invoked during the constructor of a contract,\n as the code is not actually created until after the constructor finishes.\n@param addr address address to check\n@return whether there is code in the target address",
-            "id": 9814,
+            "id": 10058,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -176,16 +176,16 @@ export const AddressUtils =
             "name": "isContract",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 9801,
+              "id": 10045,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 9800,
+                  "id": 10044,
                   "name": "addr",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9814,
-                  "src": "471:12:31",
+                  "scope": 10058,
+                  "src": "471:12:32",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -193,10 +193,10 @@ export const AddressUtils =
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 9799,
+                    "id": 10043,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "471:7:31",
+                    "src": "471:7:32",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -206,20 +206,20 @@ export const AddressUtils =
                   "visibility": "internal"
                 }
               ],
-              "src": "470:14:31"
+              "src": "470:14:32"
             },
             "payable": false,
             "returnParameters": {
-              "id": 9804,
+              "id": 10048,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 9803,
+                  "id": 10047,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9814,
-                  "src": "508:4:31",
+                  "scope": 10058,
+                  "src": "508:4:32",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -227,10 +227,10 @@ export const AddressUtils =
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 9802,
+                    "id": 10046,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "508:4:31",
+                    "src": "508:4:32",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -240,33 +240,33 @@ export const AddressUtils =
                   "visibility": "internal"
                 }
               ],
-              "src": "507:6:31"
+              "src": "507:6:32"
             },
-            "scope": 9815,
-            "src": "451:150:31",
+            "scope": 10059,
+            "src": "451:150:32",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 9816,
-        "src": "86:518:31"
+        "scope": 10060,
+        "src": "86:518:32"
       }
     ],
-    "src": "0:605:31"
+    "src": "0:605:32"
   },
   "legacyAST": {
     "absolutePath": "zeppelin-solidity/contracts/AddressUtils.sol",
     "exportedSymbols": {
       "AddressUtils": [
-        9815
+        10059
       ]
     },
-    "id": 9816,
+    "id": 10060,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 9798,
+        "id": 10042,
         "literals": [
           "solidity",
           "^",
@@ -274,7 +274,7 @@ export const AddressUtils =
           ".18"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:31"
+        "src": "0:24:32"
       },
       {
         "baseContracts": [],
@@ -282,29 +282,29 @@ export const AddressUtils =
         "contractKind": "library",
         "documentation": "Utility library of inline functions on addresses",
         "fullyImplemented": true,
-        "id": 9815,
+        "id": 10059,
         "linearizedBaseContracts": [
-          9815
+          10059
         ],
         "name": "AddressUtils",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 9813,
+              "id": 10057,
               "nodeType": "Block",
-              "src": "514:87:31",
+              "src": "514:87:32",
               "statements": [
                 {
                   "assignments": [],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 9806,
+                      "id": 10050,
                       "name": "size",
                       "nodeType": "VariableDeclaration",
-                      "scope": 9814,
-                      "src": "520:12:31",
+                      "scope": 10058,
+                      "src": "520:12:32",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -312,10 +312,10 @@ export const AddressUtils =
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 9805,
+                        "id": 10049,
                         "name": "uint256",
                         "nodeType": "ElementaryTypeName",
-                        "src": "520:7:31",
+                        "src": "520:7:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -325,36 +325,36 @@ export const AddressUtils =
                       "visibility": "internal"
                     }
                   ],
-                  "id": 9807,
+                  "id": 10051,
                   "initialValue": null,
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "520:12:31"
+                  "src": "520:12:32"
                 },
                 {
                   "externalReferences": [
                     {
                       "size": {
-                        "declaration": 9806,
+                        "declaration": 10050,
                         "isOffset": false,
                         "isSlot": false,
-                        "src": "549:4:31",
+                        "src": "549:4:32",
                         "valueSize": 1
                       }
                     },
                     {
                       "addr": {
-                        "declaration": 9800,
+                        "declaration": 10044,
                         "isOffset": false,
                         "isSlot": false,
-                        "src": "569:4:31",
+                        "src": "569:4:32",
                         "valueSize": 1
                       }
                     }
                   ],
-                  "id": 9808,
+                  "id": 10052,
                   "nodeType": "InlineAssembly",
                   "operations": "{\n    size := extcodesize(addr)\n}",
-                  "src": "538:49:31"
+                  "src": "538:49:32"
                 },
                 {
                   "expression": {
@@ -363,19 +363,19 @@ export const AddressUtils =
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 9811,
+                    "id": 10055,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "argumentTypes": null,
-                      "id": 9809,
+                      "id": 10053,
                       "name": "size",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 9806,
-                      "src": "588:4:31",
+                      "referencedDeclaration": 10050,
+                      "src": "588:4:32",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -386,14 +386,14 @@ export const AddressUtils =
                     "rightExpression": {
                       "argumentTypes": null,
                       "hexValue": "30",
-                      "id": 9810,
+                      "id": 10054,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "595:1:31",
+                      "src": "595:1:32",
                       "subdenomination": null,
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_0_by_1",
@@ -401,21 +401,21 @@ export const AddressUtils =
                       },
                       "value": "0"
                     },
-                    "src": "588:8:31",
+                    "src": "588:8:32",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 9804,
-                  "id": 9812,
+                  "functionReturnParameters": 10048,
+                  "id": 10056,
                   "nodeType": "Return",
-                  "src": "581:15:31"
+                  "src": "581:15:32"
                 }
               ]
             },
             "documentation": "Returns whether there is code in the target address\n@dev This function will return false if invoked during the constructor of a contract,\n as the code is not actually created until after the constructor finishes.\n@param addr address address to check\n@return whether there is code in the target address",
-            "id": 9814,
+            "id": 10058,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -423,16 +423,16 @@ export const AddressUtils =
             "name": "isContract",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 9801,
+              "id": 10045,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 9800,
+                  "id": 10044,
                   "name": "addr",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9814,
-                  "src": "471:12:31",
+                  "scope": 10058,
+                  "src": "471:12:32",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -440,10 +440,10 @@ export const AddressUtils =
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 9799,
+                    "id": 10043,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "471:7:31",
+                    "src": "471:7:32",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -453,20 +453,20 @@ export const AddressUtils =
                   "visibility": "internal"
                 }
               ],
-              "src": "470:14:31"
+              "src": "470:14:32"
             },
             "payable": false,
             "returnParameters": {
-              "id": 9804,
+              "id": 10048,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 9803,
+                  "id": 10047,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9814,
-                  "src": "508:4:31",
+                  "scope": 10058,
+                  "src": "508:4:32",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -474,10 +474,10 @@ export const AddressUtils =
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 9802,
+                    "id": 10046,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "508:4:31",
+                    "src": "508:4:32",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -487,20 +487,20 @@ export const AddressUtils =
                   "visibility": "internal"
                 }
               ],
-              "src": "507:6:31"
+              "src": "507:6:32"
             },
-            "scope": 9815,
-            "src": "451:150:31",
+            "scope": 10059,
+            "src": "451:150:32",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 9816,
-        "src": "86:518:31"
+        "scope": 10060,
+        "src": "86:518:32"
       }
     ],
-    "src": "0:605:31"
+    "src": "0:605:32"
   },
   "compiler": {
     "name": "solc",
@@ -508,5 +508,5 @@ export const AddressUtils =
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-12T07:00:43.537Z"
+  "updatedAt": "2018-11-13T08:15:10.668Z"
 }

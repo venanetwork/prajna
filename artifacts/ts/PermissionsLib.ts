@@ -597,10 +597,10 @@ export const PermissionsLib =
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        11717,
-                        11718
+                        11961,
+                        11962
                       ],
-                      "referencedDeclaration": 11717,
+                      "referencedDeclaration": 11961,
                       "src": "1876:7:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1232,10 +1232,10 @@ export const PermissionsLib =
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        11717,
-                        11718
+                        11961,
+                        11962
                       ],
-                      "referencedDeclaration": 11717,
+                      "referencedDeclaration": 11961,
                       "src": "2444:7:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -3316,10 +3316,10 @@ export const PermissionsLib =
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        11717,
-                        11718
+                        11961,
+                        11962
                       ],
-                      "referencedDeclaration": 11717,
+                      "referencedDeclaration": 11961,
                       "src": "1876:7:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -3951,10 +3951,10 @@ export const PermissionsLib =
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        11717,
-                        11718
+                        11961,
+                        11962
                       ],
-                      "referencedDeclaration": 11717,
+                      "referencedDeclaration": 11961,
                       "src": "2444:7:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -5489,10 +5489,10 @@ export const PermissionsLib =
     "70": {
       "events": {},
       "links": {},
-      "address": "0x2f91398166af51e88f5ac180f2fe2763856457f5",
-      "transactionHash": "0xc6faba54f6a83d0132a2ee7d7950283cdfbb7d456b303faa0cd4209952774939"
+      "address": "0xdb5a19efd88dc46a02b07e741a911584d0d2915b",
+      "transactionHash": "0xa128bd70115327c146b0afa9036a8271b63f2f265d35dffa50ccc522def9d126"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-12T07:00:58.364Z"
+  "updatedAt": "2018-11-13T08:15:27.176Z"
 }

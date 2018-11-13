@@ -213,8 +213,8 @@ export const RepaymentRouter =
   ],
   "bytecode": "0x608060405260008060146101000a81548160ff02191690831515021790555034801561002a57600080fd5b506040516040806110ae8339810180604052810190808051906020019092919080519060200190929190505050336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555081600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555080600260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505050610f848061012a6000396000f30060806040526004361061008e576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630eefdbad146100935780632f866f73146100ea5780633f4ba83a146101415780635c975abb146101585780638456cb59146101875780638da5cb5b1461019e578063f2fde38b146101f5578063ff26812514610238575b600080fd5b34801561009f57600080fd5b506100a86102a7565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100f657600080fd5b506100ff6102cd565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561014d57600080fd5b506101566102f3565b005b34801561016457600080fd5b5061016d6103b1565b604051808215151515815260200191505060405180910390f35b34801561019357600080fd5b5061019c6103c4565b005b3480156101aa57600080fd5b506101b3610484565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561020157600080fd5b50610236600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506104a9565b005b34801561024457600080fd5b50610291600480360381019080803560001916906020019092919080359060200190929190803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506105fe565b6040518082815260200191505060405180910390f35b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561034e57600080fd5b600060149054906101000a900460ff16151561036957600080fd5b60008060146101000a81548160ff0219169083151502179055507f7805862f689e2f13df9f062ff482ad3ad112aca9e0847911ed832e158c525b3360405160405180910390a1565b600060149054906101000a900460ff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561041f57600080fd5b600060149054906101000a900460ff1615151561043b57600080fd5b6001600060146101000a81548160ff0219169083151502179055507f6985a02210a168e66602d3235cb6db0e70f92b3ba4d376a33c0f3d9434bff62560405160405180910390a1565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561050457600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415151561054057600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b60008060008060149054906101000a900460ff1615151561061e57600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168473ffffffffffffffffffffffffffffffffffffffff161415151561065a57600080fd5b60008511151561066957600080fd5b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16639758af1e876040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808260001916600019168152602001915050602060405180830381600087803b15801561070257600080fd5b505af1158015610716573d6000803e3d6000fd5b505050506040513d602081101561072c57600080fd5b8101908080519060200190929190505050151561078d5785600019166000600281111561075557fe5b60ff167f36d86c59e00bd73dc19ba3adfe068e4b64ac7e92be35546adeddf1b956a87e9060405160405180910390a360009250610f4f565b848473ffffffffffffffffffffffffffffffffffffffff166370a08231336040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050602060405180830381600087803b15801561082957600080fd5b505af115801561083d573d6000803e3d6000fd5b505050506040513d602081101561085357600080fd5b8101908080519060200190929190505050108061099a5750848473ffffffffffffffffffffffffffffffffffffffff1663dd62ed3e33600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff166040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200192505050602060405180830381600087803b15801561095d57600080fd5b505af1158015610971573d6000803e3d6000fd5b505050506040513d602081101561098757600080fd5b8101908080519060200190929190505050105b156109e9578560001916600160028111156109b157fe5b60ff167f36d86c59e00bd73dc19ba3adfe068e4b64ac7e92be35546adeddf1b956a87e9060405160405180910390a360009250610f4f565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663f6f494c9876040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808260001916600019168152602001915050602060405180830381600087803b158015610a8257600080fd5b505af1158015610a96573d6000803e3d6000fd5b505050506040513d6020811015610aac57600080fd5b81019080805190602001909291905050509150600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663ba20dda4876040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808260001916600019168152602001915050602060405180830381600087803b158015610b5857600080fd5b505af1158015610b6c573d6000803e3d6000fd5b505050506040513d6020811015610b8257600080fd5b810190808051906020019092919050505090508173ffffffffffffffffffffffffffffffffffffffff16635f0280ba87338489896040518663ffffffff167c01000000000000000000000000000000000000000000000000000000000281526004018086600019166000191681526020018573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018381526020018273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200195505050505050602060405180830381600087803b158015610cb057600080fd5b505af1158015610cc4573d6000803e3d6000fd5b505050506040513d6020811015610cda57600080fd5b81019080805190602001909291905050501515610d3a578560001916600280811115610d0257fe5b60ff167f36d86c59e00bd73dc19ba3adfe068e4b64ac7e92be35546adeddf1b956a87e9060405160405180910390a360009250610f4f565b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166315dacbea853384896040518563ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001828152602001945050505050602060405180830381600087803b158015610e6757600080fd5b505af1158015610e7b573d6000803e3d6000fd5b505050506040513d6020811015610e9157600080fd5b81019080805190602001909291905050501515610ead57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1687600019167f43ea5a2b552489bf9de7c3d6ded86e3b82423e034255d06db4b388f806db50d08888604051808381526020018273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019250505060405180910390a48492505b505093925050505600a165627a7a72305820ce635ef8939b12809fc5d261241e86f28ce9bc80a73ee3c84b593b07935fa5690029",
   "deployedBytecode": "0x60806040526004361061008e576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630eefdbad146100935780632f866f73146100ea5780633f4ba83a146101415780635c975abb146101585780638456cb59146101875780638da5cb5b1461019e578063f2fde38b146101f5578063ff26812514610238575b600080fd5b34801561009f57600080fd5b506100a86102a7565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100f657600080fd5b506100ff6102cd565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561014d57600080fd5b506101566102f3565b005b34801561016457600080fd5b5061016d6103b1565b604051808215151515815260200191505060405180910390f35b34801561019357600080fd5b5061019c6103c4565b005b3480156101aa57600080fd5b506101b3610484565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561020157600080fd5b50610236600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506104a9565b005b34801561024457600080fd5b50610291600480360381019080803560001916906020019092919080359060200190929190803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506105fe565b6040518082815260200191505060405180910390f35b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561034e57600080fd5b600060149054906101000a900460ff16151561036957600080fd5b60008060146101000a81548160ff0219169083151502179055507f7805862f689e2f13df9f062ff482ad3ad112aca9e0847911ed832e158c525b3360405160405180910390a1565b600060149054906101000a900460ff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561041f57600080fd5b600060149054906101000a900460ff1615151561043b57600080fd5b6001600060146101000a81548160ff0219169083151502179055507f6985a02210a168e66602d3235cb6db0e70f92b3ba4d376a33c0f3d9434bff62560405160405180910390a1565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561050457600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415151561054057600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b60008060008060149054906101000a900460ff1615151561061e57600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168473ffffffffffffffffffffffffffffffffffffffff161415151561065a57600080fd5b60008511151561066957600080fd5b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16639758af1e876040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808260001916600019168152602001915050602060405180830381600087803b15801561070257600080fd5b505af1158015610716573d6000803e3d6000fd5b505050506040513d602081101561072c57600080fd5b8101908080519060200190929190505050151561078d5785600019166000600281111561075557fe5b60ff167f36d86c59e00bd73dc19ba3adfe068e4b64ac7e92be35546adeddf1b956a87e9060405160405180910390a360009250610f4f565b848473ffffffffffffffffffffffffffffffffffffffff166370a08231336040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050602060405180830381600087803b15801561082957600080fd5b505af115801561083d573d6000803e3d6000fd5b505050506040513d602081101561085357600080fd5b8101908080519060200190929190505050108061099a5750848473ffffffffffffffffffffffffffffffffffffffff1663dd62ed3e33600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff166040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200192505050602060405180830381600087803b15801561095d57600080fd5b505af1158015610971573d6000803e3d6000fd5b505050506040513d602081101561098757600080fd5b8101908080519060200190929190505050105b156109e9578560001916600160028111156109b157fe5b60ff167f36d86c59e00bd73dc19ba3adfe068e4b64ac7e92be35546adeddf1b956a87e9060405160405180910390a360009250610f4f565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663f6f494c9876040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808260001916600019168152602001915050602060405180830381600087803b158015610a8257600080fd5b505af1158015610a96573d6000803e3d6000fd5b505050506040513d6020811015610aac57600080fd5b81019080805190602001909291905050509150600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663ba20dda4876040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808260001916600019168152602001915050602060405180830381600087803b158015610b5857600080fd5b505af1158015610b6c573d6000803e3d6000fd5b505050506040513d6020811015610b8257600080fd5b810190808051906020019092919050505090508173ffffffffffffffffffffffffffffffffffffffff16635f0280ba87338489896040518663ffffffff167c01000000000000000000000000000000000000000000000000000000000281526004018086600019166000191681526020018573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018381526020018273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200195505050505050602060405180830381600087803b158015610cb057600080fd5b505af1158015610cc4573d6000803e3d6000fd5b505050506040513d6020811015610cda57600080fd5b81019080805190602001909291905050501515610d3a578560001916600280811115610d0257fe5b60ff167f36d86c59e00bd73dc19ba3adfe068e4b64ac7e92be35546adeddf1b956a87e9060405160405180910390a360009250610f4f565b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166315dacbea853384896040518563ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001828152602001945050505050602060405180830381600087803b158015610e6757600080fd5b505af1158015610e7b573d6000803e3d6000fd5b505050506040513d6020811015610e9157600080fd5b81019080805190602001909291905050501515610ead57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1687600019167f43ea5a2b552489bf9de7c3d6ded86e3b82423e034255d06db4b388f806db50d08888604051808381526020018273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019250505060405180910390a48492505b505093925050505600a165627a7a72305820ce635ef8939b12809fc5d261241e86f28ce9bc80a73ee3c84b593b07935fa5690029",
-  "sourceMap": "1291:2734:8:-;;;268:5:32;247:26;;;;;;;;;;;;;;;;;;;;1936:214:8;8:9:-1;5:2;;;30:1;27;20:12;5:2;1936:214:8;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;509:10:34;501:5;;:18;;;;;;;;;;;;;;;;;;2059:13:8;2031:12;;:42;;;;;;;;;;;;;;;;;;2123:19;2083:18;;:60;;;;;;;;;;;;;;;;;;1936:214;;1291:2734;;;;;;",
-  "deployedSourceMap": "1291:2734:8:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1372:44;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1372:44:8;;;;;;;;;;;;;;;;;;;;;;;;;;;1334:32;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1334:32:8;;;;;;;;;;;;;;;;;;;;;;;;;;;833:87:32;;8:9:-1;5:2;;;30:1;27;20:12;5:2;833:87:32;;;;;;247:26;;8:9:-1;5:2;;;30:1;27;20:12;5:2;247:26:32;;;;;;;;;;;;;;;;;;;;;;;;;;;666:85;;8:9:-1;5:2;;;30:1;27;20:12;5:2;666:85:32;;;;;;238:20:34;;8:9:-1;5:2;;;30:1;27;20:12;5:2;238:20:34;;;;;;;;;;;;;;;;;;;;;;;;;;;832:169;;8:9:-1;5:2;;;30:1;27;20:12;5:2;832:169:34;;;;;;;;;;;;;;;;;;;;;;;;;;;;2360:1663:8;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2360:1663:8;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1372:44;;;;;;;;;;;;;:::o;1334:32::-;;;;;;;;;;;;;:::o;833:87:32:-;653:5:34;;;;;;;;;;;639:19;;:10;:19;;;631:28;;;;;;;;568:6:32;;;;;;;;;;;560:15;;;;;;;;895:5;886:6;;:14;;;;;;;;;;;;;;;;;;906:9;;;;;;;;;;833:87::o;247:26::-;;;;;;;;;;;;;:::o;666:85::-;653:5:34;;;;;;;;;;;639:19;;:10;:19;;;631:28;;;;;;;;416:6:32;;;;;;;;;;;415:7;407:16;;;;;;;;729:4;720:6;;:13;;;;;;;;;;;;;;;;;;739:7;;;;;;;;;;666:85::o;238:20:34:-;;;;;;;;;;;;;:::o;832:169::-;653:5;;;;;;;;;;;639:19;;:10;:19;;;631:28;;;;;;;;928:1;908:22;;:8;:22;;;;900:31;;;;;;;;965:8;937:37;;958:5;;;;;;;;;;;937:37;;;;;;;;;;;;988:8;980:5;;:16;;;;;;;;;;;;;;;;;;832:169;:::o;2360:1663:8:-;2518:18;3229:21;3305:19;416:6:32;;;;;;;;;;;415:7;407:16;;;;;;;;2584:1:8;2560:26;;:12;:26;;;;2552:35;;;;;;;;2614:1;2605:6;:10;2597:19;;;;;;;;2668:12;;;;;;;;;;;:27;;;2696:11;2668:40;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2668:40:8;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;2668:40:8;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;2668:40:8;;;;;;;;;;;;;;;;2667:41;2663:157;;;2775:11;2724:63;;;2739:33;2733:40;;;;;;;;2724:63;;;;;;;;;;;;2808:1;2801:8;;;;2663:157;2969:6;2931:12;2925:29;;;2955:10;2925:41;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2925:41:8;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;2925:41:8;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;2925:41:8;;;;;;;;;;;;;;;;:50;:136;;;;3055:6;2997:12;2991:29;;;3021:10;3033:18;;;;;;;;;;;2991:61;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2991:61:8;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;2991:61:8;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;2991:61:8;;;;;;;;;;;;;;;;:70;2925:136;2921:265;;;3141:11;3077:76;;;3092:46;3086:53;;;;;;;;3077:76;;;;;;;;;;;;3174:1;3167:8;;;;2921:265;3253:12;;;;;;;;;;;:29;;;3283:11;3253:42;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;3253:42:8;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;3253:42:8;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;3253:42:8;;;;;;;;;;;;;;;;3229:66;;3327:12;;;;;;;;;;;:27;;;3355:11;3327:40;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;3327:40:8;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;3327:40:8;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;3327:40:8;;;;;;;;;;;;;;;;3305:62;;3396:13;3382:46;;;3442:11;3467:10;3491:11;3516:6;3536:12;3382:176;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;3382:176:8;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;3382:176:8;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;3382:176:8;;;;;;;;;;;;;;;;3381:177;3377:303;;;3635:11;3574:73;;;3589:43;3583:50;;;;;;;;3574:73;;;;;;;;;;;;3668:1;3661:8;;;;3377:303;3737:18;;;;;;;;;;;:31;;;3782:12;3808:10;3832:11;3857:6;3737:136;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;3737:136:8;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;3737:136:8;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;3737:136:8;;;;;;;;;;;;;;;;3729:145;;;;;;;;3958:11;3920:72;;3946:10;3920:72;;3933:11;3920:72;;;;3971:6;3979:12;3920:72;;;;;;;;;;;;;;;;;;;;;;;;;;;;4010:6;4003:13;;429:1:32;2360:1663:8;;;;;;;:::o",
+  "sourceMap": "1291:2734:8:-;;;268:5:33;247:26;;;;;;;;;;;;;;;;;;;;1936:214:8;8:9:-1;5:2;;;30:1;27;20:12;5:2;1936:214:8;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;509:10:35;501:5;;:18;;;;;;;;;;;;;;;;;;2059:13:8;2031:12;;:42;;;;;;;;;;;;;;;;;;2123:19;2083:18;;:60;;;;;;;;;;;;;;;;;;1936:214;;1291:2734;;;;;;",
+  "deployedSourceMap": "1291:2734:8:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1372:44;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1372:44:8;;;;;;;;;;;;;;;;;;;;;;;;;;;1334:32;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1334:32:8;;;;;;;;;;;;;;;;;;;;;;;;;;;833:87:33;;8:9:-1;5:2;;;30:1;27;20:12;5:2;833:87:33;;;;;;247:26;;8:9:-1;5:2;;;30:1;27;20:12;5:2;247:26:33;;;;;;;;;;;;;;;;;;;;;;;;;;;666:85;;8:9:-1;5:2;;;30:1;27;20:12;5:2;666:85:33;;;;;;238:20:35;;8:9:-1;5:2;;;30:1;27;20:12;5:2;238:20:35;;;;;;;;;;;;;;;;;;;;;;;;;;;832:169;;8:9:-1;5:2;;;30:1;27;20:12;5:2;832:169:35;;;;;;;;;;;;;;;;;;;;;;;;;;;;2360:1663:8;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2360:1663:8;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1372:44;;;;;;;;;;;;;:::o;1334:32::-;;;;;;;;;;;;;:::o;833:87:33:-;653:5:35;;;;;;;;;;;639:19;;:10;:19;;;631:28;;;;;;;;568:6:33;;;;;;;;;;;560:15;;;;;;;;895:5;886:6;;:14;;;;;;;;;;;;;;;;;;906:9;;;;;;;;;;833:87::o;247:26::-;;;;;;;;;;;;;:::o;666:85::-;653:5:35;;;;;;;;;;;639:19;;:10;:19;;;631:28;;;;;;;;416:6:33;;;;;;;;;;;415:7;407:16;;;;;;;;729:4;720:6;;:13;;;;;;;;;;;;;;;;;;739:7;;;;;;;;;;666:85::o;238:20:35:-;;;;;;;;;;;;;:::o;832:169::-;653:5;;;;;;;;;;;639:19;;:10;:19;;;631:28;;;;;;;;928:1;908:22;;:8;:22;;;;900:31;;;;;;;;965:8;937:37;;958:5;;;;;;;;;;;937:37;;;;;;;;;;;;988:8;980:5;;:16;;;;;;;;;;;;;;;;;;832:169;:::o;2360:1663:8:-;2518:18;3229:21;3305:19;416:6:33;;;;;;;;;;;415:7;407:16;;;;;;;;2584:1:8;2560:26;;:12;:26;;;;2552:35;;;;;;;;2614:1;2605:6;:10;2597:19;;;;;;;;2668:12;;;;;;;;;;;:27;;;2696:11;2668:40;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2668:40:8;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;2668:40:8;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;2668:40:8;;;;;;;;;;;;;;;;2667:41;2663:157;;;2775:11;2724:63;;;2739:33;2733:40;;;;;;;;2724:63;;;;;;;;;;;;2808:1;2801:8;;;;2663:157;2969:6;2931:12;2925:29;;;2955:10;2925:41;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2925:41:8;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;2925:41:8;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;2925:41:8;;;;;;;;;;;;;;;;:50;:136;;;;3055:6;2997:12;2991:29;;;3021:10;3033:18;;;;;;;;;;;2991:61;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2991:61:8;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;2991:61:8;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;2991:61:8;;;;;;;;;;;;;;;;:70;2925:136;2921:265;;;3141:11;3077:76;;;3092:46;3086:53;;;;;;;;3077:76;;;;;;;;;;;;3174:1;3167:8;;;;2921:265;3253:12;;;;;;;;;;;:29;;;3283:11;3253:42;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;3253:42:8;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;3253:42:8;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;3253:42:8;;;;;;;;;;;;;;;;3229:66;;3327:12;;;;;;;;;;;:27;;;3355:11;3327:40;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;3327:40:8;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;3327:40:8;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;3327:40:8;;;;;;;;;;;;;;;;3305:62;;3396:13;3382:46;;;3442:11;3467:10;3491:11;3516:6;3536:12;3382:176;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;3382:176:8;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;3382:176:8;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;3382:176:8;;;;;;;;;;;;;;;;3381:177;3377:303;;;3635:11;3574:73;;;3589:43;3583:50;;;;;;;;3574:73;;;;;;;;;;;;3668:1;3661:8;;;;3377:303;3737:18;;;;;;;;;;;:31;;;3782:12;3808:10;3832:11;3857:6;3737:136;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;3737:136:8;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;3737:136:8;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;3737:136:8;;;;;;;;;;;;;;;;3729:145;;;;;;;;3958:11;3920:72;;3946:10;3920:72;;3933:11;3920:72;;;;3971:6;3979:12;3920:72;;;;;;;;;;;;;;;;;;;;;;;;;;;;4010:6;4003:13;;429:1:33;2360:1663:8;;;;;;;:::o",
   "source": "/*\n\n  Copyright 2017 Dharma Labs Inc.\n\n  Licensed under the Apache License, Version 2.0 (the \"License\");\n  you may not use this file except in compliance with the License.\n  You may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\n  Unless required by applicable law or agreed to in writing, software\n  distributed under the License is distributed on an \"AS IS\" BASIS,\n  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n  See the License for the specific language governing permissions and\n  limitations under the License.\n\n*/\n\npragma solidity 0.4.24;\n\nimport \"./DebtRegistry.sol\";\nimport \"./TermsContract.sol\";\nimport \"./TokenTransferProxy.sol\";\nimport \"zeppelin-solidity/contracts/token/ERC20/ERC20.sol\";\nimport \"zeppelin-solidity/contracts/lifecycle/Pausable.sol\";\n\n\n/**\n * The RepaymentRouter routes allowers payers to make repayments on any\n * given debt agreement in any given token by routing the payments to\n * the debt agreement's beneficiary.  Additionally, the router acts\n * as a trusted oracle to the debt agreement's terms contract, informing\n * it of exactly what payments have been made in what quantity and in what token.\n *\n * Authors: Jaynti Kanani -- Github: jdkanani, Nadav Hollander -- Github: nadavhollander\n */\ncontract RepaymentRouter is Pausable {\n    DebtRegistry public debtRegistry;\n    TokenTransferProxy public tokenTransferProxy;\n\n    enum Errors {\n        DEBT_AGREEMENT_NONEXISTENT,\n        PAYER_BALANCE_OR_ALLOWANCE_INSUFFICIENT,\n        REPAYMENT_REJECTED_BY_TERMS_CONTRACT\n    }\n\n    event LogRepayment(\n        bytes32 indexed _agreementId,\n        address indexed _payer,\n        address indexed _beneficiary,\n        uint _amount,\n        address _token\n    );\n\n    event LogError(uint8 indexed _errorId, bytes32 indexed _agreementId);\n\n    /**\n     * Constructor points the repayment router at the deployed registry contract.\n     */\n    function RepaymentRouter (address _debtRegistry, address _tokenTransferProxy) public {\n        debtRegistry = DebtRegistry(_debtRegistry);\n        tokenTransferProxy = TokenTransferProxy(_tokenTransferProxy);\n    }\n\n    /**\n     * Given an agreement id, routes a repayment\n     * of a given ERC20 token to the debt's current beneficiary, and reports the repayment\n     * to the debt's associated terms contract.\n     */\n    function repay(\n        bytes32 agreementId,\n        uint256 amount,\n        address tokenAddress\n    )\n        public\n        whenNotPaused\n        returns (uint _amountRepaid)\n    {\n        require(tokenAddress != address(0));\n        require(amount > 0);\n\n        // Ensure agreement exists.\n        if (!debtRegistry.doesEntryExist(agreementId)) {\n            LogError(uint8(Errors.DEBT_AGREEMENT_NONEXISTENT), agreementId);\n            return 0;\n        }\n\n        // Check payer has sufficient balance and has granted router sufficient allowance.\n        if (ERC20(tokenAddress).balanceOf(msg.sender) < amount ||\n            ERC20(tokenAddress).allowance(msg.sender, tokenTransferProxy) < amount) {\n            LogError(uint8(Errors.PAYER_BALANCE_OR_ALLOWANCE_INSUFFICIENT), agreementId);\n            return 0;\n        }\n\n        // Notify terms contract\n        address termsContract = debtRegistry.getTermsContract(agreementId);\n        address beneficiary = debtRegistry.getBeneficiary(agreementId);\n        if (!TermsContract(termsContract).registerRepayment(\n            agreementId,\n            msg.sender,\n            beneficiary,\n            amount,\n            tokenAddress\n        )) {\n            LogError(uint8(Errors.REPAYMENT_REJECTED_BY_TERMS_CONTRACT), agreementId);\n            return 0;\n        }\n\n        // Transfer amount to creditor\n        require(tokenTransferProxy.transferFrom(\n            tokenAddress,\n            msg.sender,\n            beneficiary,\n            amount\n        ));\n\n        // Log event for repayment\n        LogRepayment(agreementId, msg.sender, beneficiary, amount, tokenAddress);\n\n        return amount;\n    }\n}\n",
   "sourcePath": "/Users/lixianji/coding/chainboard/contract/contracts/RepaymentRouter.sol",
   "ast": {
@@ -276,7 +276,7 @@ export const RepaymentRouter =
         "id": 3964,
         "nodeType": "ImportDirective",
         "scope": 4152,
-        "sourceUnit": 10169,
+        "sourceUnit": 10413,
         "src": "703:59:8",
         "symbolAliases": [],
         "unitAlias": ""
@@ -287,7 +287,7 @@ export const RepaymentRouter =
         "id": 3965,
         "nodeType": "ImportDirective",
         "scope": 4152,
-        "sourceUnit": 9876,
+        "sourceUnit": 10120,
         "src": "763:60:8",
         "symbolAliases": [],
         "unitAlias": ""
@@ -301,10 +301,10 @@ export const RepaymentRouter =
               "id": 3966,
               "name": "Pausable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 9875,
+              "referencedDeclaration": 10119,
               "src": "1319:8:8",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Pausable_$9875",
+                "typeIdentifier": "t_contract$_Pausable_$10119",
                 "typeString": "contract Pausable"
               }
             },
@@ -314,8 +314,8 @@ export const RepaymentRouter =
           }
         ],
         "contractDependencies": [
-          9875,
-          10029
+          10119,
+          10273
         ],
         "contractKind": "contract",
         "documentation": "The RepaymentRouter routes allowers payers to make repayments on any\ngiven debt agreement in any given token by routing the payments to\nthe debt agreement's beneficiary.  Additionally, the router acts\nas a trusted oracle to the debt agreement's terms contract, informing\nit of exactly what payments have been made in what quantity and in what token.\n * Authors: Jaynti Kanani -- Github: jdkanani, Nadav Hollander -- Github: nadavhollander",
@@ -323,8 +323,8 @@ export const RepaymentRouter =
         "id": 4151,
         "linearizedBaseContracts": [
           4151,
-          9875,
-          10029
+          10119,
+          10273
         ],
         "name": "RepaymentRouter",
         "nodeType": "ContractDefinition",
@@ -993,10 +993,10 @@ export const RepaymentRouter =
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        11717,
-                        11718
+                        11961,
+                        11962
                       ],
-                      "referencedDeclaration": 11717,
+                      "referencedDeclaration": 11961,
                       "src": "2552:7:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1087,10 +1087,10 @@ export const RepaymentRouter =
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        11717,
-                        11718
+                        11961,
+                        11962
                       ],
-                      "referencedDeclaration": 11717,
+                      "referencedDeclaration": 11961,
                       "src": "2597:7:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1392,7 +1392,7 @@ export const RepaymentRouter =
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 11714,
+                              "referencedDeclaration": 11958,
                               "src": "2955:3:8",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -1449,10 +1449,10 @@ export const RepaymentRouter =
                               "name": "ERC20",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 10168,
+                              "referencedDeclaration": 10412,
                               "src": "2925:5:8",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_type$_t_contract$_ERC20_$10168_$",
+                                "typeIdentifier": "t_type$_t_contract$_ERC20_$10412_$",
                                 "typeString": "type(contract ERC20)"
                               }
                             },
@@ -1466,7 +1466,7 @@ export const RepaymentRouter =
                             "nodeType": "FunctionCall",
                             "src": "2925:19:8",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_ERC20_$10168",
+                              "typeIdentifier": "t_contract$_ERC20_$10412",
                               "typeString": "contract ERC20"
                             }
                           },
@@ -1477,7 +1477,7 @@ export const RepaymentRouter =
                           "lValueRequested": false,
                           "memberName": "balanceOf",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 10182,
+                          "referencedDeclaration": 10426,
                           "src": "2925:29:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_external_view$_t_address_$returns$_t_uint256_$",
@@ -1543,7 +1543,7 @@ export const RepaymentRouter =
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 11714,
+                              "referencedDeclaration": 11958,
                               "src": "3021:3:8",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -1617,10 +1617,10 @@ export const RepaymentRouter =
                               "name": "ERC20",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 10168,
+                              "referencedDeclaration": 10412,
                               "src": "2991:5:8",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_type$_t_contract$_ERC20_$10168_$",
+                                "typeIdentifier": "t_type$_t_contract$_ERC20_$10412_$",
                                 "typeString": "type(contract ERC20)"
                               }
                             },
@@ -1634,7 +1634,7 @@ export const RepaymentRouter =
                             "nodeType": "FunctionCall",
                             "src": "2991:19:8",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_ERC20_$10168",
+                              "typeIdentifier": "t_contract$_ERC20_$10412",
                               "typeString": "contract ERC20"
                             }
                           },
@@ -1645,7 +1645,7 @@ export const RepaymentRouter =
                           "lValueRequested": false,
                           "memberName": "allowance",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 10139,
+                          "referencedDeclaration": 10383,
                           "src": "2991:29:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_external_view$_t_address_$_t_address_$returns$_t_uint256_$",
@@ -2092,7 +2092,7 @@ export const RepaymentRouter =
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 11714,
+                            "referencedDeclaration": 11958,
                             "src": "3467:3:8",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -2447,7 +2447,7 @@ export const RepaymentRouter =
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 11714,
+                              "referencedDeclaration": 11958,
                               "src": "3808:3:8",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -2567,10 +2567,10 @@ export const RepaymentRouter =
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        11717,
-                        11718
+                        11961,
+                        11962
                       ],
-                      "referencedDeclaration": 11717,
+                      "referencedDeclaration": 11961,
                       "src": "3729:7:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -2620,7 +2620,7 @@ export const RepaymentRouter =
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 11714,
+                          "referencedDeclaration": 11958,
                           "src": "3946:3:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -2769,7 +2769,7 @@ export const RepaymentRouter =
                   "name": "whenNotPaused",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 9836,
+                  "referencedDeclaration": 10080,
                   "src": "2487:13:8",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -2973,7 +2973,7 @@ export const RepaymentRouter =
         "id": 3964,
         "nodeType": "ImportDirective",
         "scope": 4152,
-        "sourceUnit": 10169,
+        "sourceUnit": 10413,
         "src": "703:59:8",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2984,7 +2984,7 @@ export const RepaymentRouter =
         "id": 3965,
         "nodeType": "ImportDirective",
         "scope": 4152,
-        "sourceUnit": 9876,
+        "sourceUnit": 10120,
         "src": "763:60:8",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2998,10 +2998,10 @@ export const RepaymentRouter =
               "id": 3966,
               "name": "Pausable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 9875,
+              "referencedDeclaration": 10119,
               "src": "1319:8:8",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Pausable_$9875",
+                "typeIdentifier": "t_contract$_Pausable_$10119",
                 "typeString": "contract Pausable"
               }
             },
@@ -3011,8 +3011,8 @@ export const RepaymentRouter =
           }
         ],
         "contractDependencies": [
-          9875,
-          10029
+          10119,
+          10273
         ],
         "contractKind": "contract",
         "documentation": "The RepaymentRouter routes allowers payers to make repayments on any\ngiven debt agreement in any given token by routing the payments to\nthe debt agreement's beneficiary.  Additionally, the router acts\nas a trusted oracle to the debt agreement's terms contract, informing\nit of exactly what payments have been made in what quantity and in what token.\n * Authors: Jaynti Kanani -- Github: jdkanani, Nadav Hollander -- Github: nadavhollander",
@@ -3020,8 +3020,8 @@ export const RepaymentRouter =
         "id": 4151,
         "linearizedBaseContracts": [
           4151,
-          9875,
-          10029
+          10119,
+          10273
         ],
         "name": "RepaymentRouter",
         "nodeType": "ContractDefinition",
@@ -3690,10 +3690,10 @@ export const RepaymentRouter =
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        11717,
-                        11718
+                        11961,
+                        11962
                       ],
-                      "referencedDeclaration": 11717,
+                      "referencedDeclaration": 11961,
                       "src": "2552:7:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -3784,10 +3784,10 @@ export const RepaymentRouter =
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        11717,
-                        11718
+                        11961,
+                        11962
                       ],
-                      "referencedDeclaration": 11717,
+                      "referencedDeclaration": 11961,
                       "src": "2597:7:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -4089,7 +4089,7 @@ export const RepaymentRouter =
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 11714,
+                              "referencedDeclaration": 11958,
                               "src": "2955:3:8",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -4146,10 +4146,10 @@ export const RepaymentRouter =
                               "name": "ERC20",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 10168,
+                              "referencedDeclaration": 10412,
                               "src": "2925:5:8",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_type$_t_contract$_ERC20_$10168_$",
+                                "typeIdentifier": "t_type$_t_contract$_ERC20_$10412_$",
                                 "typeString": "type(contract ERC20)"
                               }
                             },
@@ -4163,7 +4163,7 @@ export const RepaymentRouter =
                             "nodeType": "FunctionCall",
                             "src": "2925:19:8",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_ERC20_$10168",
+                              "typeIdentifier": "t_contract$_ERC20_$10412",
                               "typeString": "contract ERC20"
                             }
                           },
@@ -4174,7 +4174,7 @@ export const RepaymentRouter =
                           "lValueRequested": false,
                           "memberName": "balanceOf",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 10182,
+                          "referencedDeclaration": 10426,
                           "src": "2925:29:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_external_view$_t_address_$returns$_t_uint256_$",
@@ -4240,7 +4240,7 @@ export const RepaymentRouter =
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 11714,
+                              "referencedDeclaration": 11958,
                               "src": "3021:3:8",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -4314,10 +4314,10 @@ export const RepaymentRouter =
                               "name": "ERC20",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 10168,
+                              "referencedDeclaration": 10412,
                               "src": "2991:5:8",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_type$_t_contract$_ERC20_$10168_$",
+                                "typeIdentifier": "t_type$_t_contract$_ERC20_$10412_$",
                                 "typeString": "type(contract ERC20)"
                               }
                             },
@@ -4331,7 +4331,7 @@ export const RepaymentRouter =
                             "nodeType": "FunctionCall",
                             "src": "2991:19:8",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_ERC20_$10168",
+                              "typeIdentifier": "t_contract$_ERC20_$10412",
                               "typeString": "contract ERC20"
                             }
                           },
@@ -4342,7 +4342,7 @@ export const RepaymentRouter =
                           "lValueRequested": false,
                           "memberName": "allowance",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 10139,
+                          "referencedDeclaration": 10383,
                           "src": "2991:29:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_external_view$_t_address_$_t_address_$returns$_t_uint256_$",
@@ -4789,7 +4789,7 @@ export const RepaymentRouter =
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 11714,
+                            "referencedDeclaration": 11958,
                             "src": "3467:3:8",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -5144,7 +5144,7 @@ export const RepaymentRouter =
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 11714,
+                              "referencedDeclaration": 11958,
                               "src": "3808:3:8",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -5264,10 +5264,10 @@ export const RepaymentRouter =
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        11717,
-                        11718
+                        11961,
+                        11962
                       ],
-                      "referencedDeclaration": 11717,
+                      "referencedDeclaration": 11961,
                       "src": "3729:7:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -5317,7 +5317,7 @@ export const RepaymentRouter =
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 11714,
+                          "referencedDeclaration": 11958,
                           "src": "3946:3:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -5466,7 +5466,7 @@ export const RepaymentRouter =
                   "name": "whenNotPaused",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 9836,
+                  "referencedDeclaration": 10080,
                   "src": "2487:13:8",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -5698,10 +5698,10 @@ export const RepaymentRouter =
         }
       },
       "links": {},
-      "address": "0xae605199a5110c4de9f32c807a59b5a41a193f69",
-      "transactionHash": "0x376d9a50841eacad7721dccab624dc71f32cfe2729666148e59e4570e50b0695"
+      "address": "0xab6ac3978214185179989502f22145b599fc49e6",
+      "transactionHash": "0x21a605c9f7bb465344697fc7be6bac457fda716d7f8ed25c3c4a1598033c297d"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-12T07:01:01.566Z"
+  "updatedAt": "2018-11-13T08:15:30.264Z"
 }

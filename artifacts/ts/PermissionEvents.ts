@@ -597,10 +597,10 @@ export const PermissionEvents =
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        11717,
-                        11718
+                        11961,
+                        11962
                       ],
-                      "referencedDeclaration": 11717,
+                      "referencedDeclaration": 11961,
                       "src": "1876:7:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1232,10 +1232,10 @@ export const PermissionEvents =
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        11717,
-                        11718
+                        11961,
+                        11962
                       ],
-                      "referencedDeclaration": 11717,
+                      "referencedDeclaration": 11961,
                       "src": "2444:7:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -3316,10 +3316,10 @@ export const PermissionEvents =
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        11717,
-                        11718
+                        11961,
+                        11962
                       ],
-                      "referencedDeclaration": 11717,
+                      "referencedDeclaration": 11961,
                       "src": "1876:7:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -3951,10 +3951,10 @@ export const PermissionEvents =
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        11717,
-                        11718
+                        11961,
+                        11962
                       ],
-                      "referencedDeclaration": 11717,
+                      "referencedDeclaration": 11961,
                       "src": "2444:7:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -5487,5 +5487,5 @@ export const PermissionEvents =
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-12T07:00:43.480Z"
+  "updatedAt": "2018-11-13T08:15:10.591Z"
 }
