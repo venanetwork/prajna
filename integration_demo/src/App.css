@@ -22,6 +22,21 @@
   color: #61dafb;
 }
 
+.navigation{
+  float: left;
+  width: 20rem;
+  height:100%;
+  background-color: rgb(8, 44, 48);
+}
+
+.content{
+  margin-left: 20rem;
+}
+
+.container{
+  height:100%;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

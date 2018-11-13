@@ -10,6 +10,8 @@ import * as ABIDecoder from "abi-decoder";
 import * as _ from "lodash";
 import {DurationUnit} from "../../jsdk/src/debt/offer";
 
+import CreditorTable from "./Components/creditorTable.js";
+
 // Instantiate a new instance of Prajna, passing in the host of the local blockchain.
 const prajna = new Prajna(web3);
 const NULL_ADDRESS = "0x0000000000000000000000000000000000000000";
@@ -62,11 +64,17 @@ class App extends Component {
 
     render() {
         return (
-            <div className="App">
-                <p>Change the Account 1 (as creditor):</p>
-                <Button type="default" onClick={this.onCreate}>Create A Order</Button>
-                <p>Change the Account 2 (as debtor):</p>
-                <Button type="primary" onClick={this.onFill}>Fill This Order</Button>
+            <div className = "container">
+                <div className = "navigation"></div>
+                <div className = "content">
+                    <div className="App">
+                        <p>Change the Account 1 (as creditor):</p>
+                        <Button type="default" onClick={this.onCreate}>Create A Order</Button>
+                        <p>Change the Account 2 (as debtor):</p>
+                        <Button type="primary" onClick={this.onFill}>Fill This Order</Button>
+                    </div>
+                    <CreditorTable/>
+                </div>
             </div>
         );
     }
