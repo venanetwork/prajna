@@ -35,7 +35,7 @@ class App extends Component {
 
     onCreate = async () => {
         // 1. sign the messages
-       let order = prajna.offer.createCreditorOffer({
+       let order = await prajna.offer.createCreditorOffer({
            principalAmount: 10,
            principalToken: "WETH",
            collateralAmount: 100,
@@ -48,6 +48,10 @@ class App extends Component {
            expiresInUnit: "weeks",
            minPrincipleAmount: 1,
        });
+
+       console.log(order);
+
+       await prajna.offer.signCreditorOffer(order);
 
        this.setState({order: order});
     };

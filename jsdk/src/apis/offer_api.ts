@@ -42,8 +42,8 @@ export class OfferAPI {
         let tc = NULL_ADDRESS;
         let pt = await this.contracts.getTokenAddressBySymbolAsync(principalToken);
         const expiresIn = new TimeInterval(expiresInDuration, expiresInUnit);
-        let latestBlockTime = await promisify(this.web3.eth.getBlock)("latest").timestamp;
-        const expirationTimestampInSec = expiresIn.fromTimestamp(latestBlockTime);
+        let lastBlock = await promisify(this.web3.eth.getBlock)("latest");
+        const expirationTimestampInSec = expiresIn.fromTimestamp(new BigNumber(lastBlock.timestamp));
 
         let signedCreditorOfferparams = {
             kernelVersion:  kernelVersion.address,
@@ -104,7 +104,7 @@ export class OfferAPI {
         );
 
         let creditorProxy = await this.contracts.loadCreditorProxyAsync();
-        const txHash = await creditorProxy.fillAsDebtor.sendTransactionAsync(
+        const receipt = await creditorProxy.fillAsDebtor.sendTransactionAsync(
             debtor,
             orderAddresses,
             orderValue,
@@ -116,6 +116,7 @@ export class OfferAPI {
             [signedCreditorOffer.creditorSignature.s],
             {from: debtor, gas: 4710000},
         );
-        return txHash;
+        console.log(receipt)
+        return receipt;
     }
 }

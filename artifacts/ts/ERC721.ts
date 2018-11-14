@@ -1669,5 +1669,5 @@ export const ERC721 =
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-14T07:22:14.603Z"
+  "updatedAt": "2018-11-14T08:05:01.676Z"
 }

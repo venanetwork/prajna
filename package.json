@@ -33,7 +33,8 @@
       "test:debug:no-compile": "npm run generate-typings; npm run transpile; node debug --inspect node_modules/.bin/truffle test /Users/lixianji/coding/chainboard/charta/transpiled/test/ts/integration/creditor_proxy.js",
       "test:no-compile": "npm run generate-typings; npm run transpile; truffle test /Users/lixianji/coding/chainboard/charta/transpiled/test/ts/integration/creditor_proxy.js",
     "chain": "ganache-cli --networkId 70 --accounts 20",
-    "validate": "npm ls"
+    "validate": "npm ls",
+      "rebuild": "npm run deploy:development; npm run dist; cd ./integration_demo; npm run build:jsdk;"
   },
   "license": "ISC",
   "dependencies": {
