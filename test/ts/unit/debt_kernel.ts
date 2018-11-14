@@ -335,6 +335,7 @@ contract("Debt Kernel (Unit Tests)", async (ACCOUNTS) => {
                             debtOrder.getUnderwriterFee(),
                             debtOrder.getRelayer(),
                             debtOrder.getRelayerFee(),
+                            debtOrder.getDebtOrderHash()
                         ),
                     );
                 });

@@ -498,6 +498,7 @@ contract("Debt Kernel (Integration Tests)", async (ACCOUNTS) => {
                                 debtOrder.getUnderwriterFee(),
                                 debtOrder.getRelayer(),
                                 debtOrder.getRelayerFee(),
+                                debtOrder.getDebtOrderHash(),
                             ),
                         );
                     });
