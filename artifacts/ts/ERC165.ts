@@ -27,9 +27,9 @@ export const ERC165 =
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "/*\n\n  Copyright 2017 Dharma Labs Inc.\n\n  Licensed under the Apache License, Version 2.0 (the \"License\");\n  you may not use this file except in compliance with the License.\n  You may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\n  Unless required by applicable law or agreed to in writing, software\n  distributed under the License is distributed on an \"AS IS\" BASIS,\n  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n  See the License for the specific language governing permissions and\n  limitations under the License.\n\n*/\n\npragma solidity 0.4.24;\n\n\n/**\n * ERC165 interface required by ERC721 non-fungible token.\n *\n * https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md\n * https://github.com/ethereum/EIPs/blob/master/EIPS/eip-165.md\n */\ninterface ERC165 {\n    /// @notice Query if a contract implements an interface\n    /// @param interfaceID The interface identifier, as specified in ERC-165\n    /// @dev Interface identification is specified in ERC-165. This function\n    ///  uses less than 30,000 gas.\n    /// @return `true` if the contract implements `interfaceID` and\n    ///  `interfaceID` is not 0xffffffff, `false` otherwise\n    function supportsInterface(bytes4 interfaceID) external view returns (bool);\n}\n",
-  "sourcePath": "/Users/lixianji/coding/chainboard/contract/contracts/ERC165.sol",
+  "sourcePath": "/Users/jackyshen/prajna/contracts/ERC165.sol",
   "ast": {
-    "absolutePath": "/Users/lixianji/coding/chainboard/contract/contracts/ERC165.sol",
+    "absolutePath": "/Users/jackyshen/prajna/contracts/ERC165.sol",
     "exportedSymbols": {
       "ERC165": [
         3901
@@ -152,7 +152,7 @@ export const ERC165 =
     "src": "584:704:6"
   },
   "legacyAST": {
-    "absolutePath": "/Users/lixianji/coding/chainboard/contract/contracts/ERC165.sol",
+    "absolutePath": "/Users/jackyshen/prajna/contracts/ERC165.sol",
     "exportedSymbols": {
       "ERC165": [
         3901
@@ -280,5 +280,5 @@ export const ERC165 =
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-13T09:13:41.295Z"
+  "updatedAt": "2018-11-14T07:22:14.478Z"
 }

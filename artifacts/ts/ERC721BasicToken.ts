@@ -16090,5 +16090,5 @@ export const ERC721BasicToken =
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-13T09:13:41.437Z"
+  "updatedAt": "2018-11-14T07:22:14.627Z"
 }

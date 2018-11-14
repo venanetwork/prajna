@@ -36,14 +36,14 @@
       "type": "event"
     }
   ],
-  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a7230582091efcea5c9189e1b77ac629a13a462f9dcd7b32b91fb0a9c7981992b4f8641610029",
-  "deployedBytecode": "0x6080604052600080fd00a165627a7a7230582091efcea5c9189e1b77ac629a13a462f9dcd7b32b91fb0a9c7981992b4f8641610029",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a72305820328666778c369efb78dad59836601c5856e27fee6dd67e389625d5a2771a9d460029",
+  "deployedBytecode": "0x6080604052600080fd00a165627a7a72305820328666778c369efb78dad59836601c5856e27fee6dd67e389625d5a2771a9d460029",
   "sourceMap": "979:175:14:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;979:175:14;;;;;;;",
   "deployedSourceMap": "979:175:14:-;;;;;",
   "source": "/*\n\n  Copyright 2017 Dharma Labs Inc.\n\n  Licensed under the Apache License, Version 2.0 (the \"License\");\n  you may not use this file except in compliance with the License.\n  You may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\n  Unless required by applicable law or agreed to in writing, software\n  distributed under the License is distributed on an \"AS IS\" BASIS,\n  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n  See the License for the specific language governing permissions and\n  limitations under the License.\n\n*/\n\npragma solidity 0.4.24;\n\n\n/**\n *  Note(kayvon): these events are emitted by our PermissionsLib, but all contracts that\n *  depend on the library must also define the events in order for web3 clients to pick them up.\n *  This topic is discussed in greater detail here (under the section \"Events and Libraries\"):\n *  https://blog.aragon.one/library-driven-development-in-solidity-2bebcaf88736\n */\ncontract PermissionEvents {\n    event Authorized(address indexed agent, string callingContext);\n    event AuthorizationRevoked(address indexed agent, string callingContext);\n}\n\n\nlibrary PermissionsLib {\n\n    // TODO(kayvon): remove these events and inherit from PermissionEvents when libraries are\n    // capable of inheritance.\n    // See relevant github issue here: https://github.com/ethereum/solidity/issues/891\n    event Authorized(address indexed agent, string callingContext);\n    event AuthorizationRevoked(address indexed agent, string callingContext);\n\n    struct Permissions {\n        mapping (address => bool) authorized;\n        mapping (address => uint) agentToIndex; // ensures O(1) look-up\n        address[] authorizedAgents;\n    }\n\n    function authorize(\n        Permissions storage self,\n        address agent,\n        string callingContext\n    )\n        internal\n    {\n        require(isNotAuthorized(self, agent));\n\n        self.authorized[agent] = true;\n        self.authorizedAgents.push(agent);\n        self.agentToIndex[agent] = self.authorizedAgents.length - 1;\n        Authorized(agent, callingContext);\n    }\n\n    function revokeAuthorization(\n        Permissions storage self,\n        address agent,\n        string callingContext\n    )\n        internal\n    {\n        /* We only want to do work in the case where the agent whose\n        authorization is being revoked had authorization permissions in the\n        first place. */\n        require(isAuthorized(self, agent));\n\n        uint indexOfAgentToRevoke = self.agentToIndex[agent];\n        uint indexOfAgentToMove = self.authorizedAgents.length - 1;\n        address agentToMove = self.authorizedAgents[indexOfAgentToMove];\n\n        // Revoke the agent's authorization.\n        delete self.authorized[agent];\n\n        // Remove the agent from our collection of authorized agents.\n        self.authorizedAgents[indexOfAgentToRevoke] = agentToMove;\n\n        // Update our indices to reflect the above changes.\n        self.agentToIndex[agentToMove] = indexOfAgentToRevoke;\n        delete self.agentToIndex[agent];\n\n        // Clean up memory that's no longer being used.\n        delete self.authorizedAgents[indexOfAgentToMove];\n        self.authorizedAgents.length -= 1;\n\n        AuthorizationRevoked(agent, callingContext);\n    }\n\n    function isAuthorized(Permissions storage self, address agent)\n        internal\n        view\n        returns (bool)\n    {\n        return self.authorized[agent];\n    }\n\n    function isNotAuthorized(Permissions storage self, address agent)\n        internal\n        view\n        returns (bool)\n    {\n        return !isAuthorized(self, agent);\n    }\n\n    function getAuthorizedAgents(Permissions storage self)\n        internal\n        view\n        returns (address[])\n    {\n        return self.authorizedAgents;\n    }\n}\n",
-  "sourcePath": "/Users/lixianji/coding/chainboard/contract/contracts/libraries/PermissionsLib.sol",
+  "sourcePath": "/Users/jackyshen/prajna/contracts/libraries/PermissionsLib.sol",
   "ast": {
-    "absolutePath": "/Users/lixianji/coding/chainboard/contract/contracts/libraries/PermissionsLib.sol",
+    "absolutePath": "/Users/jackyshen/prajna/contracts/libraries/PermissionsLib.sol",
     "exportedSymbols": {
       "PermissionEvents": [
         5436
@@ -2762,7 +2762,7 @@
     "src": "584:3227:14"
   },
   "legacyAST": {
-    "absolutePath": "/Users/lixianji/coding/chainboard/contract/contracts/libraries/PermissionsLib.sol",
+    "absolutePath": "/Users/jackyshen/prajna/contracts/libraries/PermissionsLib.sol",
     "exportedSymbols": {
       "PermissionEvents": [
         5436
@@ -5486,5 +5486,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-13T09:13:41.309Z"
+  "updatedAt": "2018-11-14T07:22:14.500Z"
 }

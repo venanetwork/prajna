@@ -9596,5 +9596,5 @@ export const ERC721Token =
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-13T09:13:41.444Z"
+  "updatedAt": "2018-11-14T07:22:14.634Z"
 }

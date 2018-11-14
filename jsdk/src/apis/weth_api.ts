@@ -17,10 +17,15 @@ export class WETH9API {
     }
 
     public async withdraw(address: string, value: number) {
-
+        let weth9Contract = await this.contracts.loadWETH9ContractAsync();
+        weth9Contract.withdraw.sendTransactionAsync(new BigNumber(value), {from:address,gas:4710000});
     }
 
     public async balanceOf(address: string) {
+
+    }
+
+    public async approve() {
 
     }
 

@@ -63,8 +63,19 @@ class App extends Component {
 
     onWrap = async () => {
         let address = web3.eth.accounts[0];
-        console.log(address)
+        console.log("address is --->",address);
+        console.log(prajna);
+        //let accounts = await web3.eth.getBalance(address)
+        //console.log("before deposit---->",accounts);
         prajna.weth.deposit(address, 10000000000);
+        //console.log("after deposit----->",accounts);
+    }
+
+    onWithDraw = async() => {
+        let address = web3.eth.accounts[0];
+        console.log("before deposit---->",web3.eth.getBalance(address));
+        prajna.weth.withdraw(address,1000000000);
+        console.log("after deposit----->",web3.eth.getBalance(address));
     }
 
     render() {
