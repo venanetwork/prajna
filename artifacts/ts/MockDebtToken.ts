@@ -8327,10 +8327,10 @@ export const MockDebtToken =
     "70": {
       "events": {},
       "links": {},
-      "address": "0x5f6024ded430795e8470efed99e316ba4e661afc",
-      "transactionHash": "0x443b738db06f36a5d46edcd968f0c674239f183d3b42393d96b88c030c899d70"
+      "address": "0x10c267805f4dd187df0813e0dfe5276631ed2b15",
+      "transactionHash": "0x761de2b206bda6afb932080e0358670af8008e9b26b1a9fe5f0f42beb4c49152"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-14T07:22:40.591Z"
+  "updatedAt": "2018-11-14T08:40:55.542Z"
 }

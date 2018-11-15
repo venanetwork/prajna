@@ -9,6 +9,7 @@ export class WETH9API {
     public constructor(web3: Web3, contracts: ContractsAPI) {
         this.web3 = web3;
         this.contracts = contracts;
+        //this.weth9Contract = this.contracts.loadWETH9ContractAsync();   error?
     }
 
     public async deposit(address: string, value: number) {
@@ -21,15 +22,34 @@ export class WETH9API {
         weth9Contract.withdraw.sendTransactionAsync(new BigNumber(value), {from:address,gas:4710000});
     }
 
+    public async approve(src_address:string,guy_address:string,wad:number) {
+        let weth9Contract = await this.contracts.loadWETH9ContractAsync();
+        weth9Contract.approve.sendTransactionAsync(guy_address,new BigNumber(wad),{from:src_address,gas:4710000});
+    }
+
+    public async transfer(src_address:string,des_address:string,wad:number){
+        let weth9Contract = await this.contracts.loadWETH9ContractAsync();
+        weth9Contract.transfer.sendTransactionAsync(des_address,new BigNumber(wad),{from:src_address,gas:4710000});
+    }
+
+    public async transferFrom(src_address:string,des_address:string,wad:number){
+        let weth9Contract = await this.contracts.loadWETH9ContractAsync();
+        weth9Contract.transferFrom.sendTransactionAsync(src_address,des_address,new BigNumber(wad),{gas:4710000});
+    }
+
+    public async totalSupply(){
+        let weth9Contract = await this.contracts.loadWETH9ContractAsync();
+        weth9Contract.totalSupply.callAsync();
+    }
+
     public async balanceOf(address: string) {
-
+        let weth9Contract = await this.contracts.loadWETH9ContractAsync();
+        weth9Contract.balanceOf.callAsync(address);
     }
 
-    public async approve() {
-
+    public async allowance(src_address: string,des_address:string) {
+        let weth9Contract = await this.contracts.loadWETH9ContractAsync();
+        weth9Contract.allowance.callAsync(src_address,des_address);
     }
 
-    public async allowance(address: string) {
-
-    }
 }

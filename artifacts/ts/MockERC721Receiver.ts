@@ -3271,10 +3271,10 @@ export const MockERC721Receiver =
     "70": {
       "events": {},
       "links": {},
-      "address": "0xef9f02acffb1577bd2e9f30fe4014ad9c1602682",
-      "transactionHash": "0x8a2b92b57c19b38ff9c2e49be1f53fb9ba534e057ed92d477d45377bcb5b1f67"
+      "address": "0xbef3a71015b6288d5a0a142901e6b577c10ed101",
+      "transactionHash": "0x91cde765b805c5485a3ca679a88936e67a3f8ea93eaebebc3c733160db5e3eb6"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-14T07:22:40.581Z"
+  "updatedAt": "2018-11-14T08:40:55.539Z"
 }

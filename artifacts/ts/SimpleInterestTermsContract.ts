@@ -19250,10 +19250,10 @@ export const SimpleInterestTermsContract =
     "70": {
       "events": {},
       "links": {},
-      "address": "0x26da0e776c14cf61b19e56e319f1c002a0cafda1",
-      "transactionHash": "0x30934ee74fe8e4a2514478f18149b07e58f90f3047f0b6caac2833b66e47681f"
+      "address": "0x5f743d65efe91ae0a12ff63dbd9593d7a433a39b",
+      "transactionHash": "0xe7ad4918e1bceaeb4a1cbc8aeaf8280c5eba52c35a026b1bee63264183e8f163"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-14T07:22:41.591Z"
+  "updatedAt": "2018-11-14T08:40:56.394Z"
 }

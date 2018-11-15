@@ -2089,10 +2089,10 @@
     "70": {
       "events": {},
       "links": {},
-      "address": "0x6a3076820be694a0141a07c288514dd274bd3472",
-      "transactionHash": "0xd13110fe0a4ec3eb4e755aaed34bbfd925f30aef8b591b099a467fadc8f7922d"
+      "address": "0x8f80562928b9e601542ec97f19903280f1b4699e",
+      "transactionHash": "0x5fb52c7a98fe4fdb5e024b3539c2802b4383616cfcc8a3325a15e12cb43a65eb"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-14T07:22:43.382Z"
+  "updatedAt": "2018-11-14T08:40:57.847Z"
 }

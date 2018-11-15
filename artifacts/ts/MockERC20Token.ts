@@ -7287,10 +7287,10 @@ export const MockERC20Token =
     "70": {
       "events": {},
       "links": {},
-      "address": "0x0c05ef0b389c07864740f0ed3c72b630b15c2e09",
-      "transactionHash": "0x9a7220559c90b0104ac817f346f097afbc8d6abf31e27a10b8a0536e3293b6df"
+      "address": "0xb08175aae06bc2217f96567268985402c53f230b",
+      "transactionHash": "0x966b8be12bcd1f40444770356a8761d54ee8b77b930ebe6b7fab8ed3d9d677c3"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-14T07:22:40.579Z"
+  "updatedAt": "2018-11-14T08:40:55.528Z"
 }

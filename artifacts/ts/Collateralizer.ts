@@ -17403,10 +17403,10 @@ export const Collateralizer =
         }
       },
       "links": {},
-      "address": "0x247cbac0c04f7fdbcb206defb49e9877a9569a78",
-      "transactionHash": "0x845fbe5c335b9e39b5537b6a39ab42a29a0861278be231efb30c537794834686"
+      "address": "0xd1cc15297c0a1aa74d4f4e4bd4c91db9f22e37e8",
+      "transactionHash": "0x96fb112070355d3ec36dadc8d2d084020d7a474effd7e8cf7e075c243f67d59a"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-14T07:22:45.304Z"
+  "updatedAt": "2018-11-14T08:40:59.376Z"
 }

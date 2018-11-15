@@ -2232,10 +2232,10 @@
     "70": {
       "events": {},
       "links": {},
-      "address": "0x860724f56f7c9a173bca81f2c1ee3c941649818f",
-      "transactionHash": "0xd08b1dd8faf15c69b5a55e511d6514bfffcc925c6eab87269fe8ef704260067e"
+      "address": "0x6ff31b03d8674584f483daf3a1b22a5a4dc31b6e",
+      "transactionHash": "0xdb232e6d9893c31454897e2e6c8cc133531e3cbd9f3086d46e1592881f33b7aa"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-14T07:22:40.593Z"
+  "updatedAt": "2018-11-14T08:40:55.563Z"
 }

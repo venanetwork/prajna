@@ -25,7 +25,8 @@
 .navigation{
   float: left;
   width: 20rem;
-  height:100%;
+  /*height:100%;*/
+  height:80rem;
   background-color: rgb(8, 44, 48);
 }
 

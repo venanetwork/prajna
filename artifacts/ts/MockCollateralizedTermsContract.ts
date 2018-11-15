@@ -10426,10 +10426,10 @@ export const MockCollateralizedTermsContract =
     "70": {
       "events": {},
       "links": {},
-      "address": "0x405107d81654ddcba36135471638fa61de3cb55b",
-      "transactionHash": "0x38286c0b3ddf618f7f19804ce5e1fd83e2e7faef5467d4d809cb21fe2d91d02c"
+      "address": "0x2c5fdab59152bae24e128f29cbf0e97743f368c3",
+      "transactionHash": "0xd899953deb666a041e450a4ebace7edfaf219ebce45a10b04771462226900ed9"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-14T07:22:40.597Z"
+  "updatedAt": "2018-11-14T08:40:55.549Z"
 }
