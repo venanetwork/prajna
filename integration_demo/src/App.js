@@ -5,7 +5,7 @@ import web3 from "./web3.js";
 import * as moment from "moment";
 import * as BigNumber from "bignumber.js";
 import * as promisify from "tiny-promisify";
-import { Button } from "antd";
+import { Button,Input } from "antd";
 import * as ABIDecoder from "abi-decoder";
 import * as _ from "lodash";
 
@@ -15,6 +15,7 @@ import CreditorTable from "./Components/creditorTable.js";
 const prajna = new Prajna(web3);
 const NULL_ADDRESS = "0x0000000000000000000000000000000000000000";
 const NULL_BYTES32 = "0x0000000000000000000000000000000000000000000000000000000000000000";
+const Search = Input.Search;
 
 function ether(amount){
     let n = new BigNumber(amount);
@@ -26,7 +27,13 @@ class App extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {order: null};
+        this.state = {
+          order: null,
+          approve_address:"",
+          des_address:"",
+          src_address:"",
+          weth_balance:0,
+        };
     }
 
     async componentDidMount() {
@@ -65,30 +72,83 @@ class App extends Component {
         console.log(logs)
     };
 
+    onWethBalance = async() => {
+      let weth_balance = await prajna.weth.totalSupply();
+      console.log("weth_balance = ",weth_balance);
+      this.setState({weth_balance:weth_balance});
+    }
+
     onWrap = async () => {
-        let address = web3.eth.accounts[0];
+        let address = await web3.eth.accounts[0];
         console.log("address is --->",address);
-        console.log(prajna);
-        //let accounts = await web3.eth.getBalance(address)
+        //let accounts = await web3.eth.getBalance(address);
         //console.log("before deposit---->",accounts);
-        prajna.weth.deposit(address, 10000000000);
+        await prajna.weth.deposit(address, 1000000000000000);
+        await this.onWethBalance();
         //console.log("after deposit----->",accounts);
     }
 
     onWithDraw = async() => {
-        let address = web3.eth.accounts[0];
-        console.log("before deposit---->",web3.eth.getBalance(address));
+        let address = await web3.eth.accounts[0];
         prajna.weth.withdraw(address,1000000000);
-        console.log("after deposit----->",web3.eth.getBalance(address));
+    }
+
+    onApprove = async() => {
+        let guy_address = await this.state.approve_address;
+        let src_address = await web3.eth.accounts[0];
+        //console.log("this.state.approve_address",this.state.approve_address);
+        prajna.weth.approve(src_address,guy_address,100000000);
+    }
+
+    onTransfer = async() => {
+        let src_address = await web3.eth.accounts[0];
+        let des_address = await this.state.des_address;
+        prajna.weth.transfer(src_address,des_address,1000000000000000);
+    }
+
+    onBalanceOf = async() => {
+        let address = await web3.eth.accounts[0];
+        let balance;
+        console.log("11111");
+        prajna.weth.balanceOf(address).then(res=>balance=res);
+        console.log("balance = ",balance);
+        this.onWethBalance();
+        if (balance != null){
+          console.log("balance = ",balance);
+          //this.setState({weth_balance:balance});
+        } 
+    }
+
+    handleAdressSetting(str,address){
+      this.setState({
+        [str] : address,
+      })
+      if (str == "approve_address"){
+        this.onApprove();
+      }
+      else if(str == "des_address"){
+        this.onTransfer();
+      }
     }
 
     render() {
+        let self = this;
         return (
             <div className = "container">
                 <div className = "navigation"></div>
                 <div className = "content">
                     <div className="App">
-                        <button onClick={this.onWrap}>wrap some eth</button>
+                        <p style={{color:"red"}}> your accounts WETH balance: {this.state.weth_balance} </p>
+                        <p> onclick to wrap your eth </p>
+                        <Button onClick={this.onWrap}>wrap some eth</Button>
+                        <p> onclick to withdraw weth </p>
+                        <Button type="default" onClick={this.onWithDraw}> Withdraw</Button>
+                        <p> approve your order to destination address </p>
+                        <Search enterButton = "Set Approve Address" onSearch={this.handleAdressSetting.bind(this,'approve_address')} style={{width:600}} />
+                        <p> transfer your weth to destination address </p>
+                        <Search enterButton = "Set Transfer Address" onSearch={this.handleAdressSetting.bind(this,'des_address')} style={{width:600}} />                        
+                        <p> Balance Test: </p>
+                        <Button type = "default" onClick={this.onBalanceOf}>Check Your Balance</Button>
                         <p>Change the Account 1 (as creditor):</p>
                         <Button type="default" onClick={this.onCreate}>Create A Order</Button>
                         <p>Change the Account 2 (as debtor):</p>
