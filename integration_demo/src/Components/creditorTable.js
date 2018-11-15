@@ -38,7 +38,6 @@ class CreditorTable extends Component{
   }
 
   render(){
-    let self = this;
     return (
       <div>
         <div style={inputStyle}>
