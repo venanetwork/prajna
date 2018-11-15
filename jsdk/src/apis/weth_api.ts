@@ -9,7 +9,7 @@ export class WETH9API {
     public constructor(web3: Web3, contracts: ContractsAPI) {
         this.web3 = web3;
         this.contracts = contracts;
-        //this.weth9Contract = this.contracts.loadWETH9ContractAsync();   error?
+        // this.weth9Contract = this.contracts.loadWETH9ContractAsync(); error?
     }
 
     public async deposit(address: string, value: number) {
@@ -39,12 +39,12 @@ export class WETH9API {
 
     public async totalSupply(){
         let weth9Contract = await this.contracts.loadWETH9ContractAsync();
-        weth9Contract.totalSupply.callAsync();
+        return weth9Contract.totalSupply.callAsync();
     }
 
     public async balanceOf(address: string) {
         let weth9Contract = await this.contracts.loadWETH9ContractAsync();
-        weth9Contract.balanceOf.callAsync(address);
+        return weth9Contract.balanceOf.callAsync(address);
     }
 
     public async allowance(src_address: string,des_address:string) {

@@ -32,12 +32,14 @@ class App extends Component {
           approve_address:"",
           des_address:"",
           src_address:"",
-          weth_balance:0,
+          weth_balance:"",
         };
+        //web3.eth.defaultAccount = web3.eth.accounts[0];
+        //web3.personal.unlockAccount(web3.eth.defaultAccount);
     }
 
     async componentDidMount() {
-
+       await this.onBalanceOf();
     }
 
     onCreate = async () => {
@@ -64,58 +66,49 @@ class App extends Component {
     };
 
     onFill = async () => {
-        let debtor = web3.eth.accounts[0];
-        let tx = await prajna.offer.fillCreditorOfferAsDebtor(debtor, ether(1), this.state.order);
+        let debtor = await promisify(web3.eth.getAccounts)();
+        let tx = await prajna.offer.fillCreditorOfferAsDebtor(debtor[0], ether(1), this.state.order);
         let receipt = await promisify(web3.eth.getTransactionReceipt)(tx);
         // let block = await web3.eth.getBlock(receipt.blockNumber);
         let logs = _.compact(ABIDecoder.decodeLogs(receipt.logs));
         console.log(logs)
     };
-
-    onWethBalance = async() => {
-      let weth_balance = await prajna.weth.totalSupply();
-      console.log("weth_balance = ",weth_balance);
-      this.setState({weth_balance:weth_balance});
-    }
-
+    /*
+        目前存在的缺陷 1.不能实时获取余额，要手动调函数才可以[转账、转换的时候余额不会刷新，更换账号余额也不会更新]
+          @jacky -18.11.15        
+    */
     onWrap = async () => {
-        let address = await web3.eth.accounts[0];
-        console.log("address is --->",address);
-        //let accounts = await web3.eth.getBalance(address);
-        //console.log("before deposit---->",accounts);
-        await prajna.weth.deposit(address, 1000000000000000);
-        await this.onWethBalance();
-        //console.log("after deposit----->",accounts);
+        let address = await promisify(web3.eth.getAccounts)();
+        await prajna.weth.deposit(address[0], 1000000000000000);
+        await this.onBalanceOf(); 
     }
 
     onWithDraw = async() => {
-        let address = await web3.eth.accounts[0];
-        prajna.weth.withdraw(address,1000000000);
+        let address = await promisify(web3.eth.getAccounts)();
+        prajna.weth.withdraw(address[0],1000000000);
+        await this.onBalanceOf();
     }
 
     onApprove = async() => {
         let guy_address = await this.state.approve_address;
-        let src_address = await web3.eth.accounts[0];
-        //console.log("this.state.approve_address",this.state.approve_address);
-        prajna.weth.approve(src_address,guy_address,100000000);
+        let src_address = await promisify(web3.eth.getAccounts)();
+        prajna.weth.approve(src_address,guy_address[0],100000000);
+        await this.onBalanceOf();
     }
 
     onTransfer = async() => {
-        let src_address = await web3.eth.accounts[0];
+        let src_address = await promisify(web3.eth.getAccounts)();
         let des_address = await this.state.des_address;
-        prajna.weth.transfer(src_address,des_address,1000000000000000);
+        prajna.weth.transfer(src_address[0],des_address,1000000000000000);
+        await this.onBalanceOf();
     }
 
     onBalanceOf = async() => {
-        let address = await web3.eth.accounts[0];
-        let balance;
-        console.log("11111");
-        prajna.weth.balanceOf(address).then(res=>balance=res);
-        console.log("balance = ",balance);
-        this.onWethBalance();
+        //let address = await web3.eth.accounts[0];
+        let address = await promisify(web3.eth.getAccounts)();
+        let balance = await prajna.weth.balanceOf(address[0]).then(res=>res.toString(10));
         if (balance != null){
-          console.log("balance = ",balance);
-          //this.setState({weth_balance:balance});
+          this.setState({weth_balance:balance});
         } 
     }
 
@@ -138,6 +131,7 @@ class App extends Component {
                 <div className = "navigation"></div>
                 <div className = "content">
                     <div className="App">
+                        <Button type="primary" onClick={this.onBalanceOf}>Click Button to refresh your balance</Button>
                         <p style={{color:"red"}}> your accounts WETH balance: {this.state.weth_balance} </p>
                         <p> onclick to wrap your eth </p>
                         <Button onClick={this.onWrap}>wrap some eth</Button>
@@ -147,8 +141,6 @@ class App extends Component {
                         <Search enterButton = "Set Approve Address" onSearch={this.handleAdressSetting.bind(this,'approve_address')} style={{width:600}} />
                         <p> transfer your weth to destination address </p>
                         <Search enterButton = "Set Transfer Address" onSearch={this.handleAdressSetting.bind(this,'des_address')} style={{width:600}} />                        
-                        <p> Balance Test: </p>
-                        <Button type = "default" onClick={this.onBalanceOf}>Check Your Balance</Button>
                         <p>Change the Account 1 (as creditor):</p>
                         <Button type="default" onClick={this.onCreate}>Create A Order</Button>
                         <p>Change the Account 2 (as debtor):</p>
