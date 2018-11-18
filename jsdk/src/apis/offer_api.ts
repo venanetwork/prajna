@@ -8,6 +8,7 @@ import {Bytes32} from '../../../types/common';
 import {NULL_ADDRESS, NULL_BYTES32} from '../../utils/constants';
 import * as promisify from "tiny-promisify";
 import {TimeInterval} from '../types/time_interval';
+import {wapperTermsContractParameters} from "../adapters/simple_interest_terms_contract_adpter";
 
 export class OfferAPI {
     private web3: Web3;
@@ -21,16 +22,16 @@ export class OfferAPI {
     // TODO: currently a p2p parma setting, relayer and underwritter fee is set to 0,
     public async createCreditorOffer(params: CreditorOfferParams): Promise<SignedCreditorOfferParams> {
         const {
-            principalAmount,
+            principalAmount,  
             principalToken,
             collateralAmount,
             collateralToken,
-            interestRate,
-            termDuration,
-            termUnit,
+            interestRate,    
+            termDuration,      
+            termUnit,        
             creditorAddress,
-            expiresInDuration,
-            expiresInUnit,
+            expiresInDuration, 
+            expiresInUnit,    
             minPrincipleAmount,
             relayerAddress,
             relayerFeeAmount,
@@ -45,13 +46,40 @@ export class OfferAPI {
         let lastBlock = await promisify(this.web3.eth.getBlock)("latest");
         const expirationTimestampInSec = expiresIn.fromTimestamp(new BigNumber(lastBlock.timestamp));
 
+        /*
+           use packParameters to wrap termsContractParameters
+           @params{
+                principalTokenIndex,
+                pricipalAmount,
+                interestRate,
+                amortizationUint, // equal to termUnit
+                termLength,
+           }
+        */
+        let principalTokenIndex = await this.contracts.getTokenIndexBySymbolAsync(principalToken);
+        let termLengthExpire = new TimeInterval(termDuration,termUnit);
+        let termLength = termLengthExpire.fromTimestamp(new BigNumber(lastBlock.timestamp));
+        let amortizationUnit = termUnit;
+
+        const packedParms = {
+            principalTokenIndex,
+            principalAmount,
+            interestRate,
+            amortizationUnit,
+            termLength,
+        }
+
+        let wapperTermsContractParameter = new wapperTermsContractParameters(this.web3,this.contracts);;
+        let termsContractParametersByte = wapperTermsContractParameter.packParameters(packedParms);
+
+
         let signedCreditorOfferparams = {
             kernelVersion:  kernelVersion.address,
             creditor: creditorAddress,
             repaymentRouterVersion: rp.address,
             underwriter: NULL_ADDRESS,
             termsContract: tc,
-            principalToken: pt,
+            principalToken: pt,  
             relayer: NULL_ADDRESS,
             underwriterRiskRating: new BigNumber(0),
             salt: new BigNumber(Math.random().toString().substring(2)),
@@ -61,7 +89,7 @@ export class OfferAPI {
             creditorFee: new BigNumber(0),
             debtorFee: new BigNumber(0),
             expirationTimestampInSec: new BigNumber(expirationTimestampInSec),
-            termsContractParameters: NULL_BYTES32,
+            termsContractParameters: termsContractParametersByte,
             minPrincipalAmount: new BigNumber(minPrincipleAmount),
         };
 

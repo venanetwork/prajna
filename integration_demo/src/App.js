@@ -45,13 +45,13 @@ class App extends Component {
     onCreate = async () => {
         // 1. sign the messages
        let order = await prajna.offer.createCreditorOffer({
-           principalAmount: 10,
+           principalAmount: new BigNumber(723489020 * 10 ** 18),
            principalToken: "WETH",
            collateralAmount: 100,
            collateralToken: "USDT",
-           interestRate: 10,
+           interestRate: new BigNumber(0.012),
            termDuration: 2,
-           termUnit: "weeks",
+           termUnit: "years",
            creditorAddress: web3.eth.accounts[0],
            expiresInDuration: 2,
            expiresInUnit: "weeks",

@@ -4,6 +4,7 @@ import * as moment from "moment";
 // Utils
 import { BigNumber } from "../../utils/bignumber";
 
+import {AmortizationUnit} from "../adapters/simple_interest_terms_contract_adpter";
 /**
  * A list of options for specifying units of duration, in singular and plural forms,
  * ranging from "hours" as the smallest value to "years" as the largest.
@@ -75,4 +76,7 @@ export class TimeInterval {
         return new BigNumber(expirationInSeconds);
     }
 
+    public getAmortizationUnit(): AmortizationUnit {
+        return DURATION_TO_AMORTIZATION_UNIT[this.unit] || this.unit;
+    }    
 }
