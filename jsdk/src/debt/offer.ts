@@ -12,24 +12,19 @@ const NULL_ADDRESS = "0x0000000000000000000000000000000000000000";
 const NULL_SIGNATURE = { r: "0x0", s: "0x0", v: 0 };
 
 export type DurationUnit =
-    | "hour"
     | "hours"
-    | "day"
     | "days"
-    | "week"
     | "weeks"
-    | "month"
     | "months"
-    | "year"
     | "years";
 
 // params for construction, used by frontend to created signed Offer
 export interface CreditorOfferParams {
-    principalAmount: number;
+    principalAmount: BigNumber;
     principalToken: string;
     collateralAmount: number;
     collateralToken: string;
-    interestRate: number;
+    interestRate: BigNumber;
     termDuration: number;
     termUnit: DurationUnit;
     creditorAddress: string;
