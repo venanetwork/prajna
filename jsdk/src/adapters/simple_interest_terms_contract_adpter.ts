@@ -46,9 +46,9 @@ const SimpleInterestAdapterErrors = {
     INVALID_AMORTIZATION_UNIT_TYPE: (amortizationUnitType:string) =>
         singleLineString`Amortization unit must be of type HOURS, DAYS,
                          WEEKS, MONTHS, or YEARS.But now its = ${amortizationUnitType}`,
-    INVALID_TERM_LENGTH: () =>
+    INVALID_TERM_LENGTH: (termLength:BigNumber) =>
         singleLineString`Term length value cannot be negative or greater
-                         than ${parseInt(MAX_TERM_LENGTH_VALUE_HEX, 16)}`,
+                         than ${parseInt(MAX_TERM_LENGTH_VALUE_HEX, 16)},the term length is ${termLength}`,
 
     MISMATCHED_TOKEN_SYMBOL: (principalTokenIndex: BigNumber, symbol: string) =>
         singleLineString`Terms contract parameters are invalid for the given debt order.
@@ -153,7 +153,7 @@ export class wapperTermsContractParameters{
             termLengthInAmortizationUnits.lt(0) ||
             termLengthInAmortizationUnits.gt(MAX_TERM_LENGTH_VALUE_HEX)
         ) {
-            throw new Error(SimpleInterestAdapterErrors.INVALID_TERM_LENGTH());
+            throw new Error(SimpleInterestAdapterErrors.INVALID_TERM_LENGTH(termLengthInAmortizationUnits));
         } 
     }
 }

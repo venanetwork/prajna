@@ -44,7 +44,7 @@ export class TimeInterval {
      * @param {number} amount
      * @param {DurationUnit} unit
      */
-    constructor(readonly amount: number, readonly unit: DurationUnit) {}
+    constructor(readonly amount: BigNumber, readonly unit: DurationUnit) {}
 
     /**
      * Given a UNIX timestamp (e.g. blocktime), returns a UNIX timestamp in seconds

@@ -25,10 +25,10 @@ export interface CreditorOfferParams {
     collateralAmount: number;
     collateralToken: string;
     interestRate: BigNumber;
-    termDuration: number;
+    termDuration: BigNumber;
     termUnit: DurationUnit;
     creditorAddress: string;
-    expiresInDuration: number;
+    expiresInDuration: BigNumber;
     expiresInUnit: DurationUnit; // min fill amount of a debt
     minPrincipleAmount: number;
     relayerAddress?: string; // null for now
